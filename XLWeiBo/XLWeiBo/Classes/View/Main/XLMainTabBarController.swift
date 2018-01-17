@@ -10,9 +10,13 @@ import UIKit
 
 class XLMainTabBarController: UITabBarController {
 
+    // 私有控件
+    private lazy var composeButton: UIButton = UIButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupChildViewController()
+        setupComposeButton()
     }
 }
 
@@ -25,6 +29,7 @@ extension XLMainTabBarController {
         let infoArray = [
             ["className": "XLHomeViewController", "title": "首页", "imageName": "home"],
             ["className": "XLMessageViewController", "title": "消息", "imageName": "message_center"],
+            [:],
             ["className": "XLDiscoverViewController", "title": "发现", "imageName": "discover"],
             ["className": "XLProfileViewController", "title": "我的", "imageName": "profile"]
         ]
@@ -35,6 +40,20 @@ extension XLMainTabBarController {
         }
         viewControllers = controllerArray
         tabBar.tintColor = UIColor.orange
+    }
+    
+    // 设置中间的按钮
+    private func setupComposeButton() {
+        composeButton.setImage(UIImage(named: "tabbar_compose_icon_add"), for: .normal)
+        composeButton.setImage(UIImage(named: "tabbar_compose_icon_add_highlighted"), for: .highlighted)
+        tabBar.addSubview(composeButton)
+        composeButton.setBackgroundImage(UIImage(named: "tabbar_compose_button"), for: .normal)
+        composeButton.setBackgroundImage(UIImage(named: "tabbar_compose_button_highlighted"), for: .highlighted)
+        // 计算按钮宽度
+        // -1 是为了将内缩进的宽度减少，让按钮的宽度变大吗盖住容错点
+        let buttonW = tabBar.bounds.size.width / CGFloat(childViewControllers.count) - 1
+        // insetBy 整数向内缩进，负数向外扩展
+        composeButton.frame = tabBar.bounds.insetBy(dx: 2 * buttonW, dy: 0)
     }
     
     // 使用一个字典来创建子控制器
