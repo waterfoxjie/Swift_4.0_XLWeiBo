@@ -22,9 +22,12 @@
 		609C7351200F2D7900C8AED6 /* XLProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609C7350200F2D7900C8AED6 /* XLProfileViewController.swift */; };
 		609C7354200F380C00C8AED6 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609C7353200F380C00C8AED6 /* Bundle+Extension.swift */; };
 		609C7359200F582000C8AED6 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609C7358200F582000C8AED6 /* UIBarButtonItem+Extension.swift */; };
+		A56202D3147EAA743E66C9C3 /* Pods_XLWeiBo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259F240FFDA52B3B0CDC5682 /* Pods_XLWeiBo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1018A893E3341A200D834E57 /* Pods-XLWeiBo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XLWeiBo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XLWeiBo/Pods-XLWeiBo.debug.xcconfig"; sourceTree = "<group>"; };
+		259F240FFDA52B3B0CDC5682 /* Pods_XLWeiBo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XLWeiBo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		60431C6E20103245001A006C /* CommonTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTools.swift; sourceTree = "<group>"; };
 		60431C7020104261001A006C /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		60431C732010932B001A006C /* XLVisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLVisitorView.swift; sourceTree = "<group>"; };
@@ -42,6 +45,7 @@
 		609C7350200F2D7900C8AED6 /* XLProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLProfileViewController.swift; sourceTree = "<group>"; };
 		609C7353200F380C00C8AED6 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		609C7358200F582000C8AED6 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
+		9B4E88FF7A95CBABC75A2766 /* Pods-XLWeiBo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XLWeiBo.release.xcconfig"; path = "Pods/Target Support Files/Pods-XLWeiBo/Pods-XLWeiBo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,12 +53,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A56202D3147EAA743E66C9C3 /* Pods_XLWeiBo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B5E375D792BE54F27CA0477 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1018A893E3341A200D834E57 /* Pods-XLWeiBo.debug.xcconfig */,
+				9B4E88FF7A95CBABC75A2766 /* Pods-XLWeiBo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		60431C722010930C001A006C /* VisitorView */ = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +82,8 @@
 			children = (
 				609C7324200F29AA00C8AED6 /* XLWeiBo */,
 				609C7323200F29AA00C8AED6 /* Products */,
+				1B5E375D792BE54F27CA0477 /* Pods */,
+				F4A8E5EDE309658285BCB4D9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -190,6 +206,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		F4A8E5EDE309658285BCB4D9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				259F240FFDA52B3B0CDC5682 /* Pods_XLWeiBo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -197,9 +221,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 609C7337200F29AA00C8AED6 /* Build configuration list for PBXNativeTarget "XLWeiBo" */;
 			buildPhases = (
+				9011B6004C84B2E43FCCC758 /* [CP] Check Pods Manifest.lock */,
 				609C731E200F29AA00C8AED6 /* Sources */,
 				609C731F200F29AA00C8AED6 /* Frameworks */,
 				609C7320200F29AA00C8AED6 /* Resources */,
+				B2F96E2BBCEFD90E041FC651 /* [CP] Embed Pods Frameworks */,
+				BFEB0FACE7F728AA04DEB71E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -255,6 +282,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9011B6004C84B2E43FCCC758 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-XLWeiBo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B2F96E2BBCEFD90E041FC651 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-XLWeiBo/Pods-XLWeiBo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XLWeiBo/Pods-XLWeiBo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BFEB0FACE7F728AA04DEB71E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XLWeiBo/Pods-XLWeiBo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		609C731E200F29AA00C8AED6 /* Sources */ = {
@@ -390,6 +471,7 @@
 		};
 		609C7338200F29AA00C8AED6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1018A893E3341A200D834E57 /* Pods-XLWeiBo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -406,6 +488,7 @@
 		};
 		609C7339200F29AA00C8AED6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B4E88FF7A95CBABC75A2766 /* Pods-XLWeiBo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
