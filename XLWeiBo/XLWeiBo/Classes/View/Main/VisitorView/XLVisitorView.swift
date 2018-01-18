@@ -9,6 +9,12 @@
 import UIKit
 import SnapKit
 
+struct XLVisitorInfoModel {
+    var imageName: String
+    var message: String
+    var isHome: Bool
+}
+
 class XLVisitorView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -17,6 +23,16 @@ class XLVisitorView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setupChildrenViewInfo(model: XLVisitorInfoModel) {
+        iconView.image = UIImage(named: model.imageName)
+        tipLabel.text = model.message
+        houseIconView.isHidden = !model.isHome
+        maskIconView.isHidden = !model.isHome
+        if model.isHome {
+            startAnimation()
+        }
     }
     
     // MARK: - 懒加载私有控件
@@ -92,5 +108,17 @@ extension XLVisitorView {
         loginButton.setTitle("登录", for: .normal)
         loginButton.setTitleColor(UIColor.darkGray, for: .normal)
         loginButton.setTitleColor(UIColor.orange, for: .highlighted)
+    }
+    
+    // 旋转动画
+    private func startAnimation() {
+        let anim = CABasicAnimation(keyPath: "transform.rotation")
+        anim.toValue = 2 * Double.pi
+        anim.repeatCount = MAXFLOAT
+        anim.duration = 15
+        // 设置完成之后不删除
+        anim.isRemovedOnCompletion = false
+        // 动画添加到图层
+        iconView.layer.add(anim, forKey: nil)
     }
 }
