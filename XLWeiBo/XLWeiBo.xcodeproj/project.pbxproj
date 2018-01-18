@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		60431C6F20103245001A006C /* CommonTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60431C6E20103245001A006C /* CommonTools.swift */; };
 		60431C7120104261001A006C /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60431C7020104261001A006C /* UIButton+Extension.swift */; };
+		60431C742010932B001A006C /* XLVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60431C732010932B001A006C /* XLVisitorView.swift */; };
 		609C7326200F29AA00C8AED6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609C7325200F29AA00C8AED6 /* AppDelegate.swift */; };
 		609C732E200F29AA00C8AED6 /* XLWeiBo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 609C732C200F29AA00C8AED6 /* XLWeiBo.xcdatamodeld */; };
 		609C7330200F29AA00C8AED6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 609C732F200F29AA00C8AED6 /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		60431C6E20103245001A006C /* CommonTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTools.swift; sourceTree = "<group>"; };
 		60431C7020104261001A006C /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		60431C732010932B001A006C /* XLVisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLVisitorView.swift; sourceTree = "<group>"; };
 		609C7322200F29AA00C8AED6 /* XLWeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XLWeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		609C7325200F29AA00C8AED6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		609C732D200F29AA00C8AED6 /* XLWeiBo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = XLWeiBo.xcdatamodel; sourceTree = "<group>"; };
@@ -53,6 +55,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		60431C722010930C001A006C /* VisitorView */ = {
+			isa = PBXGroup;
+			children = (
+				60431C732010932B001A006C /* XLVisitorView.swift */,
+			);
+			path = VisitorView;
+			sourceTree = "<group>";
+		};
 		609C7319200F29AA00C8AED6 = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +149,7 @@
 		609C7340200F2C0800C8AED6 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				60431C722010930C001A006C /* VisitorView */,
 				609C7344200F2CD200C8AED6 /* XLMainTabBarController.swift */,
 				609C7346200F2CF600C8AED6 /* XLBaseNavigationController.swift */,
 				609C7348200F2D1000C8AED6 /* XLBaseViewController.swift */,
@@ -255,6 +266,7 @@
 				609C734B200F2D4F00C8AED6 /* XLHomeViewController.swift in Sources */,
 				609C734D200F2D6200C8AED6 /* XLMessageViewController.swift in Sources */,
 				609C7359200F582000C8AED6 /* UIBarButtonItem+Extension.swift in Sources */,
+				60431C742010932B001A006C /* XLVisitorView.swift in Sources */,
 				609C734F200F2D6E00C8AED6 /* XLDiscoverViewController.swift in Sources */,
 				609C7326200F29AA00C8AED6 /* AppDelegate.swift in Sources */,
 				609C732E200F29AA00C8AED6 /* XLWeiBo.xcdatamodeld in Sources */,

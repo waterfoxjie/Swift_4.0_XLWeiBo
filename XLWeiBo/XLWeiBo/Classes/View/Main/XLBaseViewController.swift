@@ -10,6 +10,8 @@ import UIKit
 
 class XLBaseViewController: UIViewController {
     
+    lazy var userLogon: Bool = false
+    
     var tableView: UITableView?
     var resfreshC: UIRefreshControl?
 
@@ -21,7 +23,7 @@ class XLBaseViewController: UIViewController {
     // 需要被重写的方法不能写在 extension 中
     func setupUI() {
         view.backgroundColor = UIColor.white
-        setupTableView()
+        userLogon ? setupTableView() : setupVisitorView()
     }
     
     // 加载数据
@@ -45,6 +47,13 @@ extension XLBaseViewController {
         resfreshC = UIRefreshControl()
         tableView?.addSubview(resfreshC!)
         resfreshC?.addTarget(self, action: #selector(loadData), for: .valueChanged)
+    }
+    
+    // 设置访客视图
+    private func setupVisitorView() {
+        let visitorView = XLVisitorView(frame: view.bounds)
+        visitorView.backgroundColor = UIColor.white
+        view.addSubview(visitorView)
     }
     
 }
