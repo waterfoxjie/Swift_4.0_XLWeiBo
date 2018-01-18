@@ -31,6 +31,7 @@
 		60431C6E20103245001A006C /* CommonTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTools.swift; sourceTree = "<group>"; };
 		60431C7020104261001A006C /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		60431C732010932B001A006C /* XLVisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLVisitorView.swift; sourceTree = "<group>"; };
+		60431C7520109725001A006C /* XLWeiBo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XLWeiBo-Bridging-Header.h"; sourceTree = "<group>"; };
 		609C7322200F29AA00C8AED6 /* XLWeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XLWeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		609C7325200F29AA00C8AED6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		609C732D200F29AA00C8AED6 /* XLWeiBo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = XLWeiBo.xcdatamodel; sourceTree = "<group>"; };
@@ -103,6 +104,7 @@
 				609C732F200F29AA00C8AED6 /* Assets.xcassets */,
 				609C7334200F29AA00C8AED6 /* Info.plist */,
 				609C732C200F29AA00C8AED6 /* XLWeiBo.xcdatamodeld */,
+				60431C7520109725001A006C /* XLWeiBo-Bridging-Header.h */,
 			);
 			path = XLWeiBo;
 			sourceTree = "<group>";
@@ -250,6 +252,7 @@
 				TargetAttributes = {
 					609C7321200F29AA00C8AED6 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -475,12 +478,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = XLWeiBo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.waterfoxjie.XLWeiBo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "XLWeiBo/XLWeiBo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -492,12 +498,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = XLWeiBo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.waterfoxjie.XLWeiBo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "XLWeiBo/XLWeiBo-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
