@@ -19,6 +19,11 @@ class XLMainTabBarController: UITabBarController {
         setupComposeButton()
     }
     
+    // 设置支持的方向之后，当前的控制器及子控制器否会遵守这个方向
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
     // TODO 待写
     // + 按钮点击方法
     @objc private func clickComposeButton() {
