@@ -52,7 +52,7 @@ extension XLBaseViewController {
     // 设置访客视图
     private func setupVisitorView() {
         let visitorView = XLVisitorView(frame: view.bounds)
-        visitorView.backgroundColor = UIColor.white
+        visitorView.backgroundColor = UIColor(red: 237.0 / 255.0, green: 237.0 / 255.0, blue: 237.0 / 255.0, alpha: 1.0)
         view.addSubview(visitorView)
     }
     
