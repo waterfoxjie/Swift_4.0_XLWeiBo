@@ -23,12 +23,6 @@ class XLMainTabBarController: UITabBarController {
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }
-    
-    // TODO 待写
-    // + 按钮点击方法
-    @objc private func clickComposeButton() {
-        print("点击")
-    }
 }
 
 // extension 类似于 OC 的分类，Swift 中也可以用来切分代码块
@@ -69,7 +63,6 @@ extension XLMainTabBarController {
         composeButton.addTarget(self, action: #selector(self.clickComposeButton), for: .touchUpInside)
     }
     
-    
     // 使用一个字典来创建子控制器
     // dict 信息字典（包好 className, title, imageName）
     private func setupController(dict: [String: String]) -> UIViewController {
@@ -88,6 +81,12 @@ extension XLMainTabBarController {
         vc?.tabBarItem.image = UIImage(named: "tabbar_" + imageName)
         let nav = XLBaseNavigationController(rootViewController: vc!)
         return nav
+    }
+    
+    // TODO 待写
+    // + 按钮点击方法
+    @objc private func clickComposeButton() {
+        print("点击")
     }
 }
 

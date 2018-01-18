@@ -14,7 +14,10 @@ class XLBaseViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
     }
-    
+}
+
+// MARK: - 设置界面
+extension XLBaseViewController {
     func setupUI() {
         view.backgroundColor = UIColor.white
     }
@@ -99,4 +102,6 @@ class XLBaseViewController: UIViewController {
             navigationController?.popViewController(animated: true)
         }
     }
+    
 }
+
