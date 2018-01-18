@@ -9,6 +9,9 @@
 import UIKit
 
 class XLBaseViewController: UIViewController {
+    
+    var tableView: UITableView?
+    var resfreshC: UIRefreshControl?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,10 +21,50 @@ class XLBaseViewController: UIViewController {
     // 需要被重写的方法不能写在 extension 中
     func setupUI() {
         view.backgroundColor = UIColor.white
+        setupTableView()
+    }
+    
+    // 加载数据
+    @objc func loadData() {
+        // 默认收起
+        self.resfreshC?.endRefreshing()
     }
 }
 
 // MARK: - 设置界面
+extension XLBaseViewController {
+    
+    // 设置 tableView
+    private func setupTableView() {
+        tableView = UITableView(frame: view.bounds, style: .plain)
+        tableView?.delegate = self;
+        tableView?.dataSource = self
+        view.addSubview(tableView!)
+        
+        // 设置刷新控件
+        resfreshC = UIRefreshControl()
+        tableView?.addSubview(resfreshC!)
+        resfreshC?.addTarget(self, action: #selector(loadData), for: .valueChanged)
+    }
+    
+}
+
+// MARK: - TableView 代理、数据源方法
+extension XLBaseViewController: UITableViewDataSource, UITableViewDelegate {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+}
+
+// MARK: - 添加 Nav 按钮方法
 extension XLBaseViewController {
     
     // MARK: - 设置添加按钮方法
