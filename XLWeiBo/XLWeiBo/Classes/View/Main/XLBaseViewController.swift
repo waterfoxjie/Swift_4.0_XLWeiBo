@@ -14,13 +14,15 @@ class XLBaseViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
     }
+    
+    // 需要被重写的方法不能写在 extension 中
+    func setupUI() {
+        view.backgroundColor = UIColor.white
+    }
 }
 
 // MARK: - 设置界面
 extension XLBaseViewController {
-    func setupUI() {
-        view.backgroundColor = UIColor.white
-    }
     
     // MARK: - 设置添加按钮方法
     /// 添加左边文字按钮
