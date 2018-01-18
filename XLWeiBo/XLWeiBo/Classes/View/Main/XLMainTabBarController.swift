@@ -18,6 +18,12 @@ class XLMainTabBarController: UITabBarController {
         setupChildViewController()
         setupComposeButton()
     }
+    
+    // TODO 待写
+    // + 按钮点击方法
+    @objc private func clickComposeButton() {
+        print("点击")
+    }
 }
 
 // extension 类似于 OC 的分类，Swift 中也可以用来切分代码块
@@ -54,7 +60,10 @@ extension XLMainTabBarController {
         let buttonW = tabBar.bounds.size.width / CGFloat(childViewControllers.count) - 1
         // insetBy 整数向内缩进，负数向外扩展
         composeButton.frame = tabBar.bounds.insetBy(dx: 2 * buttonW, dy: 0)
+        // 添加方法
+        composeButton.addTarget(self, action: #selector(self.clickComposeButton), for: .touchUpInside)
     }
+    
     
     // 使用一个字典来创建子控制器
     // dict 信息字典（包好 className, title, imageName）
@@ -72,7 +81,7 @@ extension XLMainTabBarController {
         let vc = cls?.init()
         vc?.title = title
         vc?.tabBarItem.image = UIImage(named: "tabbar_" + imageName)
-        let nav = UINavigationController(rootViewController: vc!)
+        let nav = XLBaseNavigationController(rootViewController: vc!)
         return nav
     }
 }
