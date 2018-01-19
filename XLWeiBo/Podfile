@@ -6,5 +6,11 @@ target 'XLWeiBo' do
   use_frameworks!
 
   pod 'SnapKit'
+  pod 'AFNetworking'
+  pod 'SDWebImage'
+  pod 'YYModel'
+  pod 'FMDB'
+  pod 'SVProgressHUD'
+  pod 'pop'
 
 end
