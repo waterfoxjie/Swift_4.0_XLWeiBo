@@ -22,9 +22,8 @@ class XLBaseViewController: UIViewController {
     }
     
     // 需要被重写的方法不能写在 extension 中
-    func setupUI() {
-        view.backgroundColor = UIColor.white
-        userLogon ? setupTableView() : setupVisitorView()
+    // 子类重写此方法进行基础设置（用户登录之后才调用的）
+    func baseSetup() {
     }
     
     // 加载数据
@@ -37,6 +36,12 @@ class XLBaseViewController: UIViewController {
 // MARK: - 设置界面
 extension XLBaseViewController {
     
+    // 根据用户是否登录显示不同的界面
+    private func setupUI() {
+        view.backgroundColor = UIColor.white
+        userLogon ? setupTableView() : setupVisitorView()
+    }
+    
     // 设置 tableView
     private func setupTableView() {
         tableView = UITableView(frame: view.bounds, style: .plain)
@@ -48,18 +53,23 @@ extension XLBaseViewController {
         resfreshC = UIRefreshControl()
         tableView?.addSubview(resfreshC!)
         resfreshC?.addTarget(self, action: #selector(loadData), for: .valueChanged)
+        baseSetup()
     }
     
     // 设置访客视图
     private func setupVisitorView() {
         let visitorView = XLVisitorView(frame: view.bounds)
+        view.addSubview(visitorView)
+        // 设置背景颜色
         visitorView.backgroundColor = UIColor(red: 237.0 / 255.0, green: 237.0 / 255.0, blue: 237.0 / 255.0, alpha: 1.0)
         // 设置数据
         visitorView.setupChildrenViewInfo(dict: visitorInfoDict!)
         // 设置按钮事件
         visitorView.loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
         visitorView.registerButton.addTarget(self, action: #selector(register), for: .touchUpInside)
-        view.addSubview(visitorView)
+        // 设置导航条按钮
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "注册", style: .plain, target: self, action: #selector(register))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "登录", style: .plain, target: self, action: #selector(login))
         
     }
 }

@@ -15,14 +15,15 @@ class XLHomeViewController: XLBaseViewController {
     private lazy var dataArray = [String]()
     private lazy var isPullup = false
     
-    override func setupUI() {
-        super.setupUI()
+    override func baseSetup() {
+        super.baseSetup()
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "好友", target: self, action: #selector(addFriends))
 
         // 注册 Cell 原型
         tableView?.register(UITableViewCell.self, forCellReuseIdentifier: homeTableViewCellID)
-
     }
     
+    // 设置数据
     override func loadData() {
         // 模拟延迟
         DispatchQueue.main.asyncAfter(wallDeadline: .now() + 2) {
@@ -46,6 +47,13 @@ class XLHomeViewController: XLBaseViewController {
 }
 
 extension XLHomeViewController {
+    @objc private func addFriends() {
+        print("好友")
+    }
+}
+
+// MARK: - UITableViewDelegate, UITableViewdataSource
+extension XLHomeViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -55,9 +63,9 @@ extension XLHomeViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: homeTableViewCellID)
-        cell?.textLabel?.text = self.dataArray[indexPath.row]
-        return cell!
+        let cell = tableView.dequeueReusableCell(withIdentifier: homeTableViewCellID, for: indexPath) as! UITableViewCell
+        cell.textLabel?.text = self.dataArray[indexPath.row]
+        return cell
     }
     
     // 将要显示 cell 代理方法
