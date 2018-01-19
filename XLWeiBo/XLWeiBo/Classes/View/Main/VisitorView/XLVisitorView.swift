@@ -9,12 +9,6 @@
 import UIKit
 import SnapKit
 
-struct XLVisitorInfoModel {
-    var imageName: String
-    var message: String
-    var isHome: Bool
-}
-
 class XLVisitorView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,12 +19,18 @@ class XLVisitorView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupChildrenViewInfo(model: XLVisitorInfoModel) {
-        iconView.image = UIImage(named: model.imageName)
-        tipLabel.text = model.message
-        houseIconView.isHidden = !model.isHome
-        maskIconView.isHidden = !model.isHome
-        if model.isHome {
+    // 设置控件的值
+    func setupChildrenViewInfo(dict: [String: Any]) {
+        guard let imageName = dict["imageName"] as? String,
+              let message = dict["message"] as? String,
+              let isHome = dict["isHome"] as? Bool else {
+                return
+        }
+        iconView.image = UIImage(named: imageName)
+        tipLabel.text = message
+        houseIconView.isHidden = !isHome
+        maskIconView.isHidden = !isHome
+        if isHome {
             startAnimation()
         }
     }

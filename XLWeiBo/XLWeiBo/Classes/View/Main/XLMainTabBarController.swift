@@ -31,31 +31,16 @@ class XLMainTabBarController: UITabBarController {
 extension XLMainTabBarController {
     // 设置子控件
     private func setupChildViewController() {
-        let homeModel =
-            XLVisitorInfoModel(imageName: "visitordiscover_feed_image_smallicon",
-                               message: "关注一些人，回这里看看有什么惊喜",
-                               isHome: true)
-        let messageModel =
-            XLVisitorInfoModel(imageName: "visitordiscover_image_message",
-                               message: "登录后，别人评论你的微博，发给你的消息，都会在这里收到通知",
-                               isHome: false)
-        let discoverModel =
-            XLVisitorInfoModel(imageName: "visitordiscover_image_message",
-                               message: "登录后，最新、最热微博尽在掌握，不再会与实事潮流擦肩而过",
-                               isHome: false)
-        let profileModel =
-            XLVisitorInfoModel(imageName: "visitordiscover_image_profile",
-                               message: "登录后，你的微博、相册、个人资料会显示在这里，展示给别人",
-                               isHome: false)
-        let infoArray: [[String: Any]] = [
-            ["className": "XLHomeViewController", "title": "首页", "imageName": "home", "visitorInfo": homeModel],
-            ["className": "XLMessageViewController", "title": "消息", "imageName": "message_center", "visitorInfo": messageModel],
-            [:],
-            ["className": "XLDiscoverViewController", "title": "发现", "imageName": "discover", "visitorInfo": discoverModel],
-            ["className": "XLProfileViewController", "title": "我的", "imageName": "profile", "visitorInfo": profileModel]
-        ]
+        // 拿到 Json 文件中的数据
+        // path 路径  data 转换成 NSData  infoArray data 反序列化
+        guard let path = Bundle.main.path(forResource: "mainVisitorData.json", ofType: nil),
+              let data = NSData(contentsOfFile: path),
+              let infoArray = try? JSONSerialization.jsonObject(with: data as Data, options: []) as? [[String: Any]]
+            else {
+            return
+        }
         var controllerArray = [UIViewController]()
-        for dict in infoArray {
+        for dict in infoArray! {
             let vc = setupController(dict: dict)
             controllerArray.append(vc)
         }
@@ -86,7 +71,7 @@ extension XLMainTabBarController {
         guard let className = dict["className"] as? String,
               let title = dict["title"] as? String,
               let imageName = dict["imageName"] as? String,
-              let visitorInfoModel = dict["visitorInfo"] as? XLVisitorInfoModel
+              let visitorInfoDict = dict["visitorInfo"] as? [String: Any]
             else {
             return UIViewController()
         }
@@ -99,7 +84,7 @@ extension XLMainTabBarController {
         vc?.title = title
         vc?.tabBarItem.image = UIImage(named: "tabbar_" + imageName)
         // 4、设置控制器 visitorInfo
-        vc?.visitorInfoModel = visitorInfoModel
+        vc?.visitorInfoDict = visitorInfoDict
         let nav = XLBaseNavigationController(rootViewController: vc!)
         return nav
     }

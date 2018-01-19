@@ -14,7 +14,7 @@ class XLBaseViewController: UIViewController {
     
     var tableView: UITableView?
     var resfreshC: UIRefreshControl?
-    var visitorInfoModel: XLVisitorInfoModel?
+    var visitorInfoDict: [String: Any]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +54,7 @@ extension XLBaseViewController {
     private func setupVisitorView() {
         let visitorView = XLVisitorView(frame: view.bounds)
         visitorView.backgroundColor = UIColor(red: 237.0 / 255.0, green: 237.0 / 255.0, blue: 237.0 / 255.0, alpha: 1.0)
-        visitorView.setupChildrenViewInfo(model: visitorInfoModel!)
+        visitorView.setupChildrenViewInfo(dict: visitorInfoDict!)
         view.addSubview(visitorView)
         
     }
