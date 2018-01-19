@@ -10,6 +10,12 @@ import UIKit
 import SnapKit
 
 class XLVisitorView: UIView {
+    
+    // 注册按钮
+    lazy var registerButton: UIButton = UIButton()
+    // 登录按钮
+    lazy var loginButton: UIButton = UIButton()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -42,10 +48,6 @@ class XLVisitorView: UIView {
     private lazy var houseIconView: UIImageView = UIImageView(image: UIImage(named: "visitordiscover_feed_image_house"))
     // 提示 label
     private lazy var tipLabel: UILabel = UILabel()
-    // 注册按钮
-    private lazy var registerButton: UIButton = UIButton()
-    // 登录按钮
-    private lazy var loginButton: UIButton = UIButton()
     // 遮罩层
     private lazy var maskIconView: UIImageView = UIImageView(image: UIImage(named: "visitordiscover_feed_mask_smallicon"))
 }

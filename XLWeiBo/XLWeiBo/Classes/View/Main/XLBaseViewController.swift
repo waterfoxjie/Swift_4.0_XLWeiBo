@@ -54,11 +54,27 @@ extension XLBaseViewController {
     private func setupVisitorView() {
         let visitorView = XLVisitorView(frame: view.bounds)
         visitorView.backgroundColor = UIColor(red: 237.0 / 255.0, green: 237.0 / 255.0, blue: 237.0 / 255.0, alpha: 1.0)
+        // 设置数据
         visitorView.setupChildrenViewInfo(dict: visitorInfoDict!)
+        // 设置按钮事件
+        visitorView.loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
+        visitorView.registerButton.addTarget(self, action: #selector(register), for: .touchUpInside)
         view.addSubview(visitorView)
         
     }
+}
+
+// MARK: - 注册、登录按钮方法
+extension XLBaseViewController {
+    // 登录
+    @objc private func login() {
+        print("登录")
+    }
     
+    // 注册
+    @objc private func register(){
+        print("注册")
+    }
 }
 
 // MARK: - TableView 代理、数据源方法

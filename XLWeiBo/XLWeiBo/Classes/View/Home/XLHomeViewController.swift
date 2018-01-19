@@ -60,6 +60,7 @@ extension XLHomeViewController {
         return cell!
     }
     
+    // 将要显示 cell 代理方法
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         // 判断 indexPath 是否是最后一组的最后一行
         let row = indexPath.row
