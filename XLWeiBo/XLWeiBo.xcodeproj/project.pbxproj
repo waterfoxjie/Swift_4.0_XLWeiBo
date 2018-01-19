@@ -11,6 +11,8 @@
 		60431C7120104261001A006C /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60431C7020104261001A006C /* UIButton+Extension.swift */; };
 		60431C742010932B001A006C /* XLVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60431C732010932B001A006C /* XLVisitorView.swift */; };
 		604A9DB82011955F007A305D /* mainVisitorData.json in Resources */ = {isa = PBXBuildFile; fileRef = 604A9DB72011955F007A305D /* mainVisitorData.json */; };
+		604A9DBC2011CDAB007A305D /* XLNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604A9DBB2011CDAB007A305D /* XLNetworkManager.swift */; };
+		604A9DBE2011D828007A305D /* XLNetworkManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604A9DBD2011D828007A305D /* XLNetworkManager+Extension.swift */; };
 		609C7326200F29AA00C8AED6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609C7325200F29AA00C8AED6 /* AppDelegate.swift */; };
 		609C732E200F29AA00C8AED6 /* XLWeiBo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 609C732C200F29AA00C8AED6 /* XLWeiBo.xcdatamodeld */; };
 		609C7330200F29AA00C8AED6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 609C732F200F29AA00C8AED6 /* Assets.xcassets */; };
@@ -34,6 +36,8 @@
 		60431C732010932B001A006C /* XLVisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLVisitorView.swift; sourceTree = "<group>"; };
 		60431C7520109725001A006C /* XLWeiBo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XLWeiBo-Bridging-Header.h"; sourceTree = "<group>"; };
 		604A9DB72011955F007A305D /* mainVisitorData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mainVisitorData.json; sourceTree = "<group>"; };
+		604A9DBB2011CDAB007A305D /* XLNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLNetworkManager.swift; sourceTree = "<group>"; };
+		604A9DBD2011D828007A305D /* XLNetworkManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XLNetworkManager+Extension.swift"; sourceTree = "<group>"; };
 		609C7322200F29AA00C8AED6 /* XLWeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XLWeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		609C7325200F29AA00C8AED6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		609C732D200F29AA00C8AED6 /* XLWeiBo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = XLWeiBo.xcdatamodel; sourceTree = "<group>"; };
@@ -79,6 +83,15 @@
 				60431C732010932B001A006C /* XLVisitorView.swift */,
 			);
 			path = VisitorView;
+			sourceTree = "<group>";
+		};
+		604A9DBA2011CA2F007A305D /* NetworkTools */ = {
+			isa = PBXGroup;
+			children = (
+				604A9DBB2011CDAB007A305D /* XLNetworkManager.swift */,
+				604A9DBD2011D828007A305D /* XLNetworkManager+Extension.swift */,
+			);
+			path = NetworkTools;
 			sourceTree = "<group>";
 		};
 		609C7319200F29AA00C8AED6 = {
@@ -133,6 +146,7 @@
 		609C733C200F2C0800C8AED6 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				604A9DBA2011CA2F007A305D /* NetworkTools */,
 				609C7352200F37E300C8AED6 /* Extension */,
 				60431C6E20103245001A006C /* CommonTools.swift */,
 			);
@@ -369,6 +383,8 @@
 				60431C742010932B001A006C /* XLVisitorView.swift in Sources */,
 				609C734F200F2D6E00C8AED6 /* XLDiscoverViewController.swift in Sources */,
 				609C7326200F29AA00C8AED6 /* AppDelegate.swift in Sources */,
+				604A9DBE2011D828007A305D /* XLNetworkManager+Extension.swift in Sources */,
+				604A9DBC2011CDAB007A305D /* XLNetworkManager.swift in Sources */,
 				609C732E200F29AA00C8AED6 /* XLWeiBo.xcdatamodeld in Sources */,
 				60431C6F20103245001A006C /* CommonTools.swift in Sources */,
 				609C7351200F2D7900C8AED6 /* XLProfileViewController.swift in Sources */,

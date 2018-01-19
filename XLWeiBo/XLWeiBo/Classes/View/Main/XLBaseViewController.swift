@@ -10,7 +10,7 @@ import UIKit
 
 class XLBaseViewController: UIViewController {
     
-    lazy var userLogon: Bool = false
+    lazy var userLogon: Bool = true
     
     var tableView: UITableView?
     var resfreshC: UIRefreshControl?

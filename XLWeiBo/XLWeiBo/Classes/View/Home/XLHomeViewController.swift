@@ -25,6 +25,10 @@ class XLHomeViewController: XLBaseViewController {
     
     // 设置数据
     override func loadData() {
+       // 网络加载数据 XLNetworkManager.shareManager.homeTimelineRequest { (list, isSuccess) in
+            print(list)
+        }
+        
         // 模拟延迟
         DispatchQueue.main.asyncAfter(wallDeadline: .now() + 2) {
             for i in 1..<10 {
