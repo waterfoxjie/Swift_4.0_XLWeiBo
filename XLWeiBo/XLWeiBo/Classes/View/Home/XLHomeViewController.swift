@@ -12,8 +12,8 @@ private let homeTableViewCellID = "homeTableViewCellID"
 
 class XLHomeViewController: XLBaseViewController {
     
-    private lazy var dataArray = [String]()
     private lazy var isPullup = false
+    private lazy var listViewModel = XLHomeListViewModel()
     
     override func baseSetup() {
         super.baseSetup()
@@ -25,23 +25,29 @@ class XLHomeViewController: XLBaseViewController {
     
     // 设置数据
     override func loadData() {
-       // 网络加载数据 XLNetworkManager.shareManager.homeTimelineRequest { (list, isSuccess) in
-            print(list)
-        }
-        
-        // 模拟延迟
-        DispatchQueue.main.asyncAfter(wallDeadline: .now() + 2) {
-            for i in 1..<10 {
-                if self.isPullup {
-                    self.dataArray.append("上拉\(i)")
-                } else {
-                    self.dataArray.insert("下拉\(i)", at: 0)
-                }
-            }
+        listViewModel.loadHomeList { (isSuccess) in
+            print("加载数据完成")
             self.resfreshC?.endRefreshing()
             self.tableView?.reloadData()
             self.isPullup = false
         }
+//        // 网络加载数据
+//        XLNetworkManager.shareManager.homeTimelineRequest { (list, isSuccess) in
+//            print(list)
+//        }
+//        // 模拟延迟
+//        DispatchQueue.main.asyncAfter(wallDeadline: .now() + 2) {
+//            for i in 1..<10 {
+//                if self.isPullup {
+//                    self.dataArray.append("上拉\(i)")
+//                } else {
+//                    self.dataArray.insert("下拉\(i)", at: 0)
+//                }
+//            }
+//            self.resfreshC?.endRefreshing()
+//            self.tableView?.reloadData()
+//            self.isPullup = false
+//        }
     }
     
     override func viewDidLoad() {
@@ -63,12 +69,12 @@ extension XLHomeViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataArray.count
+        return listViewModel.homeList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: homeTableViewCellID, for: indexPath) as! UITableViewCell
-        cell.textLabel?.text = self.dataArray[indexPath.row]
+        cell.textLabel?.text = listViewModel.homeList[indexPath.row].text
         return cell
     }
     

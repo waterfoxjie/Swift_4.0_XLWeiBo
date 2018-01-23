@@ -33,7 +33,7 @@ class XLNetworkManager: AFHTTPSessionManager {
     func tokenRequest(method: XLHTTPMethod = .GET,
                       urlString: String,
                       parameters: [String: AnyObject]?,
-                      completion: @escaping (_ json: Any?, _ isSuccess: Bool) -> ()) {
+                      completion: @escaping (_ json: Any?, _ isSuccess: Bool) -> Void) {
         // 判断 token 是否有值
         guard let token = accessToken else {
             print("没有 token，需要进行登录操作")
@@ -60,7 +60,7 @@ class XLNetworkManager: AFHTTPSessionManager {
     private func request(method: XLHTTPMethod = .GET,
                          urlString: String,
                          parameters: [String: AnyObject],
-                         completion: @escaping (_ json: Any?, _ isSuccess: Bool) -> ()) {
+                         completion: @escaping (_ json: Any?, _ isSuccess: Bool) -> Void) {
         // 定义两个回调闭包
         let success = { (task: URLSessionDataTask, json: Any?) -> Void in
             completion(json, true)
