@@ -76,7 +76,8 @@ extension XLBaseViewController {
 extension XLBaseViewController {
     // 登录
     @objc private func login() {
-        print("登录")
+        // 发送通知
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: WeiBoUserLoginNotification), object: nil)
     }
     
     // 注册

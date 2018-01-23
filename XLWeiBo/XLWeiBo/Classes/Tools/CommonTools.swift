@@ -12,6 +12,9 @@ import UIKit
 let ScreenHeight = UIScreen.main.bounds.size.height
 let ScreenWidth = UIScreen.main.bounds.size.width
 
+// 登录通知
+let WeiBoUserLoginNotification = "WeiBoUserLoginNotification"
+
 // 按钮文字颜色
 let NormalTitleColor: UIColor = UIColor.darkGray
 let HighlightedTitleColor: UIColor = UIColor.orange

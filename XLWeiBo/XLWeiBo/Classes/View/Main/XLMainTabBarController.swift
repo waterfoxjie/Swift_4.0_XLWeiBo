@@ -24,6 +24,9 @@ class XLMainTabBarController: UITabBarController {
         
         // 设置代理
         delegate = self
+        // 注册用户登录通知
+        NotificationCenter.default.addObserver(self, selector: #selector(userLogin), name: NSNotification.Name(rawValue: WeiBoUserLoginNotification), object: nil)
+        
     }
     
     // 销毁定时器
@@ -128,6 +131,13 @@ extension XLMainTabBarController {
     }
 }
 
+// MARK: - WeiBoUserLoginNotification 实现通知方法
+extension XLMainTabBarController {
+    @objc private func userLogin() {
+        print("登录")
+    }
+}
+
 // MARK: - 实现 UITabBarDelegate 代理方法
 extension XLMainTabBarController: UITabBarControllerDelegate {
     
@@ -158,8 +168,6 @@ extension XLMainTabBarController: UITabBarControllerDelegate {
         return !viewController.isMember(of: UIViewController.self)
     }
 }
-
-
 
 
 
