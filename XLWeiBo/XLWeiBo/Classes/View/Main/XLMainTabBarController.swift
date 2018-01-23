@@ -114,9 +114,13 @@ extension XLMainTabBarController {
     }
     
     @objc private func updateTimer() {
+        let count = 5
         // 设置首页 TabBarItem 的 badgeValue 显示红点
-        self.tabBar.items?.first?.badgeValue = "5"
+        self.tabBar.items?.first?.badgeValue = "\(count)"
+        // 设置 App 的 BadgeNumber
+        UIApplication.shared.applicationIconBadgeNumber = count
     }
+    
 }
 
 

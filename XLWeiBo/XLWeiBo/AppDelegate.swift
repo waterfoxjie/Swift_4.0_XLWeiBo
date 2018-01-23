@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        if #available(iOS 10.0, *) {
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .carPlay, .sound]) { (success, error) in
+                print("授权 " + (success ? "成功" : "失败"))
+            }
+        } else {
+            // 获取用户授权通知（上方的提示条、声音、数字）
+            let notiSettings = UIUserNotificationSettings(types: [.alert, .badge, .alert], categories: nil)
+            application.registerUserNotificationSettings(notiSettings)
+        }
         
         // 设置启动
         window = UIWindow(frame: UIScreen.main.bounds)
