@@ -134,7 +134,8 @@ extension XLMainTabBarController {
 // MARK: - WeiBoUserLoginNotification 实现通知方法
 extension XLMainTabBarController {
     @objc private func userLogin() {
-        print("登录")
+        let nav = UINavigationController(rootViewController: XLOAuthViewController())
+        present(nav, animated: true, completion: nil)
     }
 }
 
