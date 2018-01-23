@@ -11,12 +11,21 @@ import UIKit
 class XLMainTabBarController: UITabBarController {
 
     // 私有控件
+    // 中部按钮
     private lazy var composeButton: UIButton = UIButton()
+    // 定时器
+    private var timer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupChildViewController()
         setupComposeButton()
+        setupTimer()
+    }
+    
+    // 销毁定时器
+    deinit {
+        timer?.invalidate()
     }
     
     // 设置支持的方向之后，当前的控制器及子控制器否会遵守这个方向
@@ -97,6 +106,18 @@ extension XLMainTabBarController {
 }
 
 
+// MARK: - 设置定时器相关内容
+extension XLMainTabBarController {
+    // 定义定时器
+    private func setupTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+    }
+    
+    @objc private func updateTimer() {
+        // 设置首页 TabBarItem 的 badgeValue 显示红点
+        self.tabBar.items?.first?.badgeValue = "5"
+    }
+}
 
 
 
