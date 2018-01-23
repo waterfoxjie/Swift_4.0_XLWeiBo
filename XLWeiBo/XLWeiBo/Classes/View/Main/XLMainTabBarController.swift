@@ -134,6 +134,21 @@ extension XLMainTabBarController: UITabBarControllerDelegate {
     ///   - viewController: 目标控制器
     /// - Returns: 是否切换到目标控制器
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        // 获取控制器在数组中的索引
+        let index = childViewControllers.index(of: viewController)
+        // 判断是否是重复点击首页
+        if selectedIndex == 0 && index == selectedIndex {
+            // 获取当前控制器
+            let nav = childViewControllers.first as! XLBaseNavigationController
+            let vc = nav.childViewControllers.first as! XLHomeViewController
+            // 让表格滚动到顶部
+            vc.tableView?.setContentOffset(CGPoint(x: 0, y: -64), animated: true)
+            // 使用 asyncAfter 是为了解决加上刷新数据之后，表格无法滚动到顶部的问题
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
+                // 刷新数据
+                vc.loadData()
+            })
+        }
         
         // 判断点击到的是否是中间的按钮，是则不跳转，不是则跳转
         return !viewController.isMember(of: UIViewController.self)
