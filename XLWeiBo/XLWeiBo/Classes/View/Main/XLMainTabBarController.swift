@@ -21,6 +21,9 @@ class XLMainTabBarController: UITabBarController {
         setupChildViewController()
         setupComposeButton()
         setupTimer()
+        
+        // 设置代理
+        delegate = self
     }
     
     // 销毁定时器
@@ -65,8 +68,7 @@ extension XLMainTabBarController {
         composeButton.setBackgroundImage(UIImage(named: "tabbar_compose_button"), for: .normal)
         composeButton.setBackgroundImage(UIImage(named: "tabbar_compose_button_highlighted"), for: .highlighted)
         // 计算按钮宽度
-        // -1 是为了将内缩进的宽度减少，让按钮的宽度变大吗盖住容错点
-        let buttonW = tabBar.bounds.size.width / CGFloat(childViewControllers.count) - 1
+        let buttonW = tabBar.bounds.size.width / CGFloat(childViewControllers.count)
         // insetBy 整数向内缩进，负数向外扩展
         composeButton.frame = tabBar.bounds.insetBy(dx: 2 * buttonW, dy: 0)
         // 添加方法
@@ -120,7 +122,22 @@ extension XLMainTabBarController {
         // 设置 App 的 BadgeNumber
         UIApplication.shared.applicationIconBadgeNumber = count
     }
+}
+
+// MARK: - 实现 UITabBarDelegate 代理方法
+extension XLMainTabBarController: UITabBarControllerDelegate {
     
+    /// 将要选择 TabBarItem
+    ///
+    /// - Parameters:
+    ///   - tabBarController: tabBarController
+    ///   - viewController: 目标控制器
+    /// - Returns: 是否切换到目标控制器
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        
+        // 判断点击到的是否是中间的按钮，是则不跳转，不是则跳转
+        return !viewController.isMember(of: UIViewController.self)
+    }
 }
 
 
