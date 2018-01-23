@@ -39,7 +39,8 @@ class XLHomeViewController: XLBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadData()
+        // 用户登录了再刷新数据
+        XLNetworkManager.shareManager.userLogon ? loadData() : ()
     }
 }
 

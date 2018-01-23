@@ -10,8 +10,6 @@ import UIKit
 
 class XLBaseViewController: UIViewController {
     
-    lazy var userLogon: Bool = true
-    
     var tableView: UITableView?
     var resfreshC: UIRefreshControl?
     var visitorInfoDict: [String: Any]?
@@ -39,7 +37,7 @@ extension XLBaseViewController {
     // 根据用户是否登录显示不同的界面
     private func setupUI() {
         view.backgroundColor = UIColor.white
-        userLogon ? setupTableView() : setupVisitorView()
+        XLNetworkManager.shareManager.userLogon ? setupTableView() : setupVisitorView()
     }
     
     // 设置 tableView

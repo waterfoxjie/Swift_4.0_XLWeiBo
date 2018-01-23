@@ -112,6 +112,10 @@ extension XLMainTabBarController {
 extension XLMainTabBarController {
     // 定义定时器
     private func setupTimer() {
+        // 用户未登录则不需要创建定时器
+        if !XLNetworkManager.shareManager.userLogon {
+            return
+        }
         timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
