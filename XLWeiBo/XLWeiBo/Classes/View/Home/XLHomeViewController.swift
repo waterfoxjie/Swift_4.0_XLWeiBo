@@ -26,29 +26,15 @@ class XLHomeViewController: XLBaseViewController {
     
     // 设置数据
     override func loadData() {
-        listViewModel.loadHomeList { (isSuccess) in
+        listViewModel.loadHomeList(isPullup: isPullup) { (isSuccess, isReloadData) in
             print("加载数据完成")
             self.resfreshC?.endRefreshing()
-            self.tableView?.reloadData()
             self.isPullup = false
+            if isReloadData {
+                self.tableView?.reloadData()
+            }
         }
-//        // 网络加载数据
-//        XLNetworkManager.shareManager.homeTimelineRequest { (list, isSuccess) in
-//            print(list)
-//        }
-//        // 模拟延迟
-//        DispatchQueue.main.asyncAfter(wallDeadline: .now() + 2) {
-//            for i in 1..<10 {
-//                if self.isPullup {
-//                    self.dataArray.append("上拉\(i)")
-//                } else {
-//                    self.dataArray.insert("下拉\(i)", at: 0)
-//                }
-//            }
-//            self.resfreshC?.endRefreshing()
-//            self.tableView?.reloadData()
-//            self.isPullup = false
-//        }
+
     }
     
     override func viewDidLoad() {

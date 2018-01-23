@@ -18,7 +18,7 @@ enum XLHTTPMethod {
 // 网络管理工具
 class XLNetworkManager: AFHTTPSessionManager {
     // 创建 token(访问令牌)
-    var accessToken: String? = "2.004YlqECeDA5cC167c971bffJV_jhD"
+    var accessToken: String? = "2.004YlqECaCmxOD3cee65c871GBdoDB"
     
     // 创建单例
     static let shareManager = XLNetworkManager()
