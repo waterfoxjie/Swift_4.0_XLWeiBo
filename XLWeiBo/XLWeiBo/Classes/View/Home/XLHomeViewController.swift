@@ -12,6 +12,7 @@ private let homeTableViewCellID = "homeTableViewCellID"
 
 class XLHomeViewController: XLBaseViewController {
     
+    // 是否是上拉刷新
     private lazy var isPullup = false
     private lazy var listViewModel = XLHomeListViewModel()
     

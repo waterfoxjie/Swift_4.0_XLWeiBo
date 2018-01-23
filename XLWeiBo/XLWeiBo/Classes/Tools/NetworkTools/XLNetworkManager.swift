@@ -66,11 +66,11 @@ class XLNetworkManager: AFHTTPSessionManager {
             completion(json, true)
         }
         let failure = { (task: URLSessionDataTask?, error: Any) -> Void in
+            print(error)
             // 对返回值 403 的情况做处理
             if (task?.response as! HTTPURLResponse).statusCode == 403 {
-                print("llll")
+                print("token过期，请重新登录")
             }
-            
             completion(task, false)
         }
         if method == .GET {
