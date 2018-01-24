@@ -14,7 +14,7 @@ let WeiBoAppKey = "2969513224"
 // 应用程序加密信息（开发者可以申请修改）
 let WeiBoAppSecret = "877b3fb57f9dc49b6a5d92bc75631a69"
 // 应用程序回调地址
-let WeiBoRedirectUri = "http://www.baidu.com"
+let WeiBoRedirectUri = "https://www.baidu.com"
 
 // 系统信息
 let ScreenHeight = UIScreen.main.bounds.size.height
