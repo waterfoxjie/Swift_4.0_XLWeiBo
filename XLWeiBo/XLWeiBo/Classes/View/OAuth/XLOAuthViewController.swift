@@ -37,9 +37,19 @@ extension XLOAuthViewController {
     private func setupNavBar() {
         title = "登录授权"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", target: self, action: #selector(close))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "自动填充", target: self, action: #selector(autoFill))
     }
     
+    // 返回
     @objc private func close() {
         dismiss(animated: true, completion: nil)
+    }
+    
+    // 自动填充
+    @objc private func autoFill() {
+        let js = "document.getElementById('userId').value = '15521197839';" +
+        "document.getElementById('passwd').value = 'qwer1234';"
+        webView.stringByEvaluatingJavaScript(from: js)
+        
     }
 }
