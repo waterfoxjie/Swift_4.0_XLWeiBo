@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class XLOAuthViewController: UIViewController {
     
@@ -19,6 +20,7 @@ class XLOAuthViewController: UIViewController {
         
         // 设置代理
         webView.delegate = self
+        webView.scrollView.isScrollEnabled = false
     }
     
     override func viewDidLoad() {
@@ -41,8 +43,9 @@ extension XLOAuthViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "自动填充", target: self, action: #selector(autoFill))
     }
     
-    // 返回
+    // 关闭控制器
     @objc private func close() {
+        SVProgressHUD.dismiss()
         dismiss(animated: true, completion: nil)
     }
     
@@ -82,6 +85,14 @@ extension XLOAuthViewController: UIWebViewDelegate {
         
         print("加载请求\(String(describing: request.url?.absoluteString))")
         return false
+    }
+    
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        SVProgressHUD.show()
+    }
+    
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        SVProgressHUD.dismiss()
     }
 }
 
