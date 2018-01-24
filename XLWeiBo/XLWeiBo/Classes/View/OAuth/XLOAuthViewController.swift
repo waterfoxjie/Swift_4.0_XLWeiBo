@@ -13,19 +13,21 @@ class XLOAuthViewController: UIViewController {
     private lazy var webView = UIWebView()
     
     override func loadView() {
-        
         setupNavBar()
         view = webView
         view.backgroundColor = UIColor.white
-        
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.white
-
-        // Do any additional setup after loading the view.
+        
+        let urlString = "https://api.weibo.com/oauth2/authorize?client_id=\(WeiBoAppKey)&redirect_uri=\(WeiBoRedirectUri)"
+        guard let url = URL(string: urlString) else {
+            return
+        }
+        let request = URLRequest(url: url)
+        webView.loadRequest(request)
+        
     }
 
 }
