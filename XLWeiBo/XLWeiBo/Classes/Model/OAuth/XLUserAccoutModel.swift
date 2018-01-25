@@ -31,10 +31,32 @@ class XLUserAccoutModel: Mappable {
     required init?(map: Map) {
     }
     
+    // 字典转模型
     func mapping(map: Map) {
         accessToken <- map["access_token"]
-        expiresIn <- map["expires_in"]
-        uid <- map["uid"]
+        expiresIn   <- map["expires_in"]
+        uid         <- map["uid"]
+    }
+    
+    // 将数据保存在 Documnet 目录下
+    func saveInfo() {
+        // 对时间进行处理
+        let dateString = expiresData?.dataWithString()
+        // 创建一个字典
+        let dict: [String: Any] = ["accessToken": accessToken ?? "",
+                                   "expiresData": dateString ?? "",
+                                   "uid": uid ?? ""]
+        // 存储路径
+        let fileName = "UserAccout.json"
+        // 字典反序列化
+        guard let data = try? JSONSerialization.data(withJSONObject: dict, options: [])
+        else {
+            return
+        }
+        let filePath = fileName.appendDocumnetDir()
+        // 存入磁盘（保存在 Document 目录下）
+        (data as NSData).write(toFile: filePath, atomically: true)
+        print("用户信息保存成功：\(filePath)")
     }
 }
 

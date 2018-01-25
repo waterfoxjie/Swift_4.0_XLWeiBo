@@ -16,6 +16,8 @@
 		604A9DC42011F0E7007A305D /* XLHomeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604A9DC32011F0E7007A305D /* XLHomeListViewModel.swift */; };
 		604ECF2A2019BC4300FB05A8 /* XLHomeInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604ECF292019BC4300FB05A8 /* XLHomeInfoModel.swift */; };
 		604ECF2C2019C0E400FB05A8 /* XLUserAccoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604ECF2B2019C0E400FB05A8 /* XLUserAccoutModel.swift */; };
+		604ECF302019E49D00FB05A8 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604ECF2F2019E49D00FB05A8 /* String+Extension.swift */; };
+		604ECF322019E6A300FB05A8 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604ECF312019E6A300FB05A8 /* Date+Extension.swift */; };
 		605B5411201740B100BB0818 /* XLOAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605B5410201740B100BB0818 /* XLOAuthViewController.swift */; };
 		609C7326200F29AA00C8AED6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609C7325200F29AA00C8AED6 /* AppDelegate.swift */; };
 		609C732E200F29AA00C8AED6 /* XLWeiBo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 609C732C200F29AA00C8AED6 /* XLWeiBo.xcdatamodeld */; };
@@ -45,6 +47,8 @@
 		604A9DC32011F0E7007A305D /* XLHomeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLHomeListViewModel.swift; sourceTree = "<group>"; };
 		604ECF292019BC4300FB05A8 /* XLHomeInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLHomeInfoModel.swift; sourceTree = "<group>"; };
 		604ECF2B2019C0E400FB05A8 /* XLUserAccoutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLUserAccoutModel.swift; sourceTree = "<group>"; };
+		604ECF2F2019E49D00FB05A8 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		604ECF312019E6A300FB05A8 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		605B5410201740B100BB0818 /* XLOAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLOAuthViewController.swift; sourceTree = "<group>"; };
 		609C7322200F29AA00C8AED6 /* XLWeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XLWeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		609C7325200F29AA00C8AED6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -257,6 +261,8 @@
 				609C7353200F380C00C8AED6 /* Bundle+Extension.swift */,
 				609C7358200F582000C8AED6 /* UIBarButtonItem+Extension.swift */,
 				60431C7020104261001A006C /* UIButton+Extension.swift */,
+				604ECF2F2019E49D00FB05A8 /* String+Extension.swift */,
+				604ECF312019E6A300FB05A8 /* Date+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -412,6 +418,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				609C7347200F2CF600C8AED6 /* XLBaseNavigationController.swift in Sources */,
+				604ECF322019E6A300FB05A8 /* Date+Extension.swift in Sources */,
+				604ECF302019E49D00FB05A8 /* String+Extension.swift in Sources */,
 				604ECF2C2019C0E400FB05A8 /* XLUserAccoutModel.swift in Sources */,
 				609C7354200F380C00C8AED6 /* Bundle+Extension.swift in Sources */,
 				609C734B200F2D4F00C8AED6 /* XLHomeViewController.swift in Sources */,

@@ -58,7 +58,7 @@ extension XLNetworkManager {
                 return
             }
             self.userAccout = userInfo
-            print(self.userAccout)
+            self.userAccout.saveInfo()
         }
     }
 }
