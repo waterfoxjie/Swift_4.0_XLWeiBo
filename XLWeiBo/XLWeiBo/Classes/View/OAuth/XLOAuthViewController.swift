@@ -80,10 +80,11 @@ extension XLOAuthViewController: UIWebViewDelegate {
             return false
         }
         // 从 query 中去取出授权码（此时一定有查询字符串，并且包含 code=）
-        let code = String(describing: request.url?.query!["code=".endIndex...])
-        print(code)
+        // 这种写法得到的是一个 Optional 类型的，网络请求会出错
+//        let code = String(describing: request.url?.query!["code=".endIndex...])
+        let code = request.url?.query?.substring(from: "code=".endIndex)
+        XLNetworkManager.shareManager.accessTokenRequest(code: code!)
         
-        print("加载请求\(String(describing: request.url?.absoluteString))")
         return false
     }
     

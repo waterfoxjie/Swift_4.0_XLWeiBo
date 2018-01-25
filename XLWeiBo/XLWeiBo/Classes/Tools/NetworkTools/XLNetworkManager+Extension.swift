@@ -8,7 +8,7 @@
 
 import Foundation
 
-// 封装微博的网络请求
+// MARK: - 首页微博的网络请求
 extension XLNetworkManager {
     
     /// 首页获取微博接口
@@ -30,5 +30,36 @@ extension XLNetworkManager {
             let result = (json as AnyObject)["statuses"] as? [[String: AnyObject]]
             completion(result, isSuccess)
         }
+    }
+}
+
+// MARK: - Access Token 的网络请求
+extension XLNetworkManager {
+    func accessTokenRequest(code: String) {
+        let urlString = "https://api.weibo.com/oauth2/access_token"
+        /* 参数说明
+           client_id      申请应用时分配的 AppKey
+           client_secret  申请应用时分配的 AppSecret
+           grant_type     请求的类型，写 “authorization_code”
+           code           调用 authorize 获得的 code 值
+           redirect_uri   注册应用时填写的回调地址
+         */
+        let params = ["client_id": WeiBoAppKey,
+                      "client_secret": WeiBoAppSecret,
+                      "grant_type": "authorization_code",
+                      "code": code as String,
+                      "redirect_uri": WeiBoRedirectUri]
+        request(method: .POST, urlString: urlString, parameters: params as [String : AnyObject]) { (json, isSuccess) in
+            
+            print(json)
+        }
+        /* 返回数据
+         "access_token" = "2.004YlqECaCmxOD8609ab5602EIicWB";
+         "expires_in" = 157679999;
+         isRealName = true;
+         "remind_in" = 157679999;
+         uid = 1903946863;
+         */
+        
     }
 }

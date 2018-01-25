@@ -61,10 +61,10 @@ class XLNetworkManager: AFHTTPSessionManager {
     ///   - urlString: urlString
     ///   - parameters: parameters  参数字典
     ///   - completion: completion  回调闭包
-    private func request(method: XLHTTPMethod = .GET,
-                         urlString: String,
-                         parameters: [String: AnyObject],
-                         completion: @escaping (_ json: Any?, _ isSuccess: Bool) -> Void) {
+    func request(method: XLHTTPMethod = .GET,
+                 urlString: String,
+                 parameters: [String: AnyObject],
+                 completion: @escaping (_ json: Any?, _ isSuccess: Bool) -> Void) {
         // 定义两个回调闭包
         let success = { (task: URLSessionDataTask, json: Any?) -> Void in
             completion(json, true)
