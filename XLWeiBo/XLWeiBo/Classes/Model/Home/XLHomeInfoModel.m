@@ -10,4 +10,10 @@
 
 @implementation XLHomeInfoModel
 
++ (NSDictionary<NSString *,id> *)modelCustomPropertyMapper {
+    return @{@"wbId":@"id",
+             @"wbText":@"text"
+             };
+}
+
 @end

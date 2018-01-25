@@ -50,16 +50,8 @@ extension XLNetworkManager {
                       "code": code as String,
                       "redirect_uri": WeiBoRedirectUri]
         request(method: .POST, urlString: urlString, parameters: params as [String : AnyObject]) { (json, isSuccess) in
-            
-            print(json)
+            // 字典转模型
+            self.userAccout.yy_modelSet(with: json as? [String : AnyObject] ?? [:])
         }
-        /* 返回数据
-         "access_token" = "2.004YlqECaCmxOD8609ab5602EIicWB";
-         "expires_in" = 157679999;
-         isRealName = true;
-         "remind_in" = 157679999;
-         uid = 1903946863;
-         */
-        
     }
 }

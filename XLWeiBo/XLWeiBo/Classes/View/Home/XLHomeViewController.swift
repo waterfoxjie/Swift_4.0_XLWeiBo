@@ -62,7 +62,7 @@ extension XLHomeViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: homeTableViewCellID, for: indexPath) as! UITableViewCell
-        cell.textLabel?.text = listViewModel.homeList[indexPath.row].text
+        cell.textLabel?.text = listViewModel.homeList[indexPath.row].wbText
         return cell
     }
     

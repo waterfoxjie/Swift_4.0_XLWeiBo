@@ -17,11 +17,13 @@ enum XLHTTPMethod {
 
 // 网络管理工具
 class XLNetworkManager: AFHTTPSessionManager {
-    // 创建 token(访问令牌)
-    var accessToken: String? //= "2.004YlqECaCmxOD3cee65c871GBdoDB"
+    
+    // 用户账户懒加载属性
+    lazy var userAccout = XLUserAccoutModel()
+    
     // 创建登录标记（计算型属性）
     var userLogon: Bool {
-        return accessToken != nil
+        return userAccout.accessToken != nil
     }
     
     // 创建单例
@@ -39,7 +41,7 @@ class XLNetworkManager: AFHTTPSessionManager {
                       parameters: [String: AnyObject]?,
                       completion: @escaping (_ json: Any?, _ isSuccess: Bool) -> Void) {
         // 判断 token 是否有值
-        guard let token = accessToken else {
+        guard let token = userAccout.accessToken else {
             print("没有 token，需要进行登录操作")
             completion(nil, false)
             return

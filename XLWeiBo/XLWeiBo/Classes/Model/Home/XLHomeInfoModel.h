@@ -12,9 +12,9 @@
 @interface XLHomeInfoModel : NSObject
 
 // 微博ID
-@property (nonatomic, assign) NSInteger id;
+@property (nonatomic, assign) NSInteger wbId;
 // 微博信息内容
-@property (nonatomic, copy) NSString *text;
+@property (nonatomic, copy) NSString *wbText;
 @end
 
 
