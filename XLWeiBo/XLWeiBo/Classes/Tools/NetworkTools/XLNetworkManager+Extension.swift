@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ObjectMapper
 
 // MARK: - 首页微博的网络请求
 extension XLNetworkManager {
@@ -51,7 +52,13 @@ extension XLNetworkManager {
                       "redirect_uri": WeiBoRedirectUri]
         request(method: .POST, urlString: urlString, parameters: params as [String : AnyObject]) { (json, isSuccess) in
             // 字典转模型
-            self.userAccout.yy_modelSet(with: json as? [String : AnyObject] ?? [:])
+            guard let list = json as? [String: Any],
+                let userInfo = Mapper<XLUserAccoutModel>().map(JSON: list) else {
+                print("获取信息失败")
+                return
+            }
+            self.userAccout = userInfo
+            print(self.userAccout)
         }
     }
 }

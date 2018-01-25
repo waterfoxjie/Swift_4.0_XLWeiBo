@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ObjectMapper
 
 class XLHomeListViewModel {
     // 微博模型数组懒加载
@@ -26,13 +27,13 @@ class XLHomeListViewModel {
             completion(true, false)
             return
         }
-        let since_id = isPullup ? 0 : homeList.first?.wbId ?? 0
-        let tempMaxId = isPullup ? homeList.last?.wbId ?? 0 : 0
+        let since_id = isPullup ? 0 : homeList.first?.wbID ?? 0
+        let tempMaxId = isPullup ? homeList.last?.wbID ?? 0 : 0
         let max_id = tempMaxId > 0 ? tempMaxId - 1 : tempMaxId
         // 调用网络方法加载数据
         print("最后一条数据\(String(describing: homeList.last?.wbText))")
         XLNetworkManager.shareManager.homeTimelineRequest(since_id: Int64(since_id), max_id: Int64(max_id)) { (list, isSuccess) in
-            guard let array = NSArray.yy_modelArray(with: XLHomeInfoModel.self, json: list ?? []) as? [XLHomeInfoModel] else {
+            guard let array = Mapper<XLHomeInfoModel>().mapArray(JSONArray: list ?? []) as? [XLHomeInfoModel] else {
                 completion(isSuccess, false)
                 return
             }

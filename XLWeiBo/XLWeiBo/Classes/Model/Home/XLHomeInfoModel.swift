@@ -1,22 +1,32 @@
 //
-//  XLHomeInfoModel.h
+//  XLHomeInfoModel.swift
 //  XLWeiBo
 //
-//  Created by waterfoxjie on 2018/1/22.
+//  Created by waterfoxjie on 2018/1/25.
 //  Copyright © 2018年 waterfoxjie. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <YYModel/YYModel.h>
+import UIKit
+import ObjectMapper
 
-@interface XLHomeInfoModel : NSObject
-
-// 微博ID
-@property (nonatomic, assign) NSInteger wbId;
-// 微博信息内容
-@property (nonatomic, copy) NSString *wbText;
-@end
-
+class XLHomeInfoModel: Mappable {
+    // MARK: - 设置属性
+    // 微博ID
+    var wbID: Int64 = 0
+    // 微博信息内容
+    var wbText: String?
+    
+    // 实现 Mappable 中的两个方法
+    required init?(map: Map) {
+    }
+    
+    // 自定义的 Model 需要实现 Mappable 接口
+    // 并在mapping(map: Map)方法中将 Model 的属性与 JSON 结构的 Key 相映射
+    func mapping(map: Map) {
+        wbID   <- map["id"]
+        wbText <- map["text"]
+    }
+}
 
 /*
  created_at    string    微博创建时间
@@ -44,3 +54,4 @@
  pic_ids    object    微博配图ID。多图时返回多图ID，用来拼接图片url。用返回字段thumbnail_pic的地址配上该返回字段的图片ID，即可得到多个图片url。
  ad    object array    微博流内的推广微博ID
  */
+

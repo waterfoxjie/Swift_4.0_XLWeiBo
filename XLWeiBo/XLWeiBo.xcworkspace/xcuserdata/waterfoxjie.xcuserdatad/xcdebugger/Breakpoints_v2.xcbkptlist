@@ -35,46 +35,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "XLWeiBo/Classes/ViewModel/XLHomeListViewModel.swift"
-            timestampString = "538555738.858961"
+            filePath = "XLWeiBo/Classes/Tools/NetworkTools/XLNetworkManager+Extension.swift"
+            timestampString = "538561869.71711"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "loadHomeList(isPullup:completion:)"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "accessTokenRequest(code:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;&gt;&gt;, Swift.Bool) -&gt; () in XLWeiBo.XLHomeListViewModel.loadHomeList(isPullup: Swift.Bool, completion: (Swift.Bool, Swift.Bool) -&gt; ()) -&gt; ()"
-                  moduleName = "XLWeiBo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/waterfoxjie/Desktop/iOS%E7%BB%83%E4%B9%A0Demo/Swift/Swift_4.0_XLWeiBo/XLWeiBo/XLWeiBo/Classes/ViewModel/XLHomeListViewModel.swift"
-                  timestampString = "538555739.024129"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36"
-                  offsetFromSymbolStart = "569">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "implicit closure #1 : @autoclosure () throws -&gt; Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;&gt; in closure #1 (Swift.Optional&lt;Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;&gt;&gt;, Swift.Bool) -&gt; () in XLWeiBo.XLHomeListViewModel.loadHomeList(isPullup: Swift.Bool, completion: (Swift.Bool, Swift.Bool) -&gt; ()) -&gt; ()"
-                  moduleName = "XLWeiBo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/waterfoxjie/Desktop/iOS%E7%BB%83%E4%B9%A0Demo/Swift/Swift_4.0_XLWeiBo/XLWeiBo/XLWeiBo/Classes/ViewModel/XLHomeListViewModel.swift"
-                  timestampString = "538555739.027511"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36"
-                  offsetFromSymbolStart = "62">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
