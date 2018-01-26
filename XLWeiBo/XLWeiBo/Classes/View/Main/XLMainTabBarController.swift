@@ -24,14 +24,16 @@ class XLMainTabBarController: UITabBarController {
         
         // 设置代理
         delegate = self
-        // 注册用户登录通知
-        NotificationCenter.default.addObserver(self, selector: #selector(userLogin), name: NSNotification.Name(rawValue: WeiBoUserLoginNotification), object: nil)
-        
+        // 注册登录通知
+        NotificationCenter.default.addObserver(self, selector: #selector(userLogin), name: NSNotification.Name(rawValue: WeiBoLoginNotification), object: nil)
     }
     
-    // 销毁定时器
+    
     deinit {
+        // 销毁定时器
         timer?.invalidate()
+        // 销毁通知
+        NotificationCenter.default.removeObserver(self)
     }
     
     // 设置支持的方向之后，当前的控制器及子控制器否会遵守这个方向
@@ -131,7 +133,7 @@ extension XLMainTabBarController {
     }
 }
 
-// MARK: - WeiBoUserLoginNotification 实现通知方法
+// MARK: - 通知方法
 extension XLMainTabBarController {
     @objc private func userLogin() {
         let nav = UINavigationController(rootViewController: XLOAuthViewController())

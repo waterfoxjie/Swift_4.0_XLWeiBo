@@ -17,6 +17,9 @@ class XLBaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
+        // 注册登录成功通知
+        NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: NSNotification.Name(rawValue: WeiBoLoginSuccessNotification), object: nil)
     }
     
     // 需要被重写的方法不能写在 extension 中
@@ -28,6 +31,11 @@ class XLBaseViewController: UIViewController {
     @objc func loadData() {
         // 默认收起
         self.resfreshC?.endRefreshing()
+    }
+    
+    deinit {
+        // 销毁通知
+        NotificationCenter.default.removeObserver(self)
     }
 }
 
@@ -77,7 +85,7 @@ extension XLBaseViewController {
     // 登录
     @objc private func login() {
         // 发送通知
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: WeiBoUserLoginNotification), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: WeiBoLoginNotification), object: nil)
     }
     
     // 注册
@@ -98,6 +106,16 @@ extension XLBaseViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
+    }
+}
+
+// MARK: - 通知方法
+extension XLBaseViewController {
+    @objc private func updateUI() {
+        // 在访问 view 的 getter 方法时，如果 view = nil，会调用 loadView -> viewDidLoad
+        view = nil
+        // viewDidLoad 中进行了通知的注册，这里重新走会使通知注册两次，所以这里还需要注销通知
+        NotificationCenter.default.removeObserver(self)
     }
 }
 

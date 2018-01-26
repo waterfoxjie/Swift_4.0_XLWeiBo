@@ -36,7 +36,8 @@ extension XLNetworkManager {
 
 // MARK: - Access Token 的网络请求
 extension XLNetworkManager {
-    func accessTokenRequest(code: String) {
+    func accessTokenRequest(code: String,
+                            completion: @escaping (_ isSuccess: Bool) -> ()) {
         let urlString = "https://api.weibo.com/oauth2/access_token"
         /* 参数说明
            client_id      申请应用时分配的 AppKey
@@ -59,6 +60,8 @@ extension XLNetworkManager {
             }
             self.userAccout = userInfo
             self.userAccout.saveInfo()
+            // 完成回调
+            completion(isSuccess)
         }
     }
 }

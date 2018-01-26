@@ -51,8 +51,12 @@ extension XLOAuthViewController {
     
     // 自动填充
     @objc private func autoFill() {
-        let js = "document.getElementById('userId').value = '15521197839';" +
-        "document.getElementById('passwd').value = 'qwer1234';"
+        // 开发者
+//        let js = "document.getElementById('userId').value = '15521197839';" +
+//        "document.getElementById('passwd').value = 'qwer1234';"
+        // 测试
+        let js = "document.getElementById('userId').value = '15521197089';" +
+        "document.getElementById('passwd').value = 'qq416516696';"
         webView.stringByEvaluatingJavaScript(from: js)
         
     }
@@ -82,9 +86,20 @@ extension XLOAuthViewController: UIWebViewDelegate {
         // 从 query 中去取出授权码（此时一定有查询字符串，并且包含 code=）
         // 这种写法得到的是一个 Optional 类型的，网络请求会出错
 //        let code = String(describing: request.url?.query!["code=".endIndex...])
-        let code = request.url?.query?.substring(from: "code=".endIndex)
-        XLNetworkManager.shareManager.accessTokenRequest(code: code!)
-        
+        guard let code = request.url?.query?.substring(from: "code=".endIndex) else {
+            return false
+        }
+        XLNetworkManager.shareManager.accessTokenRequest(code: code) { (isSuccess) in
+            let message = isSuccess ? "授权登录成功" : "网络不好，请稍后重试"
+            SVProgressHUD.showInfo(withStatus: message)
+            // 登录成功
+            if isSuccess {
+                // 发送登录成功通知，刷新界面数据
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: WeiBoLoginSuccessNotification), object: nil)
+                // 关闭当前界面
+                self.close()
+            }
+        }
         return false
     }
     

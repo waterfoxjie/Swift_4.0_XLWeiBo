@@ -26,5 +26,7 @@ let HighlightedTitleColor: UIColor = UIColor.orange
 
 // MARK: - 全局通知定义
 // 登录通知
-let WeiBoUserLoginNotification = "WeiBoUserLoginNotification"
+let WeiBoLoginNotification = "WeiBoLoginNotification"
+// 登录成功通知
+let WeiBoLoginSuccessNotification = "WeiBoLoginSuccessNotification"
 
