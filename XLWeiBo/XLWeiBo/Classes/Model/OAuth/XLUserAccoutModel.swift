@@ -43,6 +43,15 @@ class XLUserAccoutModel: Mappable {
         expiresData = (dict[expiresDataStr] as! String).stringWithDate()
         accessToken = dict[accessTokenStr] as? String
         uid = dict[uidStr] as? String
+        // 判断是否过期
+        if expiresData?.compare(Date()) != .orderedDescending {
+            // 清空数据
+            accessToken = nil
+            uid = nil
+            // 删除磁盘文件
+            _ = try? FileManager.default.removeItem(atPath: filePath)
+        }
+        
     }
     
     required init?(map: Map) {
