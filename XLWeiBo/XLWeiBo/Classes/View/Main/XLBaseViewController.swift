@@ -114,6 +114,9 @@ extension XLBaseViewController {
     @objc private func updateUI() {
         // 在访问 view 的 getter 方法时，如果 view = nil，会调用 loadView -> viewDidLoad
         view = nil
+        // 清空导航栏按钮设置
+        navigationItem.leftBarButtonItem = nil
+        navigationItem.rightBarButtonItem = nil
         // viewDidLoad 中进行了通知的注册，这里重新走会使通知注册两次，所以这里还需要注销通知
         NotificationCenter.default.removeObserver(self)
     }
