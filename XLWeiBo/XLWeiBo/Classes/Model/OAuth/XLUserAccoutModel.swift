@@ -9,10 +9,16 @@
 import UIKit
 import ObjectMapper
 
+private let accoutFileName = "UserAccout.json"
+private let accessTokenStr = "accessToken"
+private let expiresDataStr = "expiresData"
+private let uidStr = "uid"
+
+
 class XLUserAccoutModel: Mappable {
     // MARK: - 设置属性
     // 用户授权的唯一票据，用于调用微博的开放接口，同时也是第三方应用验证微博用户登录的唯一票据
-    var accessToken: String? //= "2.004YlqECaCmxOD8609ab5602EIicWB"
+    var accessToken: String? //= "2.004YlqECaCmxOD4203f7fea3e29dFE"
     // access_token 的生命周期
     var expiresIn: TimeInterval = 0 {
         didSet {
@@ -25,7 +31,18 @@ class XLUserAccoutModel: Mappable {
     var uid: String?
     
     init() {
-        
+        // 拿到磁盘存储的数据
+        let filePath = accoutFileName.appendDocumnetDir()
+        guard let data = NSData(contentsOfFile: filePath),
+            // 反序列化
+            let dict = try? JSONSerialization.jsonObject(with: data as Data, options: []) as! NSDictionary
+            else {
+            return
+        }
+        // 设置模型值
+        expiresData = (dict[expiresDataStr] as! String).stringWithDate()
+        accessToken = dict[accessTokenStr] as? String
+        uid = dict[uidStr] as? String
     }
     
     required init?(map: Map) {
@@ -41,19 +58,17 @@ class XLUserAccoutModel: Mappable {
     // 将数据保存在 Documnet 目录下
     func saveInfo() {
         // 对时间进行处理
-        let dateString = expiresData?.dataWithString()
+        let dateString = expiresData?.dateWithString()
         // 创建一个字典
-        let dict: [String: Any] = ["accessToken": accessToken ?? "",
-                                   "expiresData": dateString ?? "",
-                                   "uid": uid ?? ""]
-        // 存储路径
-        let fileName = "UserAccout.json"
+        let dict: [String: Any] = [accessTokenStr: accessToken ?? "",
+                                   expiresDataStr: dateString ?? "",
+                                   uidStr: uid ?? ""]
         // 字典反序列化
         guard let data = try? JSONSerialization.data(withJSONObject: dict, options: [])
         else {
             return
         }
-        let filePath = fileName.appendDocumnetDir()
+        let filePath = accoutFileName.appendDocumnetDir()
         // 存入磁盘（保存在 Document 目录下）
         (data as NSData).write(toFile: filePath, atomically: true)
         print("用户信息保存成功：\(filePath)")

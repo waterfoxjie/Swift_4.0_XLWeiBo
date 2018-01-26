@@ -14,11 +14,10 @@ extension Date {
     /// 时间转字符串
     ///
     /// - Parameters:
-    ///   - date: date  需要转的时间
     ///   - dateStyle: dateStyle  date 类型
     ///   - timeStyle: timeStyle  time 类型
     /// - Returns: 返回转好的字符串
-    func dataWithString(dateStyle: DateFormatter.Style = .full,
+    func dateWithString(dateStyle: DateFormatter.Style = .full,
                         timeStyle: DateFormatter.Style = .full) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = dateStyle

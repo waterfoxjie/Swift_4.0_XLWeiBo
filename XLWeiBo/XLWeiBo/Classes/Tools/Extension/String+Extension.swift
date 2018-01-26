@@ -22,5 +22,24 @@ extension String {
     }
 }
 
+// MARK: - 日期相关
+extension String {
+    
+    /// 字符串转时间
+    ///
+    /// - Parameters:
+    ///   - dateStyle: dateStyle  date 类型
+    ///   - timeStyle: timeStyle  time 类型
+    /// - Returns: 返回转好的 Date
+    func stringWithDate(dateStyle: DateFormatter.Style = .full,
+                        timeStyle: DateFormatter.Style = .full) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = dateStyle
+        dateFormatter.timeStyle = timeStyle
+        let date = dateFormatter.date(from: self)
+        return date
+    }
+}
+
 
 
