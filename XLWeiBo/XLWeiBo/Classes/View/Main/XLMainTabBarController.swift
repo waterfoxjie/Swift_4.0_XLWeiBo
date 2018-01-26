@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class XLMainTabBarController: UITabBarController {
 
@@ -135,9 +136,19 @@ extension XLMainTabBarController {
 
 // MARK: - 通知方法
 extension XLMainTabBarController {
-    @objc private func userLogin() {
-        let nav = UINavigationController(rootViewController: XLOAuthViewController())
-        present(nav, animated: true, completion: nil)
+    @objc private func userLogin(n: Notification) {
+        // 判断通知中的 object 是否有值，有则是使用过程中 token 过期情况，弹框提示用户，再弹出登录控制器
+        var deadline = DispatchTime.now()
+        if n.object != nil {
+            SVProgressHUD.setDefaultMaskType(.gradient)
+            SVProgressHUD.showInfo(withStatus: "登录已超时，请重新登录")
+            deadline = DispatchTime.now() + 1.5
+        }
+        DispatchQueue.main.asyncAfter(deadline: deadline) {
+            SVProgressHUD.setDefaultMaskType(.clear)
+            let nav = UINavigationController(rootViewController: XLOAuthViewController())
+            self.present(nav, animated: true, completion: nil)
+        }
     }
 }
 

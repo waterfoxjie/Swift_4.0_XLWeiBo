@@ -18,7 +18,7 @@ private let uidStr = "uid"
 class XLUserAccoutModel: Mappable {
     // MARK: - 设置属性
     // 用户授权的唯一票据，用于调用微博的开放接口，同时也是第三方应用验证微博用户登录的唯一票据
-    var accessToken: String? //= "2.004YlqECaCmxOD4203f7fea3e29dFE"
+    var accessToken: String?
     // access_token 的生命周期
     var expiresIn: TimeInterval = 0 {
         didSet {

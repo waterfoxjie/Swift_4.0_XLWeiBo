@@ -43,6 +43,8 @@ class XLNetworkManager: AFHTTPSessionManager {
         // 判断 token 是否有值
         guard let token = userAccout.accessToken else {
             print("没有 token，需要进行登录操作")
+            // 发送通知，进行登录
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: WeiBoLoginNotification), object: "bad token")
             completion(nil, false)
             return
         }
