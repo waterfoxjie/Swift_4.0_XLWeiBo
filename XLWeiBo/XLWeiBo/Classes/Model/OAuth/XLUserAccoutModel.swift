@@ -13,6 +13,8 @@ private let accoutFileName = "UserAccout.json"
 private let accessTokenStr = "accessToken"
 private let expiresDataStr = "expiresData"
 private let uidStr = "uid"
+private let screenNameStr = "screenName"
+private let avatarLargeImageStr = "avatarLargeImage"
 
 
 class XLUserAccoutModel: Mappable {
@@ -29,6 +31,10 @@ class XLUserAccoutModel: Mappable {
     var expiresData: Date?
     // 授权用户的UID
     var uid: String?
+    // 用户昵称
+    var screenName: String?
+    // 用户头像地址（大图），180×180像素
+    var avatarLargeImage: String?
     
     init() {
         // 拿到磁盘存储的数据
@@ -43,6 +49,8 @@ class XLUserAccoutModel: Mappable {
         expiresData = (dict[expiresDataStr] as! String).stringWithDate()
         accessToken = dict[accessTokenStr] as? String
         uid = dict[uidStr] as? String
+        screenName = dict[screenNameStr] as? String
+        avatarLargeImage = dict[avatarLargeImageStr] as? String
         // 判断是否过期
         if expiresData?.compare(Date()) != .orderedDescending {
             // 清空数据
@@ -59,9 +67,11 @@ class XLUserAccoutModel: Mappable {
     
     // 字典转模型
     func mapping(map: Map) {
-        accessToken <- map["access_token"]
-        expiresIn   <- map["expires_in"]
-        uid         <- map["uid"]
+        accessToken      <- map["access_token"]
+        expiresIn        <- map["expires_in"]
+        uid              <- map["uid"]
+        screenName       <- map["screen_name"]
+        avatarLargeImage <- map["avatar_large"]
     }
     
     // 将数据保存在 Documnet 目录下
@@ -71,7 +81,9 @@ class XLUserAccoutModel: Mappable {
         // 创建一个字典
         let dict: [String: Any] = [accessTokenStr: accessToken ?? "",
                                    expiresDataStr: dateString ?? "",
-                                   uidStr: uid ?? ""]
+                                   uidStr: uid ?? "",
+                                   screenNameStr: screenName ?? "",
+                                   avatarLargeImageStr: avatarLargeImage ?? ""]
         // 字典反序列化
         guard let data = try? JSONSerialization.data(withJSONObject: dict, options: [])
         else {
