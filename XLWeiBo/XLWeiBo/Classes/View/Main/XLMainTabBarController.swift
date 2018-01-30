@@ -145,7 +145,6 @@ extension XLMainTabBarController {
         // 根据 isNewFeature，为 true 时显示新特性，否则显示欢迎页
         let v = isNewFeature ? XLNewFeatureView() : XLWelcomeView()
         // 添加控件
-        v.frame = view.bounds
         view.addSubview(v)
     }
     
