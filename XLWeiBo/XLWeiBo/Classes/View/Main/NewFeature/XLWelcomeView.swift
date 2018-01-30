@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import SDWebImage
 
 /// 欢迎界面
 class XLWelcomeView: UIView {
@@ -35,14 +36,15 @@ class XLWelcomeView: UIView {
             make.bottom.equalTo(self).offset(-(bounds.height - 250))
         })
         
-        UIView.animate(withDuration: 2.0,
-                       delay: 0,
-                       usingSpringWithDamping: 0.7,
-                       initialSpringVelocity: 0,
-                       options: [],
-                       animations: {
-                        self.layoutIfNeeded()},
-                       completion: nil)
+        UIView.animate(withDuration: 2.0, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: [], animations: {
+            // 更新 icon 位置
+            self.layoutIfNeeded()
+        }) { (_) in
+            // 显示 Label
+            UIView.animate(withDuration: 1.0, animations: {
+                self.welcomeLabel.alpha = 1.0
+            })
+        }
     }
 }
 
@@ -59,17 +61,25 @@ extension XLWelcomeView {
         iconImageView.snp.makeConstraints { (make) in
             make.centerX.equalTo(self)
             make.bottom.equalTo(self).offset(-200)
-            make.size.equalTo(CGSize(width: 85, height: 85))
+            make.size.equalTo(CGSize(width: 90, height: 90))
         }
         welcomeLabel.snp.makeConstraints { (make) in
             make.centerX.equalTo(self)
             make.top.equalTo(iconImageView.snp.bottom).offset(15)
         }
-        
+    
         backImageView.image = UIImage(named: "ad_background")
-        iconImageView.image = UIImage(named: "avatar_default_big")
         welcomeLabel.text = "欢迎回来"
         welcomeLabel.font = UIFont.systemFont(ofSize: 17)
         welcomeLabel.textColor = UIColor.lightGray
+        welcomeLabel.alpha = 0.0
+        iconImageView.layer.masksToBounds = true
+        iconImageView.layer.cornerRadius = 45
+        guard let urlString = XLNetworkManager.shareManager.userAccout.avatarLargeImage else {
+            return
+        }
+        let url = URL(string: urlString)
+        iconImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "avatar_default_big"))
+        
     }
 }
