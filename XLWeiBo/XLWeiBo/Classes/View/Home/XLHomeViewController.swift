@@ -18,8 +18,8 @@ class XLHomeViewController: XLBaseViewController {
     
     override func baseSetup() {
         super.baseSetup()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "好友", target: self, action: #selector(addFriends))
-
+        setupNavgation()
+        
         // 注册 Cell 原型
         tableView?.register(UITableViewCell.self, forCellReuseIdentifier: homeTableViewCellID)
     }
@@ -34,7 +34,6 @@ class XLHomeViewController: XLBaseViewController {
                 self.tableView?.reloadData()
             }
         }
-
     }
     
     override func viewDidLoad() {
@@ -44,9 +43,25 @@ class XLHomeViewController: XLBaseViewController {
     }
 }
 
+
+// MARK: - 基础设置
+extension XLHomeViewController {
+    private func setupNavgation() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "好友", target: self, action: #selector(addFriends))
+        // 设置中部按钮
+        let title = XLNetworkManager.shareManager.userAccout.screenName
+        navigationItem.titleView = XLHomeNavTitleButton(title: title)
+    }
+}
+
+// MARK: - 按钮点击事件
 extension XLHomeViewController {
     @objc private func addFriends() {
         print("好友")
+    }
+    
+    @objc private func navTitleButtonClick(btn: UIButton) {
+        btn.isSelected = !btn.isSelected
     }
 }
 
@@ -82,7 +97,6 @@ extension XLHomeViewController {
             loadData()
         }
     }
-    
-    
 }
+
 

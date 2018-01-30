@@ -14,6 +14,8 @@
 		604A9DBC2011CDAB007A305D /* XLNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604A9DBB2011CDAB007A305D /* XLNetworkManager.swift */; };
 		604A9DBE2011D828007A305D /* XLNetworkManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604A9DBD2011D828007A305D /* XLNetworkManager+Extension.swift */; };
 		604A9DC42011F0E7007A305D /* XLHomeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604A9DC32011F0E7007A305D /* XLHomeListViewModel.swift */; };
+		604EBB8F201F0E2100F4D3B8 /* XLHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EBB8E201F0E2100F4D3B8 /* XLHomeViewController.swift */; };
+		604EBB92201F11D200F4D3B8 /* XLHomeNavTitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EBB91201F11D200F4D3B8 /* XLHomeNavTitleButton.swift */; };
 		604ECF2A2019BC4300FB05A8 /* XLHomeInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604ECF292019BC4300FB05A8 /* XLHomeInfoModel.swift */; };
 		604ECF2C2019C0E400FB05A8 /* XLUserAccoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604ECF2B2019C0E400FB05A8 /* XLUserAccoutModel.swift */; };
 		604ECF302019E49D00FB05A8 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604ECF2F2019E49D00FB05A8 /* String+Extension.swift */; };
@@ -25,7 +27,6 @@
 		609C7345200F2CD200C8AED6 /* XLMainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609C7344200F2CD200C8AED6 /* XLMainTabBarController.swift */; };
 		609C7347200F2CF600C8AED6 /* XLBaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609C7346200F2CF600C8AED6 /* XLBaseNavigationController.swift */; };
 		609C7349200F2D1000C8AED6 /* XLBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609C7348200F2D1000C8AED6 /* XLBaseViewController.swift */; };
-		609C734B200F2D4F00C8AED6 /* XLHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609C734A200F2D4F00C8AED6 /* XLHomeViewController.swift */; };
 		609C734D200F2D6200C8AED6 /* XLMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609C734C200F2D6200C8AED6 /* XLMessageViewController.swift */; };
 		609C734F200F2D6E00C8AED6 /* XLDiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609C734E200F2D6E00C8AED6 /* XLDiscoverViewController.swift */; };
 		609C7351200F2D7900C8AED6 /* XLProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609C7350200F2D7900C8AED6 /* XLProfileViewController.swift */; };
@@ -45,6 +46,8 @@
 		604A9DBB2011CDAB007A305D /* XLNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLNetworkManager.swift; sourceTree = "<group>"; };
 		604A9DBD2011D828007A305D /* XLNetworkManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XLNetworkManager+Extension.swift"; sourceTree = "<group>"; };
 		604A9DC32011F0E7007A305D /* XLHomeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLHomeListViewModel.swift; sourceTree = "<group>"; };
+		604EBB8E201F0E2100F4D3B8 /* XLHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLHomeViewController.swift; sourceTree = "<group>"; };
+		604EBB91201F11D200F4D3B8 /* XLHomeNavTitleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLHomeNavTitleButton.swift; sourceTree = "<group>"; };
 		604ECF292019BC4300FB05A8 /* XLHomeInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLHomeInfoModel.swift; sourceTree = "<group>"; };
 		604ECF2B2019C0E400FB05A8 /* XLUserAccoutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLUserAccoutModel.swift; sourceTree = "<group>"; };
 		604ECF2F2019E49D00FB05A8 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
@@ -58,7 +61,6 @@
 		609C7344200F2CD200C8AED6 /* XLMainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLMainTabBarController.swift; sourceTree = "<group>"; };
 		609C7346200F2CF600C8AED6 /* XLBaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLBaseNavigationController.swift; sourceTree = "<group>"; };
 		609C7348200F2D1000C8AED6 /* XLBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLBaseViewController.swift; sourceTree = "<group>"; };
-		609C734A200F2D4F00C8AED6 /* XLHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLHomeViewController.swift; sourceTree = "<group>"; };
 		609C734C200F2D6200C8AED6 /* XLMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLMessageViewController.swift; sourceTree = "<group>"; };
 		609C734E200F2D6E00C8AED6 /* XLDiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLDiscoverViewController.swift; sourceTree = "<group>"; };
 		609C7350200F2D7900C8AED6 /* XLProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLProfileViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +122,23 @@
 				604A9DBD2011D828007A305D /* XLNetworkManager+Extension.swift */,
 			);
 			path = NetworkTools;
+			sourceTree = "<group>";
+		};
+		604EBB8D201F0E0500F4D3B8 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				604EBB90201F11BB00F4D3B8 /* titleButton */,
+				604EBB8E201F0E2100F4D3B8 /* XLHomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		604EBB90201F11BB00F4D3B8 /* titleButton */ = {
+			isa = PBXGroup;
+			children = (
+				604EBB91201F11D200F4D3B8 /* XLHomeNavTitleButton.swift */,
+			);
+			path = titleButton;
 			sourceTree = "<group>";
 		};
 		605B540F2017408000BB0818 /* OAuth */ = {
@@ -195,8 +214,8 @@
 			isa = PBXGroup;
 			children = (
 				605B540F2017408000BB0818 /* OAuth */,
+				604EBB8D201F0E0500F4D3B8 /* Home */,
 				609C7340200F2C0800C8AED6 /* Main */,
-				609C733F200F2C0800C8AED6 /* Home */,
 				609C7341200F2C0800C8AED6 /* Message */,
 				609C733E200F2C0800C8AED6 /* Discover */,
 				609C7342200F2C0800C8AED6 /* Profile */,
@@ -210,14 +229,6 @@
 				609C734E200F2D6E00C8AED6 /* XLDiscoverViewController.swift */,
 			);
 			path = Discover;
-			sourceTree = "<group>";
-		};
-		609C733F200F2C0800C8AED6 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				609C734A200F2D4F00C8AED6 /* XLHomeViewController.swift */,
-			);
-			path = Home;
 			sourceTree = "<group>";
 		};
 		609C7340200F2C0800C8AED6 /* Main */ = {
@@ -422,7 +433,6 @@
 				604ECF302019E49D00FB05A8 /* String+Extension.swift in Sources */,
 				604ECF2C2019C0E400FB05A8 /* XLUserAccoutModel.swift in Sources */,
 				609C7354200F380C00C8AED6 /* Bundle+Extension.swift in Sources */,
-				609C734B200F2D4F00C8AED6 /* XLHomeViewController.swift in Sources */,
 				604A9DC42011F0E7007A305D /* XLHomeListViewModel.swift in Sources */,
 				609C734D200F2D6200C8AED6 /* XLMessageViewController.swift in Sources */,
 				609C7359200F582000C8AED6 /* UIBarButtonItem+Extension.swift in Sources */,
@@ -435,8 +445,10 @@
 				609C732E200F29AA00C8AED6 /* XLWeiBo.xcdatamodeld in Sources */,
 				60431C6F20103245001A006C /* CommonTools.swift in Sources */,
 				609C7351200F2D7900C8AED6 /* XLProfileViewController.swift in Sources */,
+				604EBB8F201F0E2100F4D3B8 /* XLHomeViewController.swift in Sources */,
 				609C7345200F2CD200C8AED6 /* XLMainTabBarController.swift in Sources */,
 				605B5411201740B100BB0818 /* XLOAuthViewController.swift in Sources */,
+				604EBB92201F11D200F4D3B8 /* XLHomeNavTitleButton.swift in Sources */,
 				609C7349200F2D1000C8AED6 /* XLBaseViewController.swift in Sources */,
 				60431C7120104261001A006C /* UIButton+Extension.swift in Sources */,
 			);

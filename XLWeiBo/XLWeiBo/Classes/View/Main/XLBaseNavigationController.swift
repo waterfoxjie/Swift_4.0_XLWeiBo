@@ -12,8 +12,15 @@ class XLBaseNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        customInit()
     }
     
+    private func customInit() {
+        navigationBar.titleTextAttributes =
+            [NSAttributedStringKey.foregroundColor: UIColor.lightGray,
+             NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize:17)]
+    }
+
     // 重写 push 方法
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         // 隐藏二级界面之后的 TabBar
@@ -24,5 +31,4 @@ class XLBaseNavigationController: UINavigationController {
         
         super.pushViewController(viewController, animated: animated)
     }
-
 }
