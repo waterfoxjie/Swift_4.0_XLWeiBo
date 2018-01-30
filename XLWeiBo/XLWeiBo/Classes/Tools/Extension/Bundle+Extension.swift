@@ -13,4 +13,8 @@ extension Bundle {
     var nameSpace: String {
         return infoDictionary?["CFBundleName"] as? String ?? ""
     }
+    // 拿到 CFBundleShortVersionString 的值，版本号
+    var versionSpace: String {
+        return infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
+    }
 }

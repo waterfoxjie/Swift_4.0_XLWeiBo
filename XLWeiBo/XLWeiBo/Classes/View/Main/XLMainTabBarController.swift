@@ -22,6 +22,7 @@ class XLMainTabBarController: UITabBarController {
         setupChildViewController()
         setupComposeButton()
         setupTimer()
+        setupNewFeatureView()
         
         // 设置代理
         delegate = self
@@ -131,6 +132,37 @@ extension XLMainTabBarController {
         self.tabBar.items?.first?.badgeValue = "\(count)"
         // 设置 App 的 BadgeNumber
         UIApplication.shared.applicationIconBadgeNumber = count
+    }
+}
+
+// MARK: - 设置新特性界面
+extension XLMainTabBarController {
+    private func setupNewFeatureView() {
+        // 判断是否登录，没登录则不做任何事
+        if !XLNetworkManager.shareManager.userLogon {
+            return
+        }
+        // 根据 isNewFeature，为 true 时显示新特性，否则显示欢迎页
+        let v = isNewFeature ? XLNewFeatureView() : XLWelcomeView()
+        // 添加控件
+        v.frame = view.bounds
+        view.addSubview(v)
+    }
+    
+    // 计算型属性
+    private var isNewFeature: Bool {
+        // 拿到当前的版本号
+        let currentVersion = Bundle.main.versionSpace
+        // 拿到偏好设置中存储的版本号
+        let versionSpace = "versionSpace"
+        let olderVersion = UserDefaults.standard.value(forKey: versionSpace) as? String ?? ""
+        // 判断是否相同
+        let isDiff = currentVersion != olderVersion
+        // 若不同，将新的版本号信息进行保存
+        if isDiff {
+            UserDefaults.standard.set(currentVersion, forKey: versionSpace)
+        }
+        return isDiff
     }
 }
 
