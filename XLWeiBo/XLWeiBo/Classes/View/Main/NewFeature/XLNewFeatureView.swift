@@ -64,6 +64,7 @@ extension XLNewFeatureView {
         enterButton.setBackgroundImage(UIImage(named: "new_feature_finish_button"), for: .normal)
         enterButton.setBackgroundImage(UIImage(named: "new_feature_finish_button_highlighted"), for: .highlighted)
         enterButton.addTarget(self, action: #selector(clickEnterButton), for: .touchUpInside)
+        enterButton.isHidden = true
         
         // 当前页码
         pageControl.currentPage = 0
@@ -94,6 +95,28 @@ extension XLNewFeatureView {
 // MARK: - 按钮点击方法
 extension XLNewFeatureView {
     @objc private func clickEnterButton() {
-        print("点击点击")
+        removeFromSuperview()
     }
+}
+
+// MARK: - UIScrollViewDelegate 代理
+extension XLNewFeatureView: UIScrollViewDelegate {
+    // 停止滚动
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        // 获取当前页码
+        let currentPage = Int(scrollView.contentOffset.x / scrollView.bounds.width)
+        // 最后一页显示按钮
+        enterButton.isHidden = currentPage != (pageNumbers - 1)
+    }
+    
+    // 滚动
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        // 一滚动就隐藏按钮，结局按钮显示突兀问题
+        enterButton.isHidden = true
+        // 加 0.5 是为了滚动到中间位置时显示
+        let currentPage = Int(scrollView.contentOffset.x / scrollView.bounds.width + 0.5)
+        // 设置页码
+        self.pageControl.currentPage = currentPage
+    }
+    
 }

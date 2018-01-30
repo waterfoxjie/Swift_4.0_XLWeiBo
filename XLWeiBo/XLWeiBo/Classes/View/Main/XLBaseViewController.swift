@@ -89,7 +89,7 @@ extension XLBaseViewController {
     }
     
     // 注册
-    @objc private func register(){
+    @objc private func register() {
         print("注册")
     }
 }

@@ -43,7 +43,12 @@ class XLWelcomeView: UIView {
             // 显示 Label
             UIView.animate(withDuration: 1.0, animations: {
                 self.welcomeLabel.alpha = 1.0
+            }, completion: { (_) in
+                UIView.animate(withDuration: 1.0, animations: {
+                    self.removeFromSuperview()
+                })
             })
+            
         }
     }
 }
