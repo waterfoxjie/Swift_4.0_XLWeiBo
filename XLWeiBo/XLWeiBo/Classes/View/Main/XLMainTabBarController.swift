@@ -138,6 +138,8 @@ extension XLMainTabBarController {
 // MARK: - 设置新特性界面
 extension XLMainTabBarController {
     private func setupNewFeatureView() {
+        // 保存当前的版本号
+        let isNewFeature = setupVersion()
         // 判断是否登录，没登录则不做任何事
         if !XLNetworkManager.shareManager.userLogon {
             return
@@ -148,20 +150,19 @@ extension XLMainTabBarController {
         view.addSubview(v)
     }
     
-    // 计算型属性
-    private var isNewFeature: Bool {
+    private func setupVersion() -> Bool {
         // 拿到当前的版本号
         let currentVersion = Bundle.main.versionSpace
         // 拿到偏好设置中存储的版本号
         let versionSpace = "versionSpace"
         let olderVersion = UserDefaults.standard.value(forKey: versionSpace) as? String ?? ""
         // 判断是否相同
-        let isDiff = currentVersion != olderVersion
+        let isNewFeature = currentVersion != olderVersion
         // 若不同，将新的版本号信息进行保存
-        if isDiff {
+        if isNewFeature {
             UserDefaults.standard.set(currentVersion, forKey: versionSpace)
         }
-        return isDiff
+        return isNewFeature
     }
 }
 
