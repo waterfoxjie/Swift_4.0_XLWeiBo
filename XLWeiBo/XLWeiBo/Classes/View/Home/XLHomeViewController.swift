@@ -47,7 +47,7 @@ class XLHomeViewController: XLBaseViewController {
 // MARK: - 基础设置
 extension XLHomeViewController {
     private func setupNavgation() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "好友", target: self, action: #selector(addFriends))
+        addLeftTitleBarButton(title: "好友", target: self, action: #selector(addFriends))
         // 设置中部按钮
         let title = XLNetworkManager.shareManager.userAccout.screenName
         navigationItem.titleView = XLHomeNavTitleButton(title: title)

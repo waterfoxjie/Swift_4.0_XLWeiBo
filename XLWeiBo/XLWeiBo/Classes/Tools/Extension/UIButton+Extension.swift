@@ -39,6 +39,7 @@ extension UIButton {
         // 设置按钮与文字间距
         titleEdgeInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: -5)
         addTarget(target, action: action, for: .touchUpInside)
+        sizeToFit()
     }
     
     /// 自定义文字 Button

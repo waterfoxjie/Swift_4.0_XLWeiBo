@@ -33,6 +33,7 @@ class XLHomeNavTitleButton: UIButton {
             }
             titleEdgeInsets = UIEdgeInsetsMake(0, -(imageWidth) ,0, imageWidth);
             imageEdgeInsets = UIEdgeInsetsMake(0, labelWidth, 0, -(labelWidth));
+            sizeToFit()
         }
     }
     
