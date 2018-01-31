@@ -62,6 +62,8 @@ extension UIButton {
         setTitleColor(highlightedTitleColor, for: .highlighted)
         titleLabel?.font = UIFont(name: "Helvetica Neue", size: fontSize)
         addTarget(target, action: action, for: .touchUpInside)
+        // 设置大小，修复 button 没有显示问题
+        sizeToFit()
     }
     
     
@@ -80,6 +82,7 @@ extension UIButton {
         setImage(UIImage(named: normalImageName), for: .normal)
         setImage(UIImage(named: highlightedImageName), for: .highlighted)
         addTarget(target, action: action, for: .touchUpInside)
+        sizeToFit()
     }
     
     
