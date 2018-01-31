@@ -52,6 +52,7 @@ extension XLNewFeatureView {
         }
         
         scrollView.backgroundColor = UIColor.clear
+        scrollView.delegate = self
         // 弹簧效果
         scrollView.bounces = false
         scrollView.isPagingEnabled = true
