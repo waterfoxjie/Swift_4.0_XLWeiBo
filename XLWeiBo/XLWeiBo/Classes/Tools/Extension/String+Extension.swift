@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 // MARK: - 路径相关
 extension String {
@@ -24,7 +25,6 @@ extension String {
 
 // MARK: - 日期相关
 extension String {
-    
     /// 字符串转时间
     ///
     /// - Parameters:
@@ -38,6 +38,25 @@ extension String {
         dateFormatter.timeStyle = timeStyle
         let date = dateFormatter.date(from: self)
         return date
+    }
+}
+
+// MARK: - 间距相关
+extension String {
+    /// 调整行间距
+    ///
+    /// - Parameters:
+    ///   - lineSpace: 行间距
+    /// - Returns: 返回一个 NSAttributedString 类型
+    func adjustLineSpacing(lineSpacing: CGFloat) -> NSAttributedString {
+        let attributedString = NSMutableAttributedString(string: self)
+        let paragraphStyle = NSMutableParagraphStyle()
+        // 调整行间距
+        paragraphStyle.lineSpacing = lineSpacing
+        paragraphStyle.alignment = .left
+        let range = NSMakeRange(0, CFStringGetLength(self as CFString))
+        attributedString.addAttribute(NSAttributedStringKey.paragraphStyle, value: paragraphStyle, range: range)
+        return attributedString
     }
 }
 

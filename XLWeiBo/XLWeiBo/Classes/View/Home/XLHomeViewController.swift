@@ -22,6 +22,11 @@ class XLHomeViewController: XLBaseViewController {
         
         // 注册 Cell 原型
         tableView?.register(XLHomeListNormalCell.self, forCellReuseIdentifier: homeTableViewCellID)
+        // 设置行高自动布局
+        tableView?.rowHeight = UITableViewAutomaticDimension
+        tableView?.estimatedRowHeight = 300
+        // 隐藏底部分割线
+        tableView?.separatorStyle = .none
     }
     
     // 设置数据
@@ -80,9 +85,9 @@ extension XLHomeViewController {
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 100
-//    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
     
     // 将要显示 cell 代理方法
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
