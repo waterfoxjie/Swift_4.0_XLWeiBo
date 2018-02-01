@@ -22,7 +22,7 @@ extension UIButton {
     ///   - target: target
     ///   - action: action
     convenience init(title: String,
-                     fontSize: CGFloat = 16,
+                     fontSize: CGFloat = 16 * ScreenScale,
                      normalTitleColor: UIColor,
                      highlightedTitleColor: UIColor,
                      normalImageName: String,
@@ -52,7 +52,7 @@ extension UIButton {
     ///   - target: target
     ///   - action: action
     convenience init(title: String,
-                     fontSize: CGFloat = 16,
+                     fontSize: CGFloat = 16 * ScreenScale,
                      normalTitleColor: UIColor,
                      highlightedTitleColor: UIColor,
                      target: Any?,

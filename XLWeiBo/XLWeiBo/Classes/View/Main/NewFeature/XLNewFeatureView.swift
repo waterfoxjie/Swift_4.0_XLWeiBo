@@ -43,12 +43,12 @@ extension XLNewFeatureView {
         }
         enterButton.snp.makeConstraints { (make) in
             make.centerX.equalTo(self)
-            make.centerY.equalTo(self).offset(100)
-            make.size.equalTo(CGSize(width: 105, height: 36))
+            make.centerY.equalTo(self).offset(100 * ScreenScale)
+            make.size.equalTo(CGSize(width: 105 * ScreenScale, height: 36 * ScreenScale))
         }
         pageControl.snp.makeConstraints { (make) in
             make.centerX.equalTo(self)
-            make.bottom.equalTo(self).offset(-80)
+            make.bottom.equalTo(self).offset(-80 * ScreenScale)
         }
         
         scrollView.backgroundColor = UIColor.clear
@@ -61,7 +61,7 @@ extension XLNewFeatureView {
         
         enterButton.setTitle("进入微博", for: .normal)
         enterButton.setTitleColor(UIColor.white, for: .normal)
-        enterButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        enterButton.titleLabel?.font = UIFont.systemFont(ofSize: 16 * ScreenScale)
         enterButton.setBackgroundImage(UIImage(named: "new_feature_finish_button"), for: .normal)
         enterButton.setBackgroundImage(UIImage(named: "new_feature_finish_button_highlighted"), for: .highlighted)
         enterButton.addTarget(self, action: #selector(clickEnterButton), for: .touchUpInside)

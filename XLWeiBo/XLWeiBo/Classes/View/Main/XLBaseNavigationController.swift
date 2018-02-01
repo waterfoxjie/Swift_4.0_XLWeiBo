@@ -18,7 +18,7 @@ class XLBaseNavigationController: UINavigationController {
     private func customInit() {
         navigationBar.titleTextAttributes =
             [NSAttributedStringKey.foregroundColor: UIColor.lightGray,
-             NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize:17)]
+             NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize:17 * ScreenScale)]
     }
 
     // 重写 push 方法

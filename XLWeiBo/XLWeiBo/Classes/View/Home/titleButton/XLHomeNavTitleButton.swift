@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SnapKit
 
 class XLHomeNavTitleButton: UIButton {
     
@@ -20,7 +19,7 @@ class XLHomeNavTitleButton: UIButton {
         let btnTitle = title == nil ? "首页" : title! + " "
         let titleColor = UIColor.lightGray
         adjustsImageWhenHighlighted = false
-        titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
+        titleLabel?.font = UIFont.boldSystemFont(ofSize: 17 * ScreenScale)
         setTitle(btnTitle, for: .normal)
         setTitleColor(titleColor, for: .normal)
         if title != nil {

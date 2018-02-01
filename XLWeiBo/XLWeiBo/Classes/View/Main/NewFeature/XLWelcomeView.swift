@@ -33,7 +33,7 @@ class XLWelcomeView: UIView {
         self.layoutIfNeeded()
         // 更新约束
         self.iconImageView.snp.updateConstraints({ (make) in
-            make.bottom.equalTo(self).offset(-(bounds.height - 250))
+            make.bottom.equalTo(self).offset(-(bounds.height - 250) * ScreenScale)
         })
         
         UIView.animate(withDuration: 2.0, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: [], animations: {
@@ -65,8 +65,8 @@ extension XLWelcomeView {
         }
         iconImageView.snp.makeConstraints { (make) in
             make.centerX.equalTo(self)
-            make.bottom.equalTo(self).offset(-200)
-            make.size.equalTo(CGSize(width: 90, height: 90))
+            make.bottom.equalTo(self).offset(-200 * ScreenScale)
+            make.size.equalTo(CGSize(width: 90 * ScreenScale, height: 90 * ScreenScale))
         }
         welcomeLabel.snp.makeConstraints { (make) in
             make.centerX.equalTo(self)
@@ -75,11 +75,11 @@ extension XLWelcomeView {
     
         backImageView.image = UIImage(named: "ad_background")
         welcomeLabel.text = "欢迎回来"
-        welcomeLabel.font = UIFont.systemFont(ofSize: 17)
+        welcomeLabel.font = UIFont.systemFont(ofSize: 17 * ScreenScale)
         welcomeLabel.textColor = UIColor.lightGray
         welcomeLabel.alpha = 0.0
         iconImageView.layer.masksToBounds = true
-        iconImageView.layer.cornerRadius = 45
+        iconImageView.layer.cornerRadius = 45 * ScreenScale
         guard let urlString = XLNetworkManager.shareManager.userAccout.avatarLargeImage else {
             return
         }

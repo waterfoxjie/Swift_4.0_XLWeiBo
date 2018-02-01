@@ -74,9 +74,8 @@ extension XLBaseViewController {
         visitorView.loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
         visitorView.registerButton.addTarget(self, action: #selector(register), for: .touchUpInside)
         // 设置导航条按钮
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "注册", style: .plain, target: self, action: #selector(register))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "登录", style: .plain, target: self, action: #selector(login))
-        
+        addLeftTitleBarButton(title: "注册", target: self, action: #selector(register))
+        addRightTitleBarButton(title: "登录", target: self, action: #selector(login))
     }
 }
 

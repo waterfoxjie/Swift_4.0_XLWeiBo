@@ -19,7 +19,7 @@ extension UIBarButtonItem {
     ///   - target: target
     ///   - action: action
     convenience init(title: String,
-                     fontSize: CGFloat = 16,
+                     fontSize: CGFloat = 16 * ScreenScale,
                      target: Any?,
                      action: Selector) {
         let btn = UIButton(title: title,
@@ -63,7 +63,7 @@ extension UIBarButtonItem {
     ///   - target: target
     ///   - action: action
     convenience init(title: String,
-                     fontSize: CGFloat = 16,
+                     fontSize: CGFloat = 16 * ScreenScale,
                      normalImageName: String,
                      highlightedImageName: String,
                      target: Any?,
