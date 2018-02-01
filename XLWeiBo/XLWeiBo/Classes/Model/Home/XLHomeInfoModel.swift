@@ -15,6 +15,8 @@ class XLHomeInfoModel: Mappable {
     var wbID: Int64 = 0
     // 微博信息内容
     var wbText: String?
+    // 用户信息
+    var userModel: XLUserModel?
     
     // 实现 Mappable 中的两个方法
     required init?(map: Map) {
@@ -25,6 +27,7 @@ class XLHomeInfoModel: Mappable {
     func mapping(map: Map) {
         wbID   <- map["id"]
         wbText <- map["text"]
+        userModel <- map["user"]
     }
 }
 
