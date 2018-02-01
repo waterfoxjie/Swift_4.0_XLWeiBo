@@ -21,7 +21,7 @@ class XLHomeViewController: XLBaseViewController {
         setupNavgation()
         
         // 注册 Cell 原型
-        tableView?.register(UITableViewCell.self, forCellReuseIdentifier: homeTableViewCellID)
+        tableView?.register(XLHomeListNormalCell.self, forCellReuseIdentifier: homeTableViewCellID)
     }
     
     // 设置数据
@@ -76,10 +76,13 @@ extension XLHomeViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: homeTableViewCellID, for: indexPath) as! UITableViewCell
-        cell.textLabel?.text = listViewModel.homeList[indexPath.row].wbText
+        let cell = tableView.dequeueReusableCell(withIdentifier: homeTableViewCellID, for: indexPath) as! XLHomeListNormalCell
         return cell
     }
+    
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 100
+//    }
     
     // 将要显示 cell 代理方法
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
