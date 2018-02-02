@@ -30,7 +30,7 @@ class XLHomeListNormalCell: UITableViewCell {
     // 内容
     lazy private var contactLabel: UILabel = UILabel()
     // 底部功能 View
-    lazy private var bottomView: UIView = XLHomeCellBottomView()
+    lazy private var bottomView: XLHomeCellBottomView = XLHomeCellBottomView()
     
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -56,6 +56,7 @@ class XLHomeListNormalCell: UITableViewCell {
         // 设置微博内容
         contactLabel.attributedText = viewModel.homeModel.wbText?.adjustLineSpacing(lineSpacing: 5 * ScreenScale)
         // FIXME: 按钮内容
+        bottomView.setupInfo(model: viewModel)
     }
     
     required init?(coder aDecoder: NSCoder) {

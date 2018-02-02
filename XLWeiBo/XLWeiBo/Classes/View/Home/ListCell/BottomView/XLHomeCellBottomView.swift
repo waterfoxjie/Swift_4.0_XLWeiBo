@@ -11,7 +11,7 @@ import SnapKit
 
 class XLHomeCellBottomView: UIView {
     // 转发按钮
-    lazy private var forwardButton: UIButton =
+    lazy private var repostsButton: UIButton =
         createBottomBtn(normalImage: "timeline_icon_retweet",
                         selectedImage: nil)
     // 评论按钮
@@ -29,6 +29,12 @@ class XLHomeCellBottomView: UIView {
         setupUI()
     }
     
+    func setupInfo(model: XLHomeViewModel) {
+        repostsButton.setTitle(model.repostsString, for: .normal)
+        commentButton.setTitle(model.commentString, for: .normal)
+        likedButton.setTitle(model.likedString, for: .normal)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -41,21 +47,21 @@ extension XLHomeCellBottomView {
         let middleLine1 = createMiddleLine()
         let middleLine2 = createMiddleLine()
         
-        addSubview(forwardButton)
+        addSubview(repostsButton)
         addSubview(commentButton)
         addSubview(likedButton)
         addSubview(topLineView)
         addSubview(middleLine1)
         addSubview(middleLine2)
         
-        forwardButton.snp.makeConstraints { (make) in
+        repostsButton.snp.makeConstraints { (make) in
             make.top.leading.bottom.equalToSuperview()
             make.centerY.equalToSuperview()
         }
         commentButton.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
-            make.leading.equalTo(forwardButton.snp.trailing)
-            make.size.equalTo(forwardButton)
+            make.leading.equalTo(repostsButton.snp.trailing)
+            make.size.equalTo(repostsButton)
         }
         likedButton.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
@@ -69,7 +75,7 @@ extension XLHomeCellBottomView {
         }
         middleLine1.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
-            make.trailing.equalTo(forwardButton)
+            make.trailing.equalTo(repostsButton)
             make.size.equalTo(CGSize(width: 1 * ScreenScale, height: 20 * ScreenScale))
         }
         middleLine2.snp.makeConstraints { (make) in
@@ -79,9 +85,6 @@ extension XLHomeCellBottomView {
         }
         
         topLineView.backgroundColor = UIColor.colorwithHexString(hexString: "#f2f2f2")
-        forwardButton.setTitle("转发", for: .normal)
-        commentButton.setTitle("评论", for: .normal)
-        likedButton.setTitle("点赞", for: .normal)
     }
 }
 

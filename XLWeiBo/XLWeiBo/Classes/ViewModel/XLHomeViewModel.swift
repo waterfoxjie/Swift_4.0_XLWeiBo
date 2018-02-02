@@ -16,6 +16,12 @@ class XLHomeViewModel {
     var gradeImage: UIImage?
     // V 图标
     var verifiedImage: UIImage?
+    // 转发文字
+    var repostsString: String?
+    // 评论文字
+    var commentString: String?
+    // 点赞文字
+    var likedString: String?
     
     init(model: XLHomeInfoModel) {
         self.homeModel = model
@@ -39,6 +45,26 @@ class XLHomeViewModel {
         default:
             break
         }
+        
+        repostsString = countString(count: model.repostsCount, defaultString: "转发")
+        commentString = countString(count: model.commentsCount, defaultString: "评论")
+        likedString = countString(count: model.likedCount, defaultString: "赞")
+    }
+    
+    /// 给定一个数字，返回对应的描述结果
+    ///
+    /// - Parameters:
+    ///   - count:         count  数字
+    ///   - defaultString: defaultString  默认字符串，转发 / 评论 / 赞
+    /// - Returns: 返回描述结果
+    private func countString(count: Int, defaultString: String) -> String {
+        if count == 0 {
+            return defaultString
+        }
+        if count < 10000 {
+            return count.description
+        }
+        return String(format: "%.2f 万", Double(count) / 10000)
     }
     
 }

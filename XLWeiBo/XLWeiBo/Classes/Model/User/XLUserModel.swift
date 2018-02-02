@@ -26,11 +26,11 @@ class XLUserModel: Mappable {
     }
     
     func mapping(map: Map) {
-        userID <- map["id"]
-        userNickName <- map["screen_name"]
+        userID          <- map["id"]
+        userNickName    <- map["screen_name"]
         profileImageUrl <- map["profile_image_url"]
-        verifiedType <- map["verified_type"]
-        mbRank <- map["mbrank"]
+        verifiedType    <- map["verified_type"]
+        mbRank          <- map["mbrank"]
     }
 }
 

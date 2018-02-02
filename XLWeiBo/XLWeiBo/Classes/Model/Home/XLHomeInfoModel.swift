@@ -17,6 +17,12 @@ class XLHomeInfoModel: Mappable {
     var wbText: String?
     // 用户信息
     var userModel: XLUserModel?
+    // 转发数
+    var repostsCount: Int = 0
+    // 评论数
+    var commentsCount: Int = 0
+    // 点赞数
+    var likedCount: Int = 0
     
     // 实现 Mappable 中的两个方法
     required init?(map: Map) {
@@ -25,9 +31,12 @@ class XLHomeInfoModel: Mappable {
     // 自定义的 Model 需要实现 Mappable 接口
     // 并在mapping(map: Map)方法中将 Model 的属性与 JSON 结构的 Key 相映射
     func mapping(map: Map) {
-        wbID   <- map["id"]
-        wbText <- map["text"]
-        userModel <- map["user"]
+        wbID          <- map["id"]
+        wbText        <- map["text"]
+        userModel     <- map["user"]
+        repostsCount  <- map["reposts_count"]
+        commentsCount <- map["comments_count"]
+        likedCount    <- map["attitudes_count"]
     }
 }
 
