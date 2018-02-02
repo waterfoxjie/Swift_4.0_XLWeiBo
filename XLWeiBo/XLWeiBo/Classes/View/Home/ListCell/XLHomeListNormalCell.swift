@@ -45,8 +45,7 @@ class XLHomeListNormalCell: UITableViewCell {
         let userModel = viewModel.homeModel.userModel
         // 设置用户头像、昵称、V图、等级
         iconImageView.xl_setImage(urlString: userModel?.profileImageUrl,
-                                  placeholderImage: UIImage(named: "avatar_default_big"),
-                                  isAvatar: true)
+                                  placeholderImage: UIImage(named: "avatar_default_big"))
         nickNameLabal.text = userModel?.userNickName ?? ""
         gradeImageView.image = viewModel.gradeImage
         vImageView.image = viewModel.verifiedImage
@@ -130,6 +129,10 @@ extension XLHomeListNormalCell {
         
         // 基础设置
         topLineView.backgroundColor = UIColor.colorwithHexString(hexString: "#f2f2f2")
+        
+        iconImageView.layer.masksToBounds = true
+        iconImageView.layer.cornerRadius = 20 * ScreenScale
+        
         nickNameLabal.textColor = UIColor.colorwithHexString(hexString: "#f33e00")
         nickNameLabal.font = UIFont.systemFont(ofSize: 14 * ScreenScale)
         
