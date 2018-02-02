@@ -29,19 +29,9 @@ class XLHomeListNormalCell: UITableViewCell {
     lazy private var vImageView: UIImageView = UIImageView()
     // 内容
     lazy private var contactLabel: UILabel = UILabel()
-    // 转发按钮
-    lazy private var forwardButton: UIButton =
-        createBottomBtn(normalImage: "timeline_icon_retweet",
-                        selectedImage: nil)
-    // 评论按钮
-    lazy private var commentButton: UIButton =
-        createBottomBtn(normalImage: "timeline_icon_comment",
-                        selectedImage: nil)
-    // 点赞按钮
-    lazy private var likedButton: UIButton =
-        createBottomBtn(normalImage: "timeline_icon_unlike",
-                        selectedImage: "timeline_icon_like",
-                        isTitleColorDiff: true)
+    // 底部功能 View
+    lazy private var bottomView: UIView = XLHomeCellBottomView()
+    
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -66,9 +56,6 @@ class XLHomeListNormalCell: UITableViewCell {
         // 设置微博内容
         contactLabel.attributedText = viewModel.homeModel.wbText?.adjustLineSpacing(lineSpacing: 5 * ScreenScale)
         // FIXME: 按钮内容
-        forwardButton.setTitle("转发", for: .normal)
-        commentButton.setTitle("评论", for: .normal)
-        likedButton.setTitle("点赞", for: .normal)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -88,11 +75,6 @@ class XLHomeListNormalCell: UITableViewCell {
 extension XLHomeListNormalCell {
     
     private func setupUI() {
-        // 底部 View
-        let bottomView = UIView()
-        let bottomLineView = UIView()
-        let middleLine1 = createMiddleLine()
-        let middleLine2 = createMiddleLine()
         
         addSubview(topLineView)
         addSubview(iconImageView)
@@ -102,12 +84,6 @@ extension XLHomeListNormalCell {
         addSubview(sourceLabel)
         addSubview(vImageView)
         addSubview(contactLabel)
-        addSubview(bottomLineView)
-        bottomView.addSubview(forwardButton)
-        bottomView.addSubview(commentButton)
-        bottomView.addSubview(likedButton)
-        bottomView.addSubview(middleLine1)
-        bottomView.addSubview(middleLine2)
         addSubview(bottomView)
         
         topLineView.snp.makeConstraints { (make) in
@@ -144,42 +120,11 @@ extension XLHomeListNormalCell {
             make.top.equalTo(iconImageView.snp.bottom).offset(marginWith)
             make.leading.equalTo(iconImageView)
             make.trailing.lessThanOrEqualToSuperview().offset(-marginWith)
-            make.bottom.lessThanOrEqualTo(bottomLineView.snp.top).offset(-marginWith)
-        }
-        bottomLineView.snp.makeConstraints { (make) in
-            make.leading.equalTo(iconImageView)
-            make.trailing.equalToSuperview().offset(marginWith)
-            make.bottom.equalTo(bottomView.snp.top)
-            make.height.equalTo(1 * ScreenScale)
+            make.bottom.lessThanOrEqualTo(bottomView.snp.top).offset(-marginWith)
         }
         bottomView.snp.makeConstraints { (make) in
             make.leading.trailing.bottom.equalToSuperview()
-            make.height.equalTo(30 * ScreenScale)
-        }
-        forwardButton.snp.makeConstraints { (make) in
-            make.top.leading.bottom.equalToSuperview()
-            make.centerY.equalToSuperview()
-        }
-        commentButton.snp.makeConstraints { (make) in
-            make.centerY.equalToSuperview()
-            make.leading.equalTo(forwardButton.snp.trailing)
-            make.size.equalTo(forwardButton)
-        }
-        likedButton.snp.makeConstraints { (make) in
-            make.centerY.equalToSuperview()
-            make.size.equalTo(commentButton)
-            make.leading.equalTo(commentButton.snp.trailing)
-            make.trailing.equalToSuperview()
-        }
-        middleLine1.snp.makeConstraints { (make) in
-            make.centerY.equalToSuperview()
-            make.trailing.equalTo(forwardButton)
-            make.size.equalTo(CGSize(width: 1 * ScreenScale, height: 20 * ScreenScale))
-        }
-        middleLine2.snp.makeConstraints { (make) in
-            make.centerY.equalToSuperview()
-            make.trailing.equalTo(commentButton)
-            make.size.equalTo(middleLine1)
+            make.height.equalTo(35 * ScreenScale)
         }
         
         // 基础设置
@@ -198,52 +143,10 @@ extension XLHomeListNormalCell {
         contactLabel.lineBreakMode = .byWordWrapping
         contactLabel.numberOfLines = 0
         
-        bottomView.backgroundColor = UIColor.white
-        bottomLineView.backgroundColor = UIColor.colorwithHexString(hexString: "#f2f2f2")
-        
     }
 }
 
-// MARK: - 封装组件创建方法
-extension XLHomeListNormalCell {
-    
-    /// 创建一个 Button
-    ///
-    /// - Parameters:
-    ///   - normalImage:      normalImage
-    ///   - selectedImage:    selectedImage
-    ///   - isTitleColorDiff: isTitleColorDiff 文字颜色选中与未选中时是否不同
-    /// - Returns: 返回创建好的 Button
-    private func createBottomBtn(normalImage: String,
-                                 selectedImage: String?,
-                                 isTitleColorDiff: Bool = false) -> UIButton {
-        let btn = UIButton()
-        // 设置背景图片
-        let normalBackImage = UIImage(named: "timeline_card_middle_background")
-        let highlightedBackImage = UIImage(named: "timeline_card_middle_background_highlighted")
-        btn.setBackgroundImage(normalBackImage, for: .normal)
-        btn.setBackgroundImage(highlightedBackImage, for: .highlighted)
-        // 设置图片
-        btn.setImage(UIImage(named: normalImage), for: .normal)
-        if selectedImage != nil {
-            btn.setImage(UIImage(named: selectedImage!), for: .selected)
-        }
-        // 设置文字样式
-        btn.setTitleColor(UIColor.lightGray, for: .normal)
-        if isTitleColorDiff {
-            btn.setTitleColor(UIColor.colorwithHexString(hexString: "#f33e00"), for: .selected)
-        }
-        btn.titleLabel?.font = UIFont.systemFont(ofSize: 14 * ScreenScale)
-        // 设置文字与图片间距
-        btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 8 * ScreenScale)
-        return btn
-    }
-    
-    private func createMiddleLine() -> UIImageView {
-        let line = UIImageView(image: UIImage(named: "timeline_card_bottom_line_highlighted"))
-        return line
-    }
-}
+
 
 
 
