@@ -33,6 +33,21 @@ class XLHomeListNormalCell: UITableViewCell {
         setupUI()
     }
     
+    // 使用模型设置界面
+    func updateCellInfo(viewModel: XLHomeViewModel) {
+        // 获取微博用户信息
+        let userModel = viewModel.homeModel.userModel
+        // 设置用户头像、昵称、V图、等级
+        nickNameLabal.text = userModel?.userNickName ?? ""
+        gradeImageView.image = viewModel.gradeImage
+        vImageView.image = viewModel.verifiedImage
+        // FIXME: 设置时间、来源
+        timeLabel.text = "刚刚"
+        sourceLabel.text = "来自微博 weibo.con"
+        // 设置微博内容
+        contactLabel.attributedText = viewModel.homeModel.wbText?.adjustLineSpacing(lineSpacing: 5 * ScreenScale)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

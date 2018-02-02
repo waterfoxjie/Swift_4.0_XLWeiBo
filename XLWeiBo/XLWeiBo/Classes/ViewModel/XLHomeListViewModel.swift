@@ -28,11 +28,11 @@ class XLHomeListViewModel {
             completion(true, false)
             return
         }
-        let since_id = isPullup ? 0 : homeList.first?.homeInfo.wbID ?? 0
-        let tempMaxId = isPullup ? homeList.last?.homeInfo.wbID ?? 0 : 0
+        let since_id = isPullup ? 0 : homeList.first?.homeModel.wbID ?? 0
+        let tempMaxId = isPullup ? homeList.last?.homeModel.wbID ?? 0 : 0
         let max_id = tempMaxId > 0 ? tempMaxId - 1 : tempMaxId
         // 调用网络方法加载数据
-        print("最后一条数据\(String(describing: homeList.last?.homeInfo.wbText))")
+        print("最后一条数据\(String(describing: homeList.last?.homeModel.wbText))")
         XLNetworkManager.shareManager.homeTimelineRequest(since_id: Int64(since_id), max_id: Int64(max_id)) { (list, isSuccess) in
             // 判断网络请求是否成功
             if !isSuccess {
