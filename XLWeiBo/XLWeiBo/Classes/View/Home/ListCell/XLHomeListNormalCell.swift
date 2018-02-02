@@ -38,6 +38,9 @@ class XLHomeListNormalCell: UITableViewCell {
         // 获取微博用户信息
         let userModel = viewModel.homeModel.userModel
         // 设置用户头像、昵称、V图、等级
+        iconImageView.xl_setImage(urlString: userModel?.profileImageUrl,
+                                  placeholderImage: UIImage(named: "avatar_default_big"),
+                                  isAvatar: true)
         nickNameLabal.text = userModel?.userNickName ?? ""
         gradeImageView.image = viewModel.gradeImage
         vImageView.image = viewModel.verifiedImage
