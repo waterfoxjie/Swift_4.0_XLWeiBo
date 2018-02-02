@@ -29,6 +29,8 @@ class XLHomeListNormalCell: UITableViewCell {
     lazy private var vImageView: UIImageView = UIImageView()
     // 内容
     lazy private var contactLabel: UILabel = UILabel()
+    // 图片
+    lazy private var picturesView: XLHomeCellPicturesView = XLHomeCellPicturesView()
     // 底部功能 View
     lazy private var bottomView: XLHomeCellBottomView = XLHomeCellBottomView()
     
@@ -54,7 +56,12 @@ class XLHomeListNormalCell: UITableViewCell {
         sourceLabel.text = "来自微博 weibo.con"
         // 设置微博内容
         contactLabel.attributedText = viewModel.homeModel.wbText?.adjustLineSpacing(lineSpacing: 5 * ScreenScale)
-        // FIXME: 按钮内容
+        // FIXME: 根据是否有图片进行设置
+        let height = 0
+        picturesView.snp.updateConstraints { (make) in
+            make.height.equalTo(height)
+        }
+        // 按钮内容
         bottomView.setupInfo(model: viewModel)
     }
     
@@ -84,6 +91,7 @@ extension XLHomeListNormalCell {
         addSubview(sourceLabel)
         addSubview(vImageView)
         addSubview(contactLabel)
+        addSubview(picturesView)
         addSubview(bottomView)
         
         topLineView.snp.makeConstraints { (make) in
@@ -120,7 +128,13 @@ extension XLHomeListNormalCell {
             make.top.equalTo(iconImageView.snp.bottom).offset(marginWith)
             make.leading.equalTo(iconImageView)
             make.trailing.lessThanOrEqualToSuperview().offset(-marginWith)
+        }
+        picturesView.snp.makeConstraints { (make) in
+            make.top.equalTo(contactLabel.snp.bottom)
+            make.leading.equalToSuperview().offset(marginWith)
+            make.trailing.equalToSuperview().offset(-marginWith)
             make.bottom.lessThanOrEqualTo(bottomView.snp.top).offset(-marginWith)
+            make.height.equalTo(0)
         }
         bottomView.snp.makeConstraints { (make) in
             make.leading.trailing.bottom.equalToSuperview()
@@ -146,6 +160,8 @@ extension XLHomeListNormalCell {
         contactLabel.font = UIFont.systemFont(ofSize: 14 * ScreenScale)
         contactLabel.lineBreakMode = .byWordWrapping
         contactLabel.numberOfLines = 0
+        
+        picturesView.backgroundColor = UIColor.red
         
     }
 }
