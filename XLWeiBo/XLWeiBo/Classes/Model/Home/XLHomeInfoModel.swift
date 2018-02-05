@@ -17,6 +17,8 @@ class XLHomeInfoModel: Mappable {
     var wbText: String?
     // 用户信息
     var userModel: XLUserModel?
+    // 图片数组
+    var pictureArray: [XLHomePictureModel]?
     // 转发数
     var repostsCount: Int = 0
     // 评论数
@@ -34,6 +36,7 @@ class XLHomeInfoModel: Mappable {
         wbID          <- map["id"]
         wbText        <- map["text"]
         userModel     <- map["user"]
+        pictureArray  <- map["pic_urls"]
         repostsCount  <- map["reposts_count"]
         commentsCount <- map["comments_count"]
         likedCount    <- map["attitudes_count"]

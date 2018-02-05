@@ -32,3 +32,11 @@ let WeiBoLoginNotification = "WeiBoLoginNotification"
 // 登录成功通知
 let WeiBoLoginSuccessNotification = "WeiBoLoginSuccessNotification"
 
+// MARK: - 首页配图视图常量
+// 外部间距
+let HomePicViewOutterMargin = 11 * ScreenScale
+// 内部间距
+let HomePicViewInnerMargin = 3 * ScreenScale
+// 配图视图大小
+let HomePicViewWidth = ScreenWidth - 2 * HomePicViewOutterMargin
+

@@ -24,15 +24,17 @@ class XLHomeCellBottomView: UIView {
                         selectedImage: "timeline_icon_like",
                         isTitleColorDiff: true)
     
+    var viewModel: XLHomeViewModel? {
+        didSet {
+            repostsButton.setTitle(viewModel?.repostsString, for: .normal)
+            commentButton.setTitle(viewModel?.commentString, for: .normal)
+            likedButton.setTitle(viewModel?.likedString, for: .normal)
+        }
+    }
+    
     init() {
         super.init(frame: CGRect())
         setupUI()
-    }
-    
-    func setupInfo(model: XLHomeViewModel) {
-        repostsButton.setTitle(model.repostsString, for: .normal)
-        commentButton.setTitle(model.commentString, for: .normal)
-        likedButton.setTitle(model.likedString, for: .normal)
     }
     
     required init?(coder aDecoder: NSCoder) {

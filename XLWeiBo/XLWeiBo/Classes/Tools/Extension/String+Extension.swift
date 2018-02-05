@@ -52,7 +52,6 @@ extension String {
                            viewWidth: CGFloat,
                            textFont: UIFont) -> NSAttributedString {
         let sizeRect = getStringRect(textFont: textFont, viewWidth: viewWidth)
-        print("sizeRect = \(sizeRect.width)")
         let attributedString = NSMutableAttributedString(string: self)
         let paragraphStyle = NSMutableParagraphStyle()
         var spacing = lineSpacing

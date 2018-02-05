@@ -83,7 +83,7 @@ extension XLHomeViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: homeTableViewCellID, for: indexPath) as! XLHomeListNormalCell
         let viewModel = listViewModel.homeList[indexPath.row]
-        cell.updateCellInfo(viewModel: viewModel)
+        cell.viewModel = viewModel
         return cell
     }
     
