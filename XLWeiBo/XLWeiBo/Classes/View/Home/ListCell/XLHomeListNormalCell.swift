@@ -64,29 +64,13 @@ class XLHomeListNormalCell: UITableViewCell {
         setupUI()
         self.selectionStyle = .none
     }
-    
-    // 使用模型设置界面
-    func updateCellInfo(viewModel: XLHomeViewModel) {
-        // 获取微博用户信息
-        let userModel = viewModel.homeModel.userModel
-        // 设置用户头像、昵称、V图、等级
-        iconImageView.xl_setImage(urlString: userModel?.profileImageUrl,
-                                  placeholderImage: UIImage(named: "avatar_default_big"))
-        nickNameLabal.text = userModel?.userNickName ?? ""
-        gradeImageView.image = viewModel.gradeImage
-        vImageView.image = viewModel.verifiedImage
-        // FIXME: 设置时间、来源
-        timeLabel.text = "刚刚"
-        sourceLabel.text = "来自微博 weibo.con"
-        // 设置微博内容
-        contactLabel.attributedText = viewModel.homeModel.wbText?.adjustLineSpacing(lineSpacing: 5 * ScreenScale, viewWidth: ScreenWidth - 2 * marginWith, textFont: contactLabel.font)
-        // FIXME: 根据是否有图片进行设置
-        let height = 0
+
+    // 更新属性，会在需要更新的时候自动调用
+    override func updateConstraints() {
         picturesView.snp.updateConstraints { (make) in
             make.height.equalTo(viewModel?.picViewsHeight ?? 0)
         }
-        // 按钮内容
-        bottomView.setupInfo(model: viewModel)
+        super.updateConstraints()
     }
 
     

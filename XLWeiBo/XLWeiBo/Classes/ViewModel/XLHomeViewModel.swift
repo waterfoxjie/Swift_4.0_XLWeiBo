@@ -16,6 +16,8 @@ class XLHomeViewModel {
     var gradeImage: UIImage?
     // V 图标
     var verifiedImage: UIImage?
+    // 配图视图高度
+    var picViewsHeight: CGFloat = 0
     // 转发文字
     var repostsString: String?
     // 评论文字
@@ -46,6 +48,10 @@ class XLHomeViewModel {
             break
         }
         
+        // 设置配图视图高度
+        picViewsHeight = calcPicViewsHeight(picCount: model.pictureArray?.count)
+        
+        // 底部按钮文字
         repostsString = countString(count: model.repostsCount, defaultString: "转发")
         commentString = countString(count: model.commentsCount, defaultString: "评论")
         likedString = countString(count: model.likedCount, defaultString: "赞")
@@ -65,6 +71,25 @@ class XLHomeViewModel {
             return count.description
         }
         return String(format: "%.2f 万", Double(count) / 10000)
+    }
+    
+    
+    /// 返回配图视图高度
+    ///
+    /// - Parameter picCount: 图片数
+    /// - Returns:  返回对应的高度
+    private func calcPicViewsHeight(picCount: Int?) -> CGFloat {
+        if picCount == 0 || picCount == nil {
+            return 0
+        }
+        // 默认 Item 宽度
+        let width: CGFloat = (HomePicViewWidth - 2 * HomePicViewInnerMargin) / 3
+        // 根据 picCount 知道有多少行
+        let row = (picCount! - 1) / 3 + 1
+        var picHeight = HomePicViewOutterMargin * 2
+        picHeight = picHeight + HomePicViewInnerMargin * CGFloat(row - 1)
+        picHeight = picHeight + width * CGFloat(row)
+        return picHeight
     }
     
 }
