@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		603CB0F52027F23E003BE35B /* XLHomePictureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603CB0F42027F23E003BE35B /* XLHomePictureModel.swift */; };
 		6042BBCE202402E900A9C87B /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6042BBCD202402E900A9C87B /* UIImageView+Extension.swift */; };
 		6042BBD1202446E800A9C87B /* XLHomeCellBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6042BBD0202446E800A9C87B /* XLHomeCellBottomView.swift */; };
 		6042BBD42024716600A9C87B /* XLHomeCellPicturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6042BBD32024716600A9C87B /* XLHomeCellPicturesView.swift */; };
@@ -48,6 +49,7 @@
 /* Begin PBXFileReference section */
 		1018A893E3341A200D834E57 /* Pods-XLWeiBo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XLWeiBo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XLWeiBo/Pods-XLWeiBo.debug.xcconfig"; sourceTree = "<group>"; };
 		259F240FFDA52B3B0CDC5682 /* Pods_XLWeiBo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XLWeiBo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		603CB0F42027F23E003BE35B /* XLHomePictureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLHomePictureModel.swift; sourceTree = "<group>"; };
 		6042BBCD202402E900A9C87B /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		6042BBD0202446E800A9C87B /* XLHomeCellBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLHomeCellBottomView.swift; sourceTree = "<group>"; };
 		6042BBD32024716600A9C87B /* XLHomeCellPicturesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLHomeCellPicturesView.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				604ECF292019BC4300FB05A8 /* XLHomeInfoModel.swift */,
+				603CB0F42027F23E003BE35B /* XLHomePictureModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 				604EBB92201F11D200F4D3B8 /* XLHomeNavTitleButton.swift in Sources */,
 				609C7349200F2D1000C8AED6 /* XLBaseViewController.swift in Sources */,
 				60431C7120104261001A006C /* UIButton+Extension.swift in Sources */,
+				603CB0F52027F23E003BE35B /* XLHomePictureModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

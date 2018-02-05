@@ -55,7 +55,7 @@ class XLHomeListNormalCell: UITableViewCell {
         timeLabel.text = "刚刚"
         sourceLabel.text = "来自微博 weibo.con"
         // 设置微博内容
-        contactLabel.attributedText = viewModel.homeModel.wbText?.adjustLineSpacing(lineSpacing: 5 * ScreenScale)
+        contactLabel.attributedText = viewModel.homeModel.wbText?.adjustLineSpacing(lineSpacing: 5 * ScreenScale, viewWidth: ScreenWidth - 2 * marginWith, textFont: contactLabel.font)
         // FIXME: 根据是否有图片进行设置
         let height = 0
         picturesView.snp.updateConstraints { (make) in
