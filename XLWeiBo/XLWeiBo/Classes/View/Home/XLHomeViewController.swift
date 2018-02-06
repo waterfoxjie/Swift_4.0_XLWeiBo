@@ -21,7 +21,7 @@ class XLHomeViewController: XLBaseViewController {
         setupNavgation()
         
         // 注册 Cell 原型
-        tableView?.register(XLHomeListNormalCell.self, forCellReuseIdentifier: homeTableViewCellID)
+        tableView?.register(UINib(nibName: "XLHomeListCell", bundle: nil), forCellReuseIdentifier: homeTableViewCellID)
         // 设置行高自动布局
         tableView?.rowHeight = UITableViewAutomaticDimension
         tableView?.estimatedRowHeight = 300

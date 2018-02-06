@@ -36,7 +36,7 @@ let WeiBoLoginSuccessNotification = "WeiBoLoginSuccessNotification"
 // 外部间距
 let HomePicViewOutterMargin = 11 * ScreenScale
 // 内部间距
-let HomePicViewInnerMargin = 3 * ScreenScale
+let HomePicViewInnerMargin = 8 * ScreenScale
 // 配图视图大小
 let HomePicViewWidth = ScreenWidth - 2 * HomePicViewOutterMargin
 
