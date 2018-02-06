@@ -31,6 +31,11 @@ class XLHomeCellPicturesView: UIView {
                 if number > subviews.count {
                     break
                 }
+                // 只有四张图片时，显示上做处理
+                if number == 2 && urls.count == 4 {
+                    // 跳过一张图片显示
+                    number = number + 1
+                }
                 let picImageView = subviews[number] as! UIImageView
                 picImageView.xl_setImage(urlString: picModel.thumbnailPic, placeholderImage: UIImage(named: "avatar_default_big"))
                 number = number + 1
@@ -47,6 +52,7 @@ class XLHomeCellPicturesView: UIView {
 
 extension XLHomeCellPicturesView {
     private func setupUI() {
+        backgroundColor = superview?.backgroundColor
         // 创建 9 个 UIImageView
         clipsToBounds = true
         let itemSize: CGFloat = (HomePicViewWidth - CGFloat(maxRow - 1) * HomePicViewInnerMargin) / CGFloat(maxRow)
