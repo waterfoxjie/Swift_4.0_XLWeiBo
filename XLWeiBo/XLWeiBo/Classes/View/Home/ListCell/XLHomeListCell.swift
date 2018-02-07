@@ -1,8 +1,8 @@
 //
-//  XLHomeListNormalCell.swift
+//  XLHomeListCell.swift
 //  XLWeiBo
 //
-//  Created by waterfoxjie on 2018/1/31.
+//  Created by waterfoxjie on 2018/2/7.
 //  Copyright © 2018年 waterfoxjie. All rights reserved.
 //
 
@@ -11,8 +11,8 @@ import SnapKit
 
 private let marginWith = 11 * ScreenScale
 
-class XLHomeListNormalCell: UITableViewCell {
-    
+class XLHomeListCell: UITableViewCell {
+
     // 头像
     @IBOutlet weak var iconImageView: UIImageView!
     // 昵称
@@ -73,20 +73,5 @@ class XLHomeListNormalCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -21,7 +21,7 @@ class XLHomeViewController: XLBaseViewController {
         setupNavgation()
         
         // 注册 Cell 原型
-        tableView?.register(UINib(nibName: "XLHomeListCell", bundle: nil), forCellReuseIdentifier: homeTableViewCellID)
+        tableView?.register(UINib(nibName: "XLHomeListNormalCell", bundle: nil), forCellReuseIdentifier: homeTableViewCellID)
         // 设置行高自动布局
         tableView?.rowHeight = UITableViewAutomaticDimension
         tableView?.estimatedRowHeight = 300
@@ -81,7 +81,7 @@ extension XLHomeViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: homeTableViewCellID, for: indexPath) as! XLHomeListNormalCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: homeTableViewCellID, for: indexPath) as! XLHomeListCell
         let viewModel = listViewModel.homeList[indexPath.row]
         cell.viewModel = viewModel
         return cell
