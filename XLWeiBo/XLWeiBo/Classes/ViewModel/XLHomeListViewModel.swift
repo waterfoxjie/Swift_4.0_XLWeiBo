@@ -62,8 +62,29 @@ class XLHomeListViewModel {
                 // 回调
                 completion(isSuccess, false)
             } else {
+                // 做缓存单张图像处理
+                self.cacheSingleImage(list: viewModelArray)
                 completion(isSuccess, true)
             }
+        }
+    }
+    
+    /// 缓存本次下载微博数据数组中的单张图像
+    ///
+    /// - Parameter list: 数据模型
+    private func cacheSingleImage(list: [XLHomeViewModel]) {
+        // 遍历数组
+        for vm in list {
+            // 若没有图像或者图像多于 1 张则进行下一次循环
+            if vm.picUrlArray == nil || vm.picUrlArray?.count != 1 {
+                continue
+            }
+            // 获取到图片 Url
+            guard let picString = vm.picUrlArray?.first?.thumbnailPic,
+                let picUrl = URL(string: picString) else {
+                    continue
+            }
+            print("picUrl = \(picUrl)")
         }
     }
 }
