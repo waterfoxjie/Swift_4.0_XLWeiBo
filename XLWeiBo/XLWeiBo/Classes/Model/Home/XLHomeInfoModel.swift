@@ -19,6 +19,8 @@ class XLHomeInfoModel: Mappable {
     var userModel: XLUserModel?
     // 图片数组
     var pictureArray: [XLHomePictureModel]?
+    // 被转发微博信息
+    var retweetedStatus: XLHomeInfoModel?
     // 转发数
     var repostsCount: Int = 0
     // 评论数
@@ -33,13 +35,14 @@ class XLHomeInfoModel: Mappable {
     // 自定义的 Model 需要实现 Mappable 接口
     // 并在mapping(map: Map)方法中将 Model 的属性与 JSON 结构的 Key 相映射
     func mapping(map: Map) {
-        wbID          <- map["id"]
-        wbText        <- map["text"]
-        userModel     <- map["user"]
-        pictureArray  <- map["pic_urls"]
-        repostsCount  <- map["reposts_count"]
-        commentsCount <- map["comments_count"]
-        likedCount    <- map["attitudes_count"]
+        wbID            <- map["id"]
+        wbText          <- map["text"]
+        userModel       <- map["user"]
+        pictureArray    <- map["pic_urls"]
+        retweetedStatus <- map["retweeted_status"]
+        repostsCount    <- map["reposts_count"]
+        commentsCount   <- map["comments_count"]
+        likedCount      <- map["attitudes_count"]
     }
 }
 

@@ -18,6 +18,11 @@ class XLHomeViewModel {
     var verifiedImage: UIImage?
     // 配图视图高度
     var picViewsHeight: CGFloat = 0
+    // 配图视图内容
+    var picUrlArray: [XLHomePictureModel]? {
+        // 转发的微博正文一定没有图片，所以先看看转发微博中是否有图片，有则返回，没有就返回正文中的配图，都没有则返回 nil
+        return homeModel.retweetedStatus?.pictureArray ?? homeModel.pictureArray
+    }
     // 转发文字
     var repostsString: String?
     // 评论文字
@@ -49,7 +54,7 @@ class XLHomeViewModel {
         }
         
         // 设置配图视图高度
-        picViewsHeight = calcPicViewsHeight(picCount: model.pictureArray?.count)
+        picViewsHeight = calcPicViewsHeight(picCount: model.retweetedStatus?.pictureArray?.count ?? model.pictureArray?.count)
         
         // 底部按钮文字
         repostsString = countString(count: model.repostsCount, defaultString: "转发")

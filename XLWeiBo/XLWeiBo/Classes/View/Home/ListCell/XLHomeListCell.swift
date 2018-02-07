@@ -53,7 +53,7 @@ class XLHomeListCell: UITableViewCell {
             contactLabel.attributedText = viewModel?.homeModel.wbText?.adjustLineSpacing(lineSpacing: 5 * ScreenScale, viewWidth: ScreenWidth - 2 * marginWith, textFont: contactLabel.font)
             
             // 设置图片 View
-            picturesView.urlArray = viewModel?.homeModel.pictureArray
+            picturesView.urlArray = viewModel?.picUrlArray
             picturesView.picturesViewHeight.constant = viewModel?.picViewsHeight ?? 0
             
             // 设置底部按钮内容

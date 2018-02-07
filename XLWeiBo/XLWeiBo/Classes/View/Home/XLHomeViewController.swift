@@ -84,8 +84,10 @@ extension XLHomeViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: homeListNormalCellID, for: indexPath) as! XLHomeListCell
+        // 取出数据模型，根据模型判断可重用 Cell
         let viewModel = listViewModel.homeList[indexPath.row]
+        let cellID = (viewModel.homeModel.retweetedStatus == nil) ? homeListNormalCellID : homeListRepostsCellID
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! XLHomeListCell
         cell.viewModel = viewModel
         return cell
     }
