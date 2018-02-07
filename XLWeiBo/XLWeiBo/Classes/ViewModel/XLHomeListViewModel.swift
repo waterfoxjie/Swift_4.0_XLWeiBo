@@ -22,7 +22,6 @@ class XLHomeListViewModel {
     ///   - isPullup: 是否是上拉刷新
     ///   - completion: [isSuccess：是否成功，isReloadData：是否刷新数据]
     func loadHomeList(isPullup: Bool = false, completion: @escaping (_ isSuccess: Bool, _ isReloadData: Bool) -> Void) {
-        // 判断是否超过最大数量
         if isPullup && !isHasRequest {
             // 超过则直接返回，不走网络请求
             completion(true, false)

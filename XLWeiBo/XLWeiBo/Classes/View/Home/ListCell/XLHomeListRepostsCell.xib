@@ -233,6 +233,7 @@
                 <outlet property="iconImageView" destination="GCs-8m-xE3" id="Y57-jx-8yI"/>
                 <outlet property="nickNameLabal" destination="46a-BN-OhA" id="Nyh-hp-sPn"/>
                 <outlet property="picturesView" destination="VED-a2-WCI" id="VVt-YI-puL"/>
+                <outlet property="repostsTextLabel" destination="13K-l5-Yle" id="xcw-zl-Hzk"/>
                 <outlet property="sourceLabel" destination="9XG-A7-BK3" id="3TR-Zt-GTP"/>
                 <outlet property="timeLabel" destination="peg-iT-zna" id="H3r-u3-gwp"/>
                 <outlet property="vImageView" destination="wEQ-Oq-9jS" id="se3-4i-0H2"/>

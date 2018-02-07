@@ -10,6 +10,8 @@ import UIKit
 import SnapKit
 
 private let marginWith = 11 * ScreenScale
+private let lineSpacing = 5 * ScreenScale
+private let contactLabelWidth = ScreenWidth - 2 * marginWith
 
 class XLHomeListCell: UITableViewCell {
 
@@ -29,6 +31,10 @@ class XLHomeListCell: UITableViewCell {
     @IBOutlet weak var contactLabel: UILabel!
     // 图片 View
     @IBOutlet weak var picturesView: XLHomeCellPicturesView!
+    // 转发微博内容
+    // 这里必须设置成 ？，因为正常微博中是没有这个控件的，而这个类对应的是两个 xib 文件
+    @IBOutlet weak var repostsTextLabel: UILabel?
+    
     // 底部按钮
     @IBOutlet weak var bottomView: XLHomeCellBottomView!
     
@@ -50,11 +56,15 @@ class XLHomeListCell: UITableViewCell {
             sourceLabel.text = "来自微博 weibo.con"
     
             // 设置微博内容
-            contactLabel.attributedText = viewModel?.homeModel.wbText?.adjustLineSpacing(lineSpacing: 5 * ScreenScale, viewWidth: ScreenWidth - 2 * marginWith, textFont: contactLabel.font)
+            contactLabel.attributedText = viewModel?.homeModel.wbText?.adjustLineSpacing(lineSpacing: lineSpacing, viewWidth: contactLabelWidth, textFont: contactLabel.font)
             
             // 设置图片 View
             picturesView.urlArray = viewModel?.picUrlArray
             picturesView.picturesViewHeight.constant = viewModel?.picViewsHeight ?? 0
+            
+            // 设置转发微博内容
+            repostsTextLabel?.attributedText =
+                viewModel?.repostsText?.adjustLineSpacing(lineSpacing: lineSpacing, viewWidth: contactLabelWidth, textFont: repostsTextLabel?.font ?? UIFont.systemFont(ofSize: 14))
             
             // 设置底部按钮内容
             bottomView.viewModel = viewModel
