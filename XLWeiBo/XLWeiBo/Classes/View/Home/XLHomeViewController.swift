@@ -8,7 +8,8 @@
 
 import UIKit
 
-private let homeTableViewCellID = "homeTableViewCellID"
+private let homeListNormalCellID = "homeListNormalCellID"
+private let homeListRepostsCellID = "homeListRepostsCellID"
 
 class XLHomeViewController: XLBaseViewController {
     
@@ -21,7 +22,9 @@ class XLHomeViewController: XLBaseViewController {
         setupNavgation()
         
         // 注册 Cell 原型
-        tableView?.register(UINib(nibName: "XLHomeListNormalCell", bundle: nil), forCellReuseIdentifier: homeTableViewCellID)
+        tableView?.register(UINib(nibName: "XLHomeListNormalCell", bundle: nil), forCellReuseIdentifier: homeListNormalCellID)
+        tableView?.register(UINib(nibName: "XLHomeListRepostsCell", bundle: nil), forCellReuseIdentifier: homeListRepostsCellID)
+        
         // 设置行高自动布局
         tableView?.rowHeight = UITableViewAutomaticDimension
         tableView?.estimatedRowHeight = 300
@@ -81,7 +84,7 @@ extension XLHomeViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: homeTableViewCellID, for: indexPath) as! XLHomeListCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: homeListNormalCellID, for: indexPath) as! XLHomeListCell
         let viewModel = listViewModel.homeList[indexPath.row]
         cell.viewModel = viewModel
         return cell
