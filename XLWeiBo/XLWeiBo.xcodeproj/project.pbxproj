@@ -20,6 +20,7 @@
 		6048840D2020246F00830623 /* XLWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6048840C2020246F00830623 /* XLWelcomeView.swift */; };
 		6049EA0F202AAEAD00CED461 /* XLHomeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6049EA0E202AAEAD00CED461 /* XLHomeListCell.swift */; };
 		6049EA13202AB52800CED461 /* XLHomeListNormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6049EA12202AB52800CED461 /* XLHomeListNormalCell.xib */; };
+		6049EA15202AC65800CED461 /* XLHomeListRepostsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6049EA14202AC65700CED461 /* XLHomeListRepostsCell.xib */; };
 		604A9DB82011955F007A305D /* mainVisitorData.json in Resources */ = {isa = PBXBuildFile; fileRef = 604A9DB72011955F007A305D /* mainVisitorData.json */; };
 		604A9DBC2011CDAB007A305D /* XLNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604A9DBB2011CDAB007A305D /* XLNetworkManager.swift */; };
 		604A9DBE2011D828007A305D /* XLNetworkManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604A9DBD2011D828007A305D /* XLNetworkManager+Extension.swift */; };
@@ -64,6 +65,7 @@
 		6048840C2020246F00830623 /* XLWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLWelcomeView.swift; sourceTree = "<group>"; };
 		6049EA0E202AAEAD00CED461 /* XLHomeListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLHomeListCell.swift; sourceTree = "<group>"; };
 		6049EA12202AB52800CED461 /* XLHomeListNormalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XLHomeListNormalCell.xib; sourceTree = "<group>"; };
+		6049EA14202AC65700CED461 /* XLHomeListRepostsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XLHomeListRepostsCell.xib; sourceTree = "<group>"; };
 		604A9DB72011955F007A305D /* mainVisitorData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mainVisitorData.json; sourceTree = "<group>"; };
 		604A9DBB2011CDAB007A305D /* XLNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLNetworkManager.swift; sourceTree = "<group>"; };
 		604A9DBD2011D828007A305D /* XLNetworkManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XLNetworkManager+Extension.swift"; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				6042BBCF202446C800A9C87B /* BottomView */,
 				6049EA0E202AAEAD00CED461 /* XLHomeListCell.swift */,
 				6049EA12202AB52800CED461 /* XLHomeListNormalCell.xib */,
+				6049EA14202AC65700CED461 /* XLHomeListRepostsCell.xib */,
 			);
 			path = ListCell;
 			sourceTree = "<group>";
@@ -429,6 +432,7 @@
 				609C7330200F29AA00C8AED6 /* Assets.xcassets in Resources */,
 				604A9DB82011955F007A305D /* mainVisitorData.json in Resources */,
 				6049EA13202AB52800CED461 /* XLHomeListNormalCell.xib in Resources */,
+				6049EA15202AC65800CED461 /* XLHomeListRepostsCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
