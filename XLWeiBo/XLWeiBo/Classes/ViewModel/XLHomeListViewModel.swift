@@ -8,6 +8,7 @@
 
 import Foundation
 import ObjectMapper
+import SDWebImage
 
 /// 微博列表视图模型
 class XLHomeListViewModel {
@@ -63,8 +64,7 @@ class XLHomeListViewModel {
                 completion(isSuccess, false)
             } else {
                 // 做缓存单张图像处理
-                self.cacheSingleImage(list: viewModelArray)
-                completion(isSuccess, true)
+                self.cacheSingleImage(list: viewModelArray, completion: completion)
             }
         }
     }
@@ -72,7 +72,12 @@ class XLHomeListViewModel {
     /// 缓存本次下载微博数据数组中的单张图像
     ///
     /// - Parameter list: 数据模型
-    private func cacheSingleImage(list: [XLHomeViewModel]) {
+    private func cacheSingleImage(list: [XLHomeViewModel],
+                                  completion: @escaping (_ isSuccess: Bool, _ isReloadData: Bool) -> Void) {
+        // 用于计算图像的大小
+        var lenth = 0
+        // 创建调度组
+        let groud = DispatchGroup()
         // 遍历数组
         for vm in list {
             // 若没有图像或者图像多于 1 张则进行下一次循环
@@ -84,7 +89,30 @@ class XLHomeListViewModel {
                 let picUrl = URL(string: picString) else {
                     continue
             }
-            print("picUrl = \(picUrl)")
+            // 进组
+            groud.enter()
+            // 使用 SDWebImage 下载图像
+            /*
+            （1）loadImage SDWebImage 核心方法
+            （2）图像下载完成之后，会自动保存在沙盒中，文件路径是 URL 的 MD5
+            （3）若沙盒中已存在缓存的图像，后续使用 sd_ 加载 url 图像，都会加载本地沙盒中的图像，不会再发起网络请求
+            （4）回调方法依旧会调用
+             */
+            SDWebImageManager.shared().loadImage(with: picUrl, options: [], progress: nil, completed: { (image, _, _, _, _, _) in
+                // 转换成二进制数
+                if let image = image,
+                    let data = UIImagePNGRepresentation(image) {
+                    lenth = lenth + data.count
+                }
+                // 出组，一定要放在闭包的最后一个
+                groud.leave()
+            })
         }
+        // 监听调度组情况
+        groud.notify(queue: DispatchQueue.main) {
+            // 图片缓存之后，修改配体视图大小，再刷新 UI
+            completion(true, true)
+        }
+
     }
 }
