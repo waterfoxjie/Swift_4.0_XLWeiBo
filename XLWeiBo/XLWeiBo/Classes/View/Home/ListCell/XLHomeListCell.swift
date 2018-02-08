@@ -59,7 +59,6 @@ class XLHomeListCell: UITableViewCell {
             contactLabel.attributedText = viewModel?.homeModel.wbText?.adjustLineSpacing(lineSpacing: lineSpacing, viewWidth: contactLabelWidth, textFont: contactLabel.font)
             
             // 设置图片 View
-            picturesView.urlArray = viewModel?.picUrlArray
             picturesView.viewModel = viewModel
             
             // 设置转发微博内容

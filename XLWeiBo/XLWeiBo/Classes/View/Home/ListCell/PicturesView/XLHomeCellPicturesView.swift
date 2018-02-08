@@ -21,11 +21,12 @@ class XLHomeCellPicturesView: UIView {
     var viewModel: XLHomeViewModel? {
         didSet {
             updateViewSize()
+            urlArray = viewModel?.picUrlArray
         }
     }
     
     // 配图视图数组
-    var urlArray: [XLHomePictureModel]? {
+    private var urlArray: [XLHomePictureModel]? {
         didSet {
             // 设置不可见以及清除数据
             for iv in subviews {
