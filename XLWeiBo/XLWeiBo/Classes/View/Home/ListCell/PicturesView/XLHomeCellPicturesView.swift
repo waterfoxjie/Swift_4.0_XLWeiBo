@@ -10,12 +10,21 @@ import UIKit
 
 private let maxViewCount = 9
 private let maxRow = 3
+private let itemSize: CGFloat = (HomePicViewWidth - CGFloat(maxRow - 1) * HomePicViewInnerMargin) / CGFloat(maxRow)
 
 class XLHomeCellPicturesView: UIView {
     
     // 图片 View 高度约束
     @IBOutlet weak var picturesViewHeight: NSLayoutConstraint!
     
+    // 模型数据
+    var viewModel: XLHomeViewModel? {
+        didSet {
+            updateViewSize()
+        }
+    }
+    
+    // 配图视图数组
     var urlArray: [XLHomePictureModel]? {
         didSet {
             // 设置不可见以及清除数据
@@ -50,12 +59,12 @@ class XLHomeCellPicturesView: UIView {
     }
 }
 
+// MARK: - 初始化 UI
 extension XLHomeCellPicturesView {
     private func setupUI() {
         backgroundColor = superview?.backgroundColor
         // 创建 9 个 UIImageView
         clipsToBounds = true
-        let itemSize: CGFloat = (HomePicViewWidth - CGFloat(maxRow - 1) * HomePicViewInnerMargin) / CGFloat(maxRow)
         for i in 0..<maxViewCount {
             let picImageView = UIImageView()
             addSubview(picImageView)
@@ -72,6 +81,26 @@ extension XLHomeCellPicturesView {
             picImageView.contentMode = .scaleAspectFill
             picImageView.clipsToBounds = true
         }
+    }
+}
+
+// MARK: - 自定义方法实现
+extension XLHomeCellPicturesView {
+    private func updateViewSize() {
+        guard let urlArray = viewModel?.picUrlArray else {
+            return
+        }
+        // 获取到第一个控件视图，并修改其大小
+        let picView = subviews.first
+        if urlArray.count == 1 {
+            let size = viewModel?.picViewsSize ?? CGSize()
+            // 单图：根据图像大小，修改第一个视图的大小
+            picView?.frame.size = CGSize(width: size.width, height: size.height - HomePicViewOutterMargin)
+        } else {
+            // 多图：恢复原来的大小
+            picView?.frame.size = CGSize(width: itemSize, height: itemSize)
+        }
+        picturesViewHeight.constant = viewModel?.picViewsSize.height ?? 0
     }
 }
 

@@ -83,13 +83,6 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Tw-PJ-vFI" userLabel="底部" customClass="XLHomeCellBottomView" customModule="XLWeiBo" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="311.5" width="375" height="35"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vbd-kn-aBV" userLabel="topLine">
-                                <rect key="frame" x="12" y="0.0" width="351" height="1"/>
-                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="fIW-KV-fRX"/>
-                                </constraints>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ai-Sj-KOw">
                                 <rect key="frame" x="0.0" y="1" width="125" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -161,14 +154,11 @@
                             <constraint firstItem="EDc-1s-SUZ" firstAttribute="leading" secondItem="bqZ-Uy-mCa" secondAttribute="trailing" id="E7e-HY-gpY"/>
                             <constraint firstItem="EDc-1s-SUZ" firstAttribute="centerY" secondItem="5ai-Sj-KOw" secondAttribute="centerY" id="EQF-aR-S17"/>
                             <constraint firstItem="MmS-Bq-DdA" firstAttribute="leading" secondItem="GbL-0A-RaQ" secondAttribute="trailing" id="G52-jO-Qgb"/>
-                            <constraint firstItem="vbd-kn-aBV" firstAttribute="top" secondItem="6Tw-PJ-vFI" secondAttribute="top" id="K6v-8U-Uxp"/>
                             <constraint firstAttribute="bottom" secondItem="5ai-Sj-KOw" secondAttribute="bottom" id="KJK-1U-ipg"/>
                             <constraint firstItem="MmS-Bq-DdA" firstAttribute="leading" secondItem="EDc-1s-SUZ" secondAttribute="trailing" id="M4E-qE-ZiJ"/>
                             <constraint firstItem="GbL-0A-RaQ" firstAttribute="centerY" secondItem="6Tw-PJ-vFI" secondAttribute="centerY" id="X0n-5S-nSt"/>
                             <constraint firstItem="MmS-Bq-DdA" firstAttribute="height" secondItem="EDc-1s-SUZ" secondAttribute="height" id="YGL-kx-kJf"/>
-                            <constraint firstItem="vbd-kn-aBV" firstAttribute="leading" secondItem="6Tw-PJ-vFI" secondAttribute="leading" constant="12" id="brg-Fq-gOk"/>
                             <constraint firstItem="MmS-Bq-DdA" firstAttribute="width" secondItem="EDc-1s-SUZ" secondAttribute="width" id="eHZ-rQ-Us3"/>
-                            <constraint firstAttribute="trailing" secondItem="vbd-kn-aBV" secondAttribute="trailing" constant="12" id="efR-Cb-1SC"/>
                             <constraint firstItem="bqZ-Uy-mCa" firstAttribute="centerY" secondItem="6Tw-PJ-vFI" secondAttribute="centerY" id="odL-8b-AMB"/>
                             <constraint firstItem="5ai-Sj-KOw" firstAttribute="leading" secondItem="6Tw-PJ-vFI" secondAttribute="leading" id="pB4-wR-QII"/>
                             <constraint firstItem="5ai-Sj-KOw" firstAttribute="top" secondItem="6Tw-PJ-vFI" secondAttribute="top" constant="1" id="scl-bw-khc"/>

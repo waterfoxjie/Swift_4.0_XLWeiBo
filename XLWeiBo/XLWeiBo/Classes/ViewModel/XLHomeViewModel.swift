@@ -74,8 +74,8 @@ class XLHomeViewModel {
     ///
     /// - Parameter image: 图片
     func updateSingleImageSize(image: UIImage) {
-        var imageSize = image.size
-        imageSize.height += HomePicViewOutterMargin * 2
+        var imageSize = CGSize(width: image.size.width * ScreenScale, height: image.size.height * ScreenScale)
+        imageSize.height += HomePicViewOutterMargin
         picViewsSize = imageSize
     }
     
@@ -108,7 +108,7 @@ class XLHomeViewModel {
         let width: CGFloat = (HomePicViewWidth - 2 * HomePicViewInnerMargin) / 3
         // 根据 picCount 知道有多少行
         let row = (picCount! - 1) / 3 + 1
-        var picHeight = HomePicViewOutterMargin * 2
+        var picHeight = HomePicViewOutterMargin
         picHeight = picHeight + HomePicViewInnerMargin * CGFloat(row - 1)
         picHeight = picHeight + width * CGFloat(row)
         return picHeight
