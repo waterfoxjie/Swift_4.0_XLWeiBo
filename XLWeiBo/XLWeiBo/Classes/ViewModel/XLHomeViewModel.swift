@@ -17,7 +17,7 @@ class XLHomeViewModel {
     // V 图标
     var verifiedImage: UIImage?
     // 配图视图高度
-    var picViewsHeight: CGFloat = 0
+    var picViewsSize: CGSize = CGSize()
     // 配图视图内容
     var picUrlArray: [XLHomePictureModel]? {
         // 转发的微博正文一定没有图片，所以先看看转发微博中是否有图片，有则返回，没有就返回正文中的配图，都没有则返回 nil
@@ -56,7 +56,8 @@ class XLHomeViewModel {
         }
         
         // 设置配图视图高度
-        picViewsHeight = calcPicViewsHeight(picCount: model.retweetedStatus?.pictureArray?.count ?? model.pictureArray?.count)
+        let picViewsHeight = calcPicViewsHeight(picCount: model.retweetedStatus?.pictureArray?.count ?? model.pictureArray?.count)
+        picViewsSize = CGSize(width: HomePicViewWidth, height: picViewsHeight)
         
         // 设置被转发微博文字
         repostsText = "@\(String(describing: model.retweetedStatus?.userModel?.userNickName ?? "")) : "
@@ -66,6 +67,16 @@ class XLHomeViewModel {
         repostsString = countString(count: model.repostsCount, defaultString: "转发")
         commentString = countString(count: model.commentsCount, defaultString: "评论")
         likedString = countString(count: model.likedCount, defaultString: "赞")
+    }
+    
+    
+    /// 修改单张配图视图大小
+    ///
+    /// - Parameter image: 图片
+    func updateSingleImageSize(image: UIImage) {
+        var imageSize = image.size
+        imageSize.height += HomePicViewOutterMargin * 2
+        picViewsSize = imageSize
     }
     
     /// 给定一个数字，返回对应的描述结果

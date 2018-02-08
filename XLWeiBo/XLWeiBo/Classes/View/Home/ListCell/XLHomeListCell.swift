@@ -60,7 +60,7 @@ class XLHomeListCell: UITableViewCell {
             
             // 设置图片 View
             picturesView.urlArray = viewModel?.picUrlArray
-            picturesView.picturesViewHeight.constant = viewModel?.picViewsHeight ?? 0
+            picturesView.picturesViewHeight.constant = viewModel?.picViewsSize.height ?? 0
             
             // 设置转发微博内容
             repostsTextLabel?.attributedText =

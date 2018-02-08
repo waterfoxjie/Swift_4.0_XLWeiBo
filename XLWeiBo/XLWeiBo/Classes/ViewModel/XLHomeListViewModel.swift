@@ -103,6 +103,8 @@ class XLHomeListViewModel {
                 if let image = image,
                     let data = UIImagePNGRepresentation(image) {
                     lenth = lenth + data.count
+                    // 修改配图视图大小
+                    vm.updateSingleImageSize(image: image)
                 }
                 // 出组，一定要放在闭包的最后一个
                 groud.leave()
