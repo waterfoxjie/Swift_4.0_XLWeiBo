@@ -57,7 +57,7 @@ class XLHomeViewModel {
         
         // 设置配图视图高度
         let picViewsHeight = calcPicViewsHeight(picCount: model.retweetedStatus?.pictureArray?.count ?? model.pictureArray?.count)
-        picViewsSize = CGSize(width: HomePicViewWidth, height: picViewsHeight)
+        picViewsSize = CGSize(width: HomeCellLabOrPicWidth, height: picViewsHeight)
         
         // 设置被转发微博文字
         repostsText = "@\(String(describing: model.retweetedStatus?.userModel?.userNickName ?? "")) : "
@@ -75,7 +75,7 @@ class XLHomeViewModel {
     /// - Parameter image: 图片
     func updateSingleImageSize(image: UIImage) {
         var imageSize = CGSize(width: image.size.width * ScreenScale, height: image.size.height * ScreenScale)
-        imageSize.height += HomePicViewOutterMargin
+        imageSize.height += HomeCellOutterMargin
         picViewsSize = imageSize
     }
     
@@ -104,13 +104,11 @@ class XLHomeViewModel {
         if picCount == 0 || picCount == nil {
             return 0
         }
-        // 默认 Item 宽度
-        let width: CGFloat = (HomePicViewWidth - 2 * HomePicViewInnerMargin) / 3
         // 根据 picCount 知道有多少行
-        let row = (picCount! - 1) / 3 + 1
-        var picHeight = HomePicViewOutterMargin
-        picHeight = picHeight + HomePicViewInnerMargin * CGFloat(row - 1)
-        picHeight = picHeight + width * CGFloat(row)
+        let row = (picCount! - 1) / HomeCellPicRow + 1
+        var picHeight = HomeCellOutterMargin
+        picHeight = picHeight + HomeCellPicInnerMargin * CGFloat(row - 1)
+        picHeight = picHeight + HomeCellPicItemSize * CGFloat(row)
         return picHeight
     }
     

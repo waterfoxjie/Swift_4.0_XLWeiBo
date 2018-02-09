@@ -32,11 +32,24 @@ let WeiBoLoginNotification = "WeiBoLoginNotification"
 // 登录成功通知
 let WeiBoLoginSuccessNotification = "WeiBoLoginSuccessNotification"
 
-// MARK: - 首页配图视图常量
-// 外部间距
-let HomePicViewOutterMargin = 11 * ScreenScale
-// 内部间距
-let HomePicViewInnerMargin = 8 * ScreenScale
-// 配图视图大小
-let HomePicViewWidth = ScreenWidth - 2 * HomePicViewOutterMargin
+// MARK: - 首页 Cell 常量
+// 外部间距 / 控件间的间距
+let HomeCellOutterMargin: CGFloat = 12
+// 顶部分隔 View 高度
+let HomeCellTopViewHeight: CGFloat = 12
+// 头像大小
+let HomeCellIconSize: CGFloat = 40
+// 底部功能 View 高度
+let HomeCellBottomViewHeight: CGFloat = 35
+// 文字控件宽度 / 配图视图宽度
+let HomeCellLabOrPicWidth = ScreenWidth - 2 * HomeCellOutterMargin
+// 图片内部间距
+let HomeCellPicInnerMargin: CGFloat = 5
+// 配图视图最大子控件数
+let HomeCellPicMaxViewCount = 9
+// 配体图视图行数
+let HomeCellPicRow = 3
+let HomeCellPicItemSize: CGFloat = (HomeCellLabOrPicWidth - CGFloat(HomeCellPicRow - 1) * HomeCellPicInnerMargin) / CGFloat(HomeCellPicRow)
+
+
 

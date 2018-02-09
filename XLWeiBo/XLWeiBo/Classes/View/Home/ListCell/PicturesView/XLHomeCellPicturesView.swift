@@ -8,10 +8,6 @@
 
 import UIKit
 
-private let maxViewCount = 9
-private let maxRow = 3
-private let itemSize: CGFloat = (HomePicViewWidth - CGFloat(maxRow - 1) * HomePicViewInnerMargin) / CGFloat(maxRow)
-
 class XLHomeCellPicturesView: UIView {
     
     // 图片 View 高度约束
@@ -66,18 +62,18 @@ extension XLHomeCellPicturesView {
         backgroundColor = superview?.backgroundColor
         // 创建 9 个 UIImageView
         clipsToBounds = true
-        for i in 0..<maxViewCount {
+        for i in 0..<HomeCellPicMaxViewCount {
             let picImageView = UIImageView()
             addSubview(picImageView)
             // 设置位置
-            let cloum = i / maxRow
-            let row = i % maxRow
-            let topMargin = HomePicViewOutterMargin + (itemSize + HomePicViewInnerMargin) * CGFloat(cloum)
-            let leftMargin = (HomePicViewInnerMargin + itemSize) * CGFloat(row)
+            let cloum = i / HomeCellPicRow
+            let row = i % HomeCellPicRow
+            let topMargin = HomeCellOutterMargin + (HomeCellPicItemSize + HomeCellPicInnerMargin) * CGFloat(cloum)
+            let leftMargin = (HomeCellPicInnerMargin + HomeCellPicItemSize) * CGFloat(row)
             picImageView.snp.makeConstraints({ (make) in
                 make.top.equalToSuperview().offset(topMargin)
                 make.left.equalToSuperview().offset(leftMargin)
-                make.size.equalTo(CGSize(width: itemSize, height: itemSize))
+                make.width.height.equalTo(HomeCellPicItemSize)
             })
             picImageView.contentMode = .scaleAspectFill
             picImageView.clipsToBounds = true
@@ -96,31 +92,11 @@ extension XLHomeCellPicturesView {
         if urlArray.count == 1 {
             let size = viewModel?.picViewsSize ?? CGSize()
             // 单图：根据图像大小，修改第一个视图的大小
-            picView?.frame.size = CGSize(width: size.width, height: size.height - HomePicViewOutterMargin)
+            picView?.frame.size = CGSize(width: size.width, height: size.height - HomeCellOutterMargin)
         } else {
             // 多图：恢复原来的大小
-            picView?.frame.size = CGSize(width: itemSize, height: itemSize)
+            picView?.frame.size = CGSize(width: HomeCellPicItemSize, height: HomeCellPicItemSize)
         }
         picturesViewHeight.constant = viewModel?.picViewsSize.height ?? 0
     }
 }
-
-/*
- // 计算九宫格宽度
- let viewsWidth = ScreenWidth - 2 * HomePicViewOutterMargin
- // 默认 Item 宽度
- let width: CGFloat = (viewsWidth - 2 * HomePicViewInnerMargin) / 3
- // 设置位置
- let cloum = number / 3
- let row = number % 3
- let topMargin = HomePicViewOutterMargin + (width + HomePicViewInnerMargin) * CGFloat(cloum)
- let leftMargin = (HomePicViewInnerMargin + width) * CGFloat(row)
- let picImageView = subviews[number] as! UIImageView
- picImageView.snp.makeConstraints({ (make) in
- make.top.equalToSuperview().offset(topMargin)
- make.left.equalToSuperview().offset(leftMargin)
- make.size.equalTo(CGSize(width: width, height: width))
- })
- picImageView.xl_setImage(urlString: picModel.thumbnailPic, placeholderImage: UIImage(named: "avatar_default_big"))
- number = number + 1
- */
