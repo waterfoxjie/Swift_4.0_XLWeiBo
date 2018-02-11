@@ -25,6 +25,8 @@ let NormalTitleColor: UIColor = UIColor.darkGray
 let HighlightedTitleColor: UIColor = UIColor.orange
 // 屏幕尺寸比例
 let ScreenScale = ScreenWidth / 375
+// Label 行间距
+let lineSpacing = 5 * ScreenScale
 
 // MARK: - 全局通知定义
 // 登录通知

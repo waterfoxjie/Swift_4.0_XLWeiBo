@@ -25,9 +25,6 @@ class XLHomeViewController: XLBaseViewController {
         tableView?.register(UINib(nibName: "XLHomeListNormalCell", bundle: nil), forCellReuseIdentifier: homeListNormalCellID)
         tableView?.register(UINib(nibName: "XLHomeListRepostsCell", bundle: nil), forCellReuseIdentifier: homeListRepostsCellID)
         
-        // 设置行高自动布局
-        tableView?.rowHeight = UITableViewAutomaticDimension
-        tableView?.estimatedRowHeight = 300
         // 隐藏底部分割线
         tableView?.separatorStyle = .none
     }
@@ -93,7 +90,7 @@ extension XLHomeViewController {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+        return listViewModel.homeList[indexPath.row].cellRowHeight
     }
     
     // 将要显示 cell 代理方法

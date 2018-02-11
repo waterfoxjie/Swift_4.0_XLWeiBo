@@ -64,14 +64,24 @@
                             <constraint firstAttribute="height" constant="17" id="cSM-rt-IJ5"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="内容设置" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UtO-Kh-uzu">
-                        <rect key="frame" x="12" y="79" width="351" height="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="内容设置" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UtO-Kh-uzu">
+                        <rect key="frame" x="12" y="79" width="61.5" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VED-a2-WCI" customClass="XLHomeCellPicturesView" customModule="XLWeiBo" customModuleProvider="target">
+                        <rect key="frame" x="12" y="97" width="351" height="100"/>
+                        <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="100" id="gpQ-vx-5tD"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="picturesViewHeight" destination="gpQ-vx-5tD" id="FqU-mg-J0B"/>
+                        </connections>
+                    </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Tw-PJ-vFI" customClass="XLHomeCellBottomView" customModule="XLWeiBo" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="264" width="375" height="35"/>
+                        <rect key="frame" x="0.0" y="209" width="375" height="35"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vbd-kn-aBV" userLabel="topLine">
                                 <rect key="frame" x="12" y="0.0" width="351" height="1"/>
@@ -166,16 +176,6 @@
                             <outlet property="repostsButton" destination="5ai-Sj-KOw" id="nhh-F5-QoU"/>
                         </connections>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VED-a2-WCI" customClass="XLHomeCellPicturesView" customModule="XLWeiBo" customModuleProvider="target">
-                        <rect key="frame" x="12" y="97" width="351" height="100"/>
-                        <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="100" id="gpQ-vx-5tD"/>
-                        </constraints>
-                        <connections>
-                            <outlet property="picturesViewHeight" destination="gpQ-vx-5tD" id="FqU-mg-J0B"/>
-                        </connections>
-                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="wEQ-Oq-9jS" firstAttribute="trailing" secondItem="GCs-8m-xE3" secondAttribute="trailing" constant="3" id="0zv-67-VUU"/>
@@ -183,7 +183,7 @@
                     <constraint firstItem="GCs-8m-xE3" firstAttribute="leading" secondItem="uPt-rX-t8O" secondAttribute="leading" constant="12" id="6bd-yM-yb1"/>
                     <constraint firstAttribute="trailing" secondItem="6Tw-PJ-vFI" secondAttribute="trailing" id="72Y-Ge-0Pm"/>
                     <constraint firstItem="VED-a2-WCI" firstAttribute="top" secondItem="UtO-Kh-uzu" secondAttribute="bottom" id="8q6-PV-FVQ"/>
-                    <constraint firstItem="6Tw-PJ-vFI" firstAttribute="top" relation="greaterThanOrEqual" secondItem="VED-a2-WCI" secondAttribute="bottom" constant="12" id="AUV-GF-E1g"/>
+                    <constraint firstItem="6Tw-PJ-vFI" firstAttribute="top" secondItem="VED-a2-WCI" secondAttribute="bottom" constant="12" id="AUV-GF-E1g"/>
                     <constraint firstAttribute="trailing" secondItem="hOy-CV-znW" secondAttribute="trailing" id="B6u-6L-0ez"/>
                     <constraint firstItem="peg-iT-zna" firstAttribute="top" secondItem="46a-BN-OhA" secondAttribute="bottom" constant="5" id="Ba7-WV-99B"/>
                     <constraint firstItem="UtO-Kh-uzu" firstAttribute="top" secondItem="wEQ-Oq-9jS" secondAttribute="bottom" constant="12" id="C9s-oI-c6g"/>
@@ -195,12 +195,11 @@
                     <constraint firstItem="9XG-A7-BK3" firstAttribute="leading" secondItem="peg-iT-zna" secondAttribute="trailing" constant="6" id="LKF-r0-eGI"/>
                     <constraint firstItem="9XG-A7-BK3" firstAttribute="centerY" secondItem="peg-iT-zna" secondAttribute="centerY" id="NP0-6k-WBt"/>
                     <constraint firstItem="tmv-iX-TJc" firstAttribute="centerY" secondItem="46a-BN-OhA" secondAttribute="centerY" id="Xoi-fs-jAw"/>
-                    <constraint firstAttribute="trailing" secondItem="UtO-Kh-uzu" secondAttribute="trailing" constant="12" id="a5B-g6-0P3"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="UtO-Kh-uzu" secondAttribute="trailing" constant="12" id="a5B-g6-0P3"/>
                     <constraint firstItem="peg-iT-zna" firstAttribute="leading" secondItem="46a-BN-OhA" secondAttribute="leading" id="aMg-Hw-hwN"/>
                     <constraint firstAttribute="trailing" secondItem="VED-a2-WCI" secondAttribute="trailing" constant="12" id="c3G-oz-BVI"/>
                     <constraint firstItem="46a-BN-OhA" firstAttribute="leading" secondItem="GCs-8m-xE3" secondAttribute="trailing" constant="12" id="cF9-y2-g08"/>
                     <constraint firstItem="46a-BN-OhA" firstAttribute="centerY" secondItem="GCs-8m-xE3" secondAttribute="centerY" constant="-10" id="eB7-zc-xpO"/>
-                    <constraint firstAttribute="bottom" secondItem="6Tw-PJ-vFI" secondAttribute="bottom" id="uIi-kf-xPa"/>
                     <constraint firstItem="hOy-CV-znW" firstAttribute="leading" secondItem="uPt-rX-t8O" secondAttribute="leading" id="vFg-VI-Ubx"/>
                     <constraint firstItem="UtO-Kh-uzu" firstAttribute="leading" secondItem="uPt-rX-t8O" secondAttribute="leading" constant="12" id="zCy-eU-V9q"/>
                 </constraints>

@@ -64,14 +64,14 @@
                             <constraint firstAttribute="height" constant="17" id="cSM-rt-IJ5"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="内容设置" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UtO-Kh-uzu" userLabel="内容">
-                        <rect key="frame" x="12" y="79" width="351" height="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="内容设置" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UtO-Kh-uzu" userLabel="内容">
+                        <rect key="frame" x="12" y="79" width="61.5" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9o8-Iv-v8y" userLabel="转发微博">
-                        <rect key="frame" x="0.0" y="109" width="375" height="202.5"/>
+                        <rect key="frame" x="0.0" y="109" width="375" height="141.5"/>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="转发微博内容" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="13K-l5-Yle" userLabel="转发微博内容">
@@ -80,8 +80,18 @@
                         <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VED-a2-WCI" userLabel="配图视图" customClass="XLHomeCellPicturesView" customModule="XLWeiBo" customModuleProvider="target">
+                        <rect key="frame" x="12" y="138" width="351" height="100"/>
+                        <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="100" id="gpQ-vx-5tD"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="picturesViewHeight" destination="gpQ-vx-5tD" id="wIM-R5-aRE"/>
+                        </connections>
+                    </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Tw-PJ-vFI" userLabel="底部" customClass="XLHomeCellBottomView" customModule="XLWeiBo" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="311.5" width="375" height="35"/>
+                        <rect key="frame" x="0.0" y="250" width="375" height="35"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ai-Sj-KOw">
                                 <rect key="frame" x="0.0" y="1" width="125" height="34"/>
@@ -170,16 +180,6 @@
                             <outlet property="repostsButton" destination="5ai-Sj-KOw" id="esL-iD-aV2"/>
                         </connections>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VED-a2-WCI" userLabel="配图视图" customClass="XLHomeCellPicturesView" customModule="XLWeiBo" customModuleProvider="target">
-                        <rect key="frame" x="12" y="138" width="351" height="100"/>
-                        <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="100" id="gpQ-vx-5tD"/>
-                        </constraints>
-                        <connections>
-                            <outlet property="picturesViewHeight" destination="gpQ-vx-5tD" id="wIM-R5-aRE"/>
-                        </connections>
-                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="wEQ-Oq-9jS" firstAttribute="trailing" secondItem="GCs-8m-xE3" secondAttribute="trailing" constant="3" id="0zv-67-VUU"/>
@@ -204,14 +204,13 @@
                     <constraint firstItem="9o8-Iv-v8y" firstAttribute="leading" secondItem="uPt-rX-t8O" secondAttribute="leading" id="RU4-Am-fMZ"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="13K-l5-Yle" secondAttribute="trailing" constant="12" id="SEK-20-AhC"/>
                     <constraint firstItem="tmv-iX-TJc" firstAttribute="centerY" secondItem="46a-BN-OhA" secondAttribute="centerY" id="Xoi-fs-jAw"/>
-                    <constraint firstAttribute="trailing" secondItem="UtO-Kh-uzu" secondAttribute="trailing" constant="12" id="a5B-g6-0P3"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="UtO-Kh-uzu" secondAttribute="trailing" constant="12" id="a5B-g6-0P3"/>
                     <constraint firstItem="peg-iT-zna" firstAttribute="leading" secondItem="46a-BN-OhA" secondAttribute="leading" id="aMg-Hw-hwN"/>
                     <constraint firstAttribute="trailing" secondItem="VED-a2-WCI" secondAttribute="trailing" constant="12" id="c3G-oz-BVI"/>
                     <constraint firstItem="46a-BN-OhA" firstAttribute="leading" secondItem="GCs-8m-xE3" secondAttribute="trailing" constant="12" id="cF9-y2-g08"/>
                     <constraint firstItem="46a-BN-OhA" firstAttribute="centerY" secondItem="GCs-8m-xE3" secondAttribute="centerY" constant="-10" id="eB7-zc-xpO"/>
                     <constraint firstItem="VED-a2-WCI" firstAttribute="top" secondItem="13K-l5-Yle" secondAttribute="bottom" id="fZI-FX-l3D"/>
-                    <constraint firstItem="6Tw-PJ-vFI" firstAttribute="top" relation="greaterThanOrEqual" secondItem="VED-a2-WCI" secondAttribute="bottom" constant="12" id="tVz-XZ-Imq"/>
-                    <constraint firstAttribute="bottom" secondItem="6Tw-PJ-vFI" secondAttribute="bottom" id="uIi-kf-xPa"/>
+                    <constraint firstItem="6Tw-PJ-vFI" firstAttribute="top" secondItem="VED-a2-WCI" secondAttribute="bottom" constant="12" id="tVz-XZ-Imq"/>
                     <constraint firstItem="hOy-CV-znW" firstAttribute="leading" secondItem="uPt-rX-t8O" secondAttribute="leading" id="vFg-VI-Ubx"/>
                     <constraint firstItem="UtO-Kh-uzu" firstAttribute="leading" secondItem="uPt-rX-t8O" secondAttribute="leading" constant="12" id="zCy-eU-V9q"/>
                 </constraints>

@@ -9,8 +9,6 @@
 import UIKit
 import SnapKit
 
-private let lineSpacing = 5 * ScreenScale
-
 class XLHomeListCell: UITableViewCell {
 
     // 头像
@@ -48,20 +46,19 @@ class XLHomeListCell: UITableViewCell {
             nickNameLabal.text = userModel?.userNickName ?? ""
             gradeImageView.image = viewModel?.gradeImage
             vImageView.image = viewModel?.verifiedImage
-    
+
             // FIXME: 设置时间、来源
             timeLabel.text = "刚刚"
             sourceLabel.text = "来自微博 weibo.con"
-    
+
             // 设置微博内容
-            contactLabel.attributedText = viewModel?.homeModel.wbText?.adjustLineSpacing(lineSpacing: lineSpacing, viewWidth: HomeCellLabOrPicWidth, textFont: contactLabel.font)
+            contactLabel.text = viewModel?.homeModel.wbText
             
             // 设置图片 View
             picturesView.viewModel = viewModel
             
             // 设置转发微博内容
-            repostsTextLabel?.attributedText =
-                viewModel?.repostsText?.adjustLineSpacing(lineSpacing: lineSpacing, viewWidth: HomeCellLabOrPicWidth, textFont: repostsTextLabel?.font ?? UIFont.systemFont(ofSize: 14))
+            repostsTextLabel?.text = viewModel?.repostsText
             
             // 设置底部按钮内容
             bottomView.viewModel = viewModel
