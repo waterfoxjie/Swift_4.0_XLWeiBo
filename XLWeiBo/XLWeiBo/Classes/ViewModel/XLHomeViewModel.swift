@@ -80,6 +80,18 @@ class XLHomeViewModel {
     /// - Parameter image: 图片
     func updateSingleImageSize(image: UIImage) {
         var imageSize = CGSize(width: image.size.width * ScreenScale, height: image.size.height * ScreenScale)
+        // 处理图片过宽情况（进行等比例缩放）
+        if imageSize.width > HomeCellLabOrPicWidth {
+            imageSize.width = HomeCellLabOrPicWidth
+            imageSize.height = image.size.height * ScreenScale * imageSize.width / image.size.width * ScreenScale
+        }
+        // 处理图片过长、过窄的情况
+        let minWidth: CGFloat = 100
+        if imageSize.width < minWidth {
+            imageSize.width = minWidth
+            // 防止长度过长 / 4
+            imageSize.height = image.size.height * ScreenScale * imageSize.width / image.size.width * ScreenScale / 4
+        }
         imageSize.height += HomeCellOutterMargin
         picViewsSize = imageSize
         // 更新行高
@@ -99,20 +111,20 @@ class XLHomeViewModel {
           参数2：类型（.usesLineFragmentOrigin 为多行固定）
           参数3：设置字体大小
         */
-//        if let weiBoText = homeModel.wbText {
-//            let height = weiBoText.getStringRect(textFont: UIFont.systemFont(ofSize: 15), viewWidth: HomeCellLabOrPicWidth, isMultiLine: false).height
-//            viewHeight += (height + HomeCellOutterMargin)
-//            print("height = \(height)")
-//        }
-//        // 转发微博情况下，计算转发微博文高度
-//        if homeModel.retweetedStatus != nil {
-//            if let repostsText = repostsText {
-//                let repostsHeight = repostsText.getStringRect(textFont: UIFont.systemFont(ofSize: 14), viewWidth: HomeCellLabOrPicWidth, isMultiLine: false).height
-//                viewHeight += repostsHeight
-//                viewHeight += 2 * HomeCellOutterMargin
-//                print("repostsHeight = \(repostsHeight)")
-//            }
-//        }
+        if let weiBoText = homeModel.wbText {
+            let height = weiBoText.getStringRect(textFont: UIFont.systemFont(ofSize: 15), viewWidth: HomeCellLabOrPicWidth, isMultiLine: false).height
+            viewHeight += (height + HomeCellOutterMargin)
+            print("height = \(height)")
+        }
+        // 转发微博情况下，计算转发微博文高度
+        if homeModel.retweetedStatus != nil {
+            if let repostsText = repostsText {
+                let repostsHeight = repostsText.getStringRect(textFont: UIFont.systemFont(ofSize: 14), viewWidth: HomeCellLabOrPicWidth, isMultiLine: false).height
+                viewHeight += repostsHeight
+                viewHeight += 2 * HomeCellOutterMargin
+                print("repostsHeight = \(repostsHeight)")
+            }
+        }
         // 添加配图视图
         viewHeight += picViewsSize.height
         // 添加底部

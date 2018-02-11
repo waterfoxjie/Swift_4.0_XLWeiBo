@@ -70,11 +70,7 @@ extension XLHomeCellPicturesView {
             let row = i % HomeCellPicRow
             let topMargin = HomeCellOutterMargin + (HomeCellPicItemSize + HomeCellPicInnerMargin) * CGFloat(cloum)
             let leftMargin = (HomeCellPicInnerMargin + HomeCellPicItemSize) * CGFloat(row)
-            picImageView.snp.makeConstraints({ (make) in
-                make.top.equalToSuperview().offset(topMargin)
-                make.left.equalToSuperview().offset(leftMargin)
-                make.width.height.equalTo(HomeCellPicItemSize)
-            })
+            picImageView.frame = CGRect(x: leftMargin, y: topMargin, width: HomeCellPicItemSize, height: HomeCellPicItemSize)
             picImageView.contentMode = .scaleAspectFill
             picImageView.clipsToBounds = true
         }
