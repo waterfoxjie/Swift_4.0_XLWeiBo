@@ -31,6 +31,8 @@ class XLHomeViewModel {
     var commentString: String?
     // 点赞文字
     var likedString: String?
+    // 计算行高
+    var cellRowHeight: CGFloat = 0
     
     init(model: XLHomeInfoModel) {
         self.homeModel = model
@@ -67,6 +69,9 @@ class XLHomeViewModel {
         repostsString = countString(count: model.repostsCount, defaultString: "转发")
         commentString = countString(count: model.commentsCount, defaultString: "评论")
         likedString = countString(count: model.likedCount, defaultString: "赞")
+    
+        // 计算行高
+//        updateRowHeight()
     }
     
     
@@ -77,6 +82,43 @@ class XLHomeViewModel {
         var imageSize = CGSize(width: image.size.width * ScreenScale, height: image.size.height * ScreenScale)
         imageSize.height += HomeCellOutterMargin
         picViewsSize = imageSize
+        // 更新行高
+//        updateRowHeight()
+    }
+    
+    
+    /// 根据当前视图模型内容计算高度
+    func updateRowHeight() {
+        // 共有的：顶部分隔View(12) + 间距(12) + 头像(40) + 间距(12) + 正文(需要计算，字号：15) + 配图视图(需要计算) + 间距(12) + 底部View(35)
+        // 转发增加：间距(12) + 转发微博文字(需要计算，字号：14)
+        // 增加共有不需要计算部分（3个间距 + 顶部 + 头像 + 底部）
+        var viewHeight = HomeCellTopViewHeight
+        viewHeight += (HomeCellOutterMargin + HomeCellIconSize)
+        /*
+          参数1：预尺寸（宽度为控件宽度，高度尽量设置大）
+          参数2：类型（.usesLineFragmentOrigin 为多行固定）
+          参数3：设置字体大小
+        */
+//        if let weiBoText = homeModel.wbText {
+//            let height = weiBoText.getStringRect(textFont: UIFont.systemFont(ofSize: 15), viewWidth: HomeCellLabOrPicWidth, isMultiLine: false).height
+//            viewHeight += (height + HomeCellOutterMargin)
+//            print("height = \(height)")
+//        }
+//        // 转发微博情况下，计算转发微博文高度
+//        if homeModel.retweetedStatus != nil {
+//            if let repostsText = repostsText {
+//                let repostsHeight = repostsText.getStringRect(textFont: UIFont.systemFont(ofSize: 14), viewWidth: HomeCellLabOrPicWidth, isMultiLine: false).height
+//                viewHeight += repostsHeight
+//                viewHeight += 2 * HomeCellOutterMargin
+//                print("repostsHeight = \(repostsHeight)")
+//            }
+//        }
+        // 添加配图视图
+        viewHeight += picViewsSize.height
+        // 添加底部
+        viewHeight += (HomeCellOutterMargin + HomeCellBottomViewHeight)
+        print("viewHeight = \(viewHeight)")
+        cellRowHeight = viewHeight
     }
     
     /// 给定一个数字，返回对应的描述结果
