@@ -9,9 +9,7 @@
 import UIKit
 import SnapKit
 
-private let marginWith = 11 * ScreenScale
 private let lineSpacing = 5 * ScreenScale
-private let contactLabelWidth = ScreenWidth - 2 * marginWith
 
 class XLHomeListCell: UITableViewCell {
 
@@ -56,14 +54,14 @@ class XLHomeListCell: UITableViewCell {
             sourceLabel.text = "来自微博 weibo.con"
     
             // 设置微博内容
-            contactLabel.attributedText = viewModel?.homeModel.wbText?.adjustLineSpacing(lineSpacing: lineSpacing, viewWidth: contactLabelWidth, textFont: contactLabel.font)
+            contactLabel.attributedText = viewModel?.homeModel.wbText?.adjustLineSpacing(lineSpacing: lineSpacing, viewWidth: HomeCellLabOrPicWidth, textFont: contactLabel.font)
             
             // 设置图片 View
             picturesView.viewModel = viewModel
             
             // 设置转发微博内容
             repostsTextLabel?.attributedText =
-                viewModel?.repostsText?.adjustLineSpacing(lineSpacing: lineSpacing, viewWidth: contactLabelWidth, textFont: repostsTextLabel?.font ?? UIFont.systemFont(ofSize: 14))
+                viewModel?.repostsText?.adjustLineSpacing(lineSpacing: lineSpacing, viewWidth: HomeCellLabOrPicWidth, textFont: repostsTextLabel?.font ?? UIFont.systemFont(ofSize: 14))
             
             // 设置底部按钮内容
             bottomView.viewModel = viewModel

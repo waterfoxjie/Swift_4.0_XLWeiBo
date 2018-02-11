@@ -77,12 +77,17 @@ extension String {
     /// - Parameters:
     ///   - text: 字符串
     ///   - font: 文字大小
+    ///   - isMultiLine: 是否多行，默认 true
     /// - Returns: 返回对应大小
     func getStringRect(textFont: UIFont,
-                       viewWidth: CGFloat) -> CGRect {
+                       viewWidth: CGFloat,
+                       isMultiLine: Bool = true) -> CGRect {
         let temptext = NSString(string: self)
-        let size = CGSize(width: viewWidth, height: 0)
-        let options = NSStringDrawingOptions.usesFontLeading
+        let size = CGSize(width: viewWidth, height: CGFloat(MAXFLOAT))
+        var options = NSStringDrawingOptions.usesLineFragmentOrigin
+        if !isMultiLine {
+            options = NSStringDrawingOptions.usesDeviceMetrics
+        }
         let boundRect = temptext.boundingRect(with: size, options: options, attributes: [NSAttributedStringKey.font: textFont], context: nil)
         return boundRect
     }
