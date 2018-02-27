@@ -11,7 +11,7 @@ import UIKit
 class XLBaseViewController: UIViewController {
     
     var tableView: UITableView?
-    var resfreshC: UIRefreshControl?
+    var resfreshC: XLRefreshControl?
     var visitorInfoDict: [String: Any]?
 
     override func viewDidLoad() {
@@ -56,7 +56,7 @@ extension XLBaseViewController {
         view.addSubview(tableView!)
         
         // 设置刷新控件
-        resfreshC = UIRefreshControl()
+        resfreshC = XLRefreshControl()
         tableView?.addSubview(resfreshC!)
         resfreshC?.addTarget(self, action: #selector(loadData), for: .valueChanged)
         baseSetup()
