@@ -8,6 +8,20 @@
 
 import UIKit
 
+// 设置修改控件样式临界点
+private let XLRefreshChanged: CGFloat = 60
+
+/// 刷新控件状态
+///
+/// - Normal:      默认状态，不做任何操作
+/// - Pulling:     超越临界点，如果放手，就进行刷新
+/// - WillRefresh: 超过临街点，并且已经放手
+enum XLRefreshState {
+    case Normal
+    case Pulling
+    case WillRefresh
+}
+
 class XLRefreshControl: UIControl {
     
     // MARK: 属性
@@ -60,11 +74,33 @@ class XLRefreshControl: UIControl {
         }
         // 获取高度
         let heigth = -(sv.contentOffset.y + 64)
+        // 如果 < 0 则无需继续操作
+        if heigth < 0 {
+            return
+        }
         // 设置刷新控件 frame
         frame = CGRect(x: 0,
                        y: -heigth,
                        width: sv.bounds.width,
                        height: heigth)
+        // 判断是否拖拽
+        if sv.isDragging {
+            // 超过临界点并且为默认状态时
+            if heigth > XLRefreshChanged && refreshView.refreshState == .Normal {
+                print("放手刷新数据")
+                // 修改状态
+                refreshView.refreshState = .Pulling
+            // 往上拉至临界点上方并且状态为 Pulling 时
+            } else if heigth <= XLRefreshChanged && refreshView.refreshState == .Pulling {
+                print("继续往下拖拽")
+                refreshView.refreshState = .Normal
+            }
+        } else {
+            // 松手
+            if refreshView.refreshState == .Pulling {
+                refreshView.refreshState = .WillRefresh
+            }
+        }
         
     }
     

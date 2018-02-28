@@ -16,6 +16,8 @@ class XLRefreshView: UIView {
     @IBOutlet weak var tipLabel: UILabel!
     // 菊花
     @IBOutlet weak var indicator: UIActivityIndicatorView!
+    // 刷新状态
+    lazy var refreshState: XLRefreshState = .Normal
     
     // 从 xib 中加载控件
     class func refreshView() -> XLRefreshView {
