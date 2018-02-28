@@ -30,11 +30,16 @@ class XLRefreshView: UIView {
             switch refreshState {
             case .Normal:
                 tipLabel.text = "下拉刷新更多数据"
+                // 显示提示图片，隐藏菊花
+                tipImageView.isHidden = false
+                indicator.stopAnimating()
+                // 恢复提示图片样式
                 UIView.animate(withDuration: TipImageAnimateTimer, animations: {
                     self.tipImageView.transform = CGAffineTransform.identity
                 })
             case .Pulling:
                 tipLabel.text = "放手就刷新数据"
+                // 旋转提示图片
                 UIView.animate(withDuration: TipImageAnimateTimer, animations: {
                     self.tipImageView.transform = CGAffineTransform(rotationAngle: CGFloat(.pi - 0.001))
                 })

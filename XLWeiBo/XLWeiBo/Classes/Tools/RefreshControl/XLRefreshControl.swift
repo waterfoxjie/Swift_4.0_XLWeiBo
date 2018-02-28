@@ -98,7 +98,8 @@ class XLRefreshControl: UIControl {
         } else {
             // 松手
             if refreshView.refreshState == .Pulling {
-                beginRefreshing()
+                // 调用 valueChanged 事件（下拉刷新时，就会调用 loadData 方法）
+                sendActions(for: .valueChanged)
             }
         }
         
@@ -124,6 +125,17 @@ class XLRefreshControl: UIControl {
     // 结束刷新
     func endRefreshing() {
         print("结束刷新")
+        guard let sv = scrollView else {
+            return
+        }
+        // 若当前不是刷新中状态，则不进行后面的操作
+        if refreshView.refreshState != .WillRefresh {
+            return
+        }
+        // 修改状态
+        refreshView.refreshState = .Normal
+        // 设置表格顶部间距为原来的
+        sv.contentInset.top -= XLRefreshChanged
     }
 }
 
