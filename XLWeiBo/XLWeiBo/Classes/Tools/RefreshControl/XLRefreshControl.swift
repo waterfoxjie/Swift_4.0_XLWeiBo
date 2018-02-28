@@ -9,7 +9,7 @@
 import UIKit
 
 // 设置修改控件样式临界点
-private let XLRefreshChanged: CGFloat = 60
+private let XLRefreshChanged: CGFloat = 50
 
 /// 刷新控件状态
 ///
@@ -99,6 +99,8 @@ class XLRefreshControl: UIControl {
             // 松手
             if refreshView.refreshState == .Pulling {
                 refreshView.refreshState = .WillRefresh
+                // 修改表格顶部间距，使状态能够显示
+                sv.contentInset.top += XLRefreshChanged
             }
         }
         
@@ -117,9 +119,7 @@ class XLRefreshControl: UIControl {
 
 extension XLRefreshControl {
     private func setupUI() {
-        backgroundColor = UIColor.orange
-        // 超出部分不予显示
-        clipsToBounds = true
+        backgroundColor = superview?.backgroundColor
         // 添加刷新视图
         addSubview(refreshView)
         // 使用原生代码进行自动布局
