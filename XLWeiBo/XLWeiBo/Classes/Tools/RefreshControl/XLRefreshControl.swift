@@ -14,6 +14,7 @@ class XLRefreshControl: UIControl {
     // weak 防止循环引用
     // 刷新控件的父视图，下拉刷新控件应适用于 UITableView、UICollectionView
     private weak var scrollView: UIScrollView?
+    private lazy var refreshView: XLRefreshView = XLRefreshView.refreshView()
     
     // 构造函数
     init() {
@@ -81,5 +82,40 @@ class XLRefreshControl: UIControl {
 extension XLRefreshControl {
     private func setupUI() {
         backgroundColor = UIColor.orange
+        // 超出部分不予显示
+        clipsToBounds = true
+        // 添加刷新视图
+        addSubview(refreshView)
+        // 使用原生代码进行自动布局
+        refreshView.translatesAutoresizingMaskIntoConstraints = false
+        addConstraint(NSLayoutConstraint(item: refreshView,
+                                         attribute: .centerX,
+                                         relatedBy: .equal,
+                                         toItem: self,
+                                         attribute: .centerX,
+                                         multiplier: 1.0,
+                                         constant: 0))
+        addConstraint(NSLayoutConstraint(item: refreshView,
+                                         attribute: .bottom,
+                                         relatedBy: .equal,
+                                         toItem: self,
+                                         attribute: .bottom,
+                                         multiplier: 1.0,
+                                         constant: 0))
+        addConstraint(NSLayoutConstraint(item: refreshView,
+                                         attribute: .width,
+                                         relatedBy: .equal,
+                                         toItem: nil,
+                                         attribute: .notAnAttribute,
+                                         multiplier: 1.0,
+                                         constant: refreshView.bounds.width))
+        addConstraint(NSLayoutConstraint(item: refreshView,
+                                         attribute: .height,
+                                         relatedBy: .equal,
+                                         toItem: nil,
+                                         attribute: .notAnAttribute,
+                                         multiplier: 1.0,
+                                         constant: refreshView.bounds.height))
+        
     }
 }
