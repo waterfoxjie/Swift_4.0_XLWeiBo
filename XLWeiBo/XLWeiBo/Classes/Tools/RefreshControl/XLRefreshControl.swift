@@ -98,9 +98,7 @@ class XLRefreshControl: UIControl {
         } else {
             // 松手
             if refreshView.refreshState == .Pulling {
-                refreshView.refreshState = .WillRefresh
-                // 修改表格顶部间距，使状态能够显示
-                sv.contentInset.top += XLRefreshChanged
+                beginRefreshing()
             }
         }
         
@@ -109,6 +107,18 @@ class XLRefreshControl: UIControl {
     // 开始刷新
     func beginRefreshing() {
         print("开始刷新")
+        // 判断是否有父视图
+        guard let sv = scrollView else {
+            return
+        }
+        // 若还处理刷新中的状态，则不做任何处理
+        if refreshView.refreshState == .WillRefresh {
+            return
+        }
+        // 修改状态
+        refreshView.refreshState = .WillRefresh
+        // 修改表格顶部间距，使状态能够显示
+        sv.contentInset.top += XLRefreshChanged
     }
     
     // 结束刷新
