@@ -81,6 +81,8 @@ class XLRefreshControl: UIControl {
         if heigth < 0 {
             return
         }
+        // 设置父视图高度
+        refreshView.parentHeight = heigth
         // 设置刷新控件 frame
         frame = CGRect(x: 0,
                        y: -heigth,
@@ -123,6 +125,8 @@ class XLRefreshControl: UIControl {
         refreshView.refreshState = .WillRefresh
         // 修改表格顶部间距，使状态能够显示
         sv.contentInset.top += refreshChanged
+        // 设置刷新视图父视图高度
+        refreshView.parentHeight = refreshChanged
     }
     
     // 结束刷新

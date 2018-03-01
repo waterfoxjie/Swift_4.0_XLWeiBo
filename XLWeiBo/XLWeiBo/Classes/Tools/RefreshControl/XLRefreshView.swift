@@ -18,6 +18,8 @@ class XLRefreshView: UIView {
     @IBOutlet weak var tipLabel: UILabel?
     // 菊花
     @IBOutlet weak var indicator: UIActivityIndicatorView?
+    // 父视图高度（用于子视图刷新控件）
+    var parentHeight: CGFloat = 0
     // 刷新状态
     /*
      iOS 系统中 UIView 封装的旋转动画
