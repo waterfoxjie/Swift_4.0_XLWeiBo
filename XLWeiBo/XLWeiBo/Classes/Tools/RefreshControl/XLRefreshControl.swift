@@ -8,8 +8,8 @@
 
 import UIKit
 
-// 设置修改控件样式临界点
-private let XLRefreshChanged: CGFloat = 50
+
+//private let XLRefreshChanged: CGFloat = 50
 
 /// 刷新控件状态
 ///
@@ -28,6 +28,9 @@ class XLRefreshControl: UIControl {
     // weak 防止循环引用
     // 刷新控件的父视图，下拉刷新控件应适用于 UITableView、UICollectionView
     private weak var scrollView: UIScrollView?
+    // 修改控件样式临界点
+    private var refreshChanged: CGFloat = 0
+    // 刷新控件
     private lazy var refreshView: XLRefreshView = XLRefreshView.refreshView()
     
     // 构造函数
@@ -86,12 +89,12 @@ class XLRefreshControl: UIControl {
         // 判断是否拖拽
         if sv.isDragging {
             // 超过临界点并且为默认状态时
-            if heigth > XLRefreshChanged && refreshView.refreshState == .Normal {
+            if heigth > refreshChanged && refreshView.refreshState == .Normal {
                 print("放手刷新数据")
                 // 修改状态
                 refreshView.refreshState = .Pulling
             // 往上拉至临界点上方并且状态为 Pulling 时
-            } else if heigth <= XLRefreshChanged && refreshView.refreshState == .Pulling {
+            } else if heigth <= refreshChanged && refreshView.refreshState == .Pulling {
                 print("继续往下拖拽")
                 refreshView.refreshState = .Normal
             }
@@ -119,7 +122,7 @@ class XLRefreshControl: UIControl {
         // 修改状态
         refreshView.refreshState = .WillRefresh
         // 修改表格顶部间距，使状态能够显示
-        sv.contentInset.top += XLRefreshChanged
+        sv.contentInset.top += refreshChanged
     }
     
     // 结束刷新
@@ -135,7 +138,7 @@ class XLRefreshControl: UIControl {
         // 修改状态
         refreshView.refreshState = .Normal
         // 设置表格顶部间距为原来的
-        sv.contentInset.top -= XLRefreshChanged
+        sv.contentInset.top -= refreshChanged
     }
 }
 
@@ -144,6 +147,8 @@ extension XLRefreshControl {
         backgroundColor = superview?.backgroundColor
         // 添加刷新视图
         addSubview(refreshView)
+        // 设置临界点为控件的高度
+        refreshChanged = refreshView.bounds.height
         // 使用原生代码进行自动布局
         refreshView.translatesAutoresizingMaskIntoConstraints = false
         addConstraint(NSLayoutConstraint(item: refreshView,
