@@ -31,6 +31,7 @@ class XLHomeViewController: XLBaseViewController {
     
     // 设置数据
     override func loadData() {
+        self.resfreshC?.beginRefreshing()
         listViewModel.loadHomeList(isPullup: isPullup) { (isSuccess, isReloadData) in
             print("加载数据完成")
             self.resfreshC?.endRefreshing()
