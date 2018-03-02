@@ -110,7 +110,8 @@ extension XLMainTabBarController {
     // TODO 待写
     // + 按钮点击方法
     @objc private func clickComposeButton() {
-        print("点击")
+        let cptv = XLComposeTypeView()
+        cptv.show()
     }
 }
 

@@ -16,6 +16,7 @@
 		60431C6F20103245001A006C /* CommonTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60431C6E20103245001A006C /* CommonTools.swift */; };
 		60431C7120104261001A006C /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60431C7020104261001A006C /* UIButton+Extension.swift */; };
 		60431C742010932B001A006C /* XLVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60431C732010932B001A006C /* XLVisitorView.swift */; };
+		6044995D20492D9000A75D3A /* XLComposeTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6044995C20492D9000A75D3A /* XLComposeTypeView.swift */; };
 		604798172022FBB200CA798A /* XLUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604798162022FBB200CA798A /* XLUserModel.swift */; };
 		604798192023130B00CA798A /* XLHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604798182023130B00CA798A /* XLHomeViewModel.swift */; };
 		6048840B2020246400830623 /* XLNewFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6048840A2020246400830623 /* XLNewFeatureView.swift */; };
@@ -66,6 +67,7 @@
 		60431C7020104261001A006C /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		60431C732010932B001A006C /* XLVisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLVisitorView.swift; sourceTree = "<group>"; };
 		60431C7520109725001A006C /* XLWeiBo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XLWeiBo-Bridging-Header.h"; sourceTree = "<group>"; };
+		6044995C20492D9000A75D3A /* XLComposeTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLComposeTypeView.swift; sourceTree = "<group>"; };
 		604798162022FBB200CA798A /* XLUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLUserModel.swift; sourceTree = "<group>"; };
 		604798182023130B00CA798A /* XLHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLHomeViewModel.swift; sourceTree = "<group>"; };
 		6048840A2020246400830623 /* XLNewFeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLNewFeatureView.swift; sourceTree = "<group>"; };
@@ -149,6 +151,22 @@
 				60431C732010932B001A006C /* XLVisitorView.swift */,
 			);
 			path = VisitorView;
+			sourceTree = "<group>";
+		};
+		6044995A20492D7A00A75D3A /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				6044995B20492D7A00A75D3A /* ComposeType */,
+			);
+			path = Compose;
+			sourceTree = "<group>";
+		};
+		6044995B20492D7A00A75D3A /* ComposeType */ = {
+			isa = PBXGroup;
+			children = (
+				6044995C20492D9000A75D3A /* XLComposeTypeView.swift */,
+			);
+			path = ComposeType;
 			sourceTree = "<group>";
 		};
 		6044D80020197E7400622EA7 /* Home */ = {
@@ -298,6 +316,7 @@
 		609C733D200F2C0800C8AED6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6044995A20492D7A00A75D3A /* Compose */,
 				605B540F2017408000BB0818 /* OAuth */,
 				604EBB8D201F0E0500F4D3B8 /* Home */,
 				609C7340200F2C0800C8AED6 /* Main */,
@@ -557,6 +576,7 @@
 				604A9DBC2011CDAB007A305D /* XLNetworkManager.swift in Sources */,
 				604ECF2A2019BC4300FB05A8 /* XLHomeInfoModel.swift in Sources */,
 				6042BBD1202446E800A9C87B /* XLHomeCellBottomView.swift in Sources */,
+				6044995D20492D9000A75D3A /* XLComposeTypeView.swift in Sources */,
 				604798172022FBB200CA798A /* XLUserModel.swift in Sources */,
 				609C732E200F29AA00C8AED6 /* XLWeiBo.xcdatamodeld in Sources */,
 				60431C6F20103245001A006C /* CommonTools.swift in Sources */,
