@@ -17,24 +17,24 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="composeBtn01" translatesAutoresizingMaskIntoConstraints="NO" id="EnF-Ig-hK8">
-                    <rect key="frame" x="15" y="0.0" width="70" height="70"/>
+                    <rect key="frame" x="20" y="10" width="60" height="60"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="70" id="YXP-pO-6nx"/>
-                        <constraint firstAttribute="width" constant="70" id="xLa-Tn-qcP"/>
+                        <constraint firstAttribute="height" constant="60" id="YXP-pO-6nx"/>
+                        <constraint firstAttribute="width" constant="60" id="xLa-Tn-qcP"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="测试" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gnv-rf-B7v">
-                    <rect key="frame" x="34.5" y="75" width="31" height="18"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <rect key="frame" x="36.5" y="75" width="27" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="EnF-Ig-hK8" firstAttribute="centerX" secondItem="X9i-j9-NG3" secondAttribute="centerX" id="40m-Et-Bcq"/>
                 <constraint firstItem="gnv-rf-B7v" firstAttribute="centerX" secondItem="X9i-j9-NG3" secondAttribute="centerX" id="DvF-Ah-dUh"/>
-                <constraint firstItem="EnF-Ig-hK8" firstAttribute="top" secondItem="X9i-j9-NG3" secondAttribute="top" id="SAR-J1-zvq"/>
+                <constraint firstItem="EnF-Ig-hK8" firstAttribute="top" secondItem="X9i-j9-NG3" secondAttribute="top" constant="10" id="SAR-J1-zvq"/>
                 <constraint firstItem="gnv-rf-B7v" firstAttribute="top" secondItem="EnF-Ig-hK8" secondAttribute="bottom" constant="5" id="dgc-da-4Ov"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
