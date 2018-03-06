@@ -32,7 +32,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rix-mO-0J4">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REh-oR-teZ">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REh-oR-teZ" userLabel="关闭按钮">
                                         <rect key="frame" x="172" y="7" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="10L-3S-9wA"/>
@@ -43,10 +43,23 @@
                                             <action selector="closeAction" destination="Qnx-J0-Qku" eventType="touchUpInside" id="Vc7-b0-5hf"/>
                                         </connections>
                                     </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="upa-yd-fyc" userLabel="返回上一层按钮">
+                                        <rect key="frame" x="177" y="10" width="21" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="21" id="GZl-Eu-O1S"/>
+                                            <constraint firstAttribute="height" constant="24" id="HSU-IO-zPk"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="NavReturnIcon"/>
+                                        <connections>
+                                            <action selector="returnAction" destination="Qnx-J0-Qku" eventType="touchUpInside" id="UvB-by-ceq"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="upa-yd-fyc" firstAttribute="centerY" secondItem="Rix-mO-0J4" secondAttribute="centerY" id="1Ht-FH-a0j"/>
                                     <constraint firstItem="REh-oR-teZ" firstAttribute="centerX" secondItem="Rix-mO-0J4" secondAttribute="centerX" id="1a0-sB-Us4"/>
+                                    <constraint firstItem="upa-yd-fyc" firstAttribute="centerX" secondItem="Rix-mO-0J4" secondAttribute="centerX" id="AhV-GJ-DI8"/>
                                     <constraint firstItem="REh-oR-teZ" firstAttribute="centerY" secondItem="Rix-mO-0J4" secondAttribute="centerY" id="DVs-EG-xAi"/>
                                     <constraint firstAttribute="height" constant="44" id="UUn-vP-6DP"/>
                                 </constraints>
@@ -84,12 +97,16 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="YYH-wR-a6A"/>
             <connections>
+                <outlet property="closeBtnCenterXCon" destination="1a0-sB-Us4" id="9xL-LU-DQR"/>
+                <outlet property="returnBtn" destination="upa-yd-fyc" id="TQq-8N-HrL"/>
+                <outlet property="returnBtnCenterXCon" destination="AhV-GJ-DI8" id="TOV-EW-LmA"/>
                 <outlet property="scrollView" destination="tGP-dp-nUu" id="z6M-OD-eDo"/>
             </connections>
             <point key="canvasLocation" x="45" y="28"/>
         </view>
     </objects>
     <resources>
+        <image name="NavReturnIcon" width="7" height="13"/>
         <image name="composeClose" width="12" height="12"/>
         <image name="xlLogo" width="180" height="180"/>
     </resources>

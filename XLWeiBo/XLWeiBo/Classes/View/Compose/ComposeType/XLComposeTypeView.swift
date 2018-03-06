@@ -14,7 +14,12 @@ private let ButtonMaxColum: CGFloat = 3
 class XLComposeTypeView: UIView {
 
     @IBOutlet weak var scrollView: UIScrollView!
-    
+    // 返回按钮
+    @IBOutlet weak var returnBtn: UIButton!
+    // 返回按钮 CenterX 约束
+    @IBOutlet weak var returnBtnCenterXCon: NSLayoutConstraint!
+    // 关闭按钮 CenterX 约束
+    @IBOutlet weak var closeBtnCenterXCon: NSLayoutConstraint!
     // 按钮数据数组
     private let buttonInfo = [["imageName": "composeBtn01", "title": "文字"],
                               ["imageName": "composeBtn02", "title": "照片/视频"],
@@ -47,7 +52,33 @@ class XLComposeTypeView: UIView {
     
     // 更多按钮事件
     @objc private func clickMore() {
-        print("点击更多")
+        // scrollView 滚动到第二页
+        scrollView.setContentOffset(CGPoint(x: scrollView.bounds.width, y: 0), animated: true)
+        // 返回按钮可见，并修改两个按钮的位置
+        returnBtn.isHidden = false
+        let btnMargin = scrollView.bounds.width / 6
+        returnBtnCenterXCon.constant -= btnMargin
+        closeBtnCenterXCon.constant += btnMargin
+        // 动画刷新
+        UIView.animate(withDuration: 0.25) {
+            self.layoutIfNeeded()
+        }
+    }
+    
+    // 返回上一层按钮事件
+    @IBAction func returnAction() {
+        // scrollView 滚动到第一页
+        scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+        // 设置两个按钮的位置
+        returnBtnCenterXCon.constant = 0
+        closeBtnCenterXCon.constant = 0
+        // 动画刷新
+        UIView.animate(withDuration: 0.25, animations: {
+            self.layoutIfNeeded()
+        }) { _ in
+            // 返回按钮隐藏
+            self.returnBtn.isHidden = true
+        }
     }
     
     // 底部关闭按钮事件
