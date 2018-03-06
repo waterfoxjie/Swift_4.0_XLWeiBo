@@ -10,13 +10,15 @@ import UIKit
 
 class XLComposeTypeView: UIView {
 
-    override init(frame: CGRect) {
-        super.init(frame: UIScreen.main.bounds)
-        backgroundColor = UIColor.yellow
+    class func composeTypeView() -> XLComposeTypeView {
+        let nib = UINib(nibName: "XLComposeTypeView", bundle: nil)
+        let v = nib.instantiate(withOwner: nib, options: nil).last as! XLComposeTypeView
+        v.frame = UIScreen.main.bounds
+        return v
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    override func awakeFromNib() {
+        addComposeTypeBtn()
     }
     
     func show() {
@@ -26,8 +28,19 @@ class XLComposeTypeView: UIView {
         }
         // 将视图添加到根视图的 view 中
         vc.view.addSubview(self)
-        
+    }
+}
+
+// 添加子控件
+private extension XLComposeTypeView {
+    func addComposeTypeBtn() {
+        let btn = XLComposeTypeButton.composeTypeButton(imageName: "composeBtn01", title: "文字")
+        btn.center = self.center
+        btn.addTarget(self, action: #selector(btnClick), for: .touchUpInside)
+        addSubview(btn)
     }
     
-
+    @objc func btnClick() {
+        print("点击我了")
+    }
 }

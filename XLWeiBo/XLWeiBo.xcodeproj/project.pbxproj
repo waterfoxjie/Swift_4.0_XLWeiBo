@@ -17,6 +17,9 @@
 		60431C7120104261001A006C /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60431C7020104261001A006C /* UIButton+Extension.swift */; };
 		60431C742010932B001A006C /* XLVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60431C732010932B001A006C /* XLVisitorView.swift */; };
 		6044995D20492D9000A75D3A /* XLComposeTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6044995C20492D9000A75D3A /* XLComposeTypeView.swift */; };
+		604582E0204D187C00769B7A /* XLComposeTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 604582DF204D187C00769B7A /* XLComposeTypeView.xib */; };
+		604582E2204D32CC00769B7A /* XLComposeTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604582E1204D32CC00769B7A /* XLComposeTypeButton.swift */; };
+		604582E4204D32D900769B7A /* XLComposeTypeButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 604582E3204D32D900769B7A /* XLComposeTypeButton.xib */; };
 		604798172022FBB200CA798A /* XLUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604798162022FBB200CA798A /* XLUserModel.swift */; };
 		604798192023130B00CA798A /* XLHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604798182023130B00CA798A /* XLHomeViewModel.swift */; };
 		6048840B2020246400830623 /* XLNewFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6048840A2020246400830623 /* XLNewFeatureView.swift */; };
@@ -68,6 +71,9 @@
 		60431C732010932B001A006C /* XLVisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLVisitorView.swift; sourceTree = "<group>"; };
 		60431C7520109725001A006C /* XLWeiBo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XLWeiBo-Bridging-Header.h"; sourceTree = "<group>"; };
 		6044995C20492D9000A75D3A /* XLComposeTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLComposeTypeView.swift; sourceTree = "<group>"; };
+		604582DF204D187C00769B7A /* XLComposeTypeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XLComposeTypeView.xib; sourceTree = "<group>"; };
+		604582E1204D32CC00769B7A /* XLComposeTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLComposeTypeButton.swift; sourceTree = "<group>"; };
+		604582E3204D32D900769B7A /* XLComposeTypeButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XLComposeTypeButton.xib; sourceTree = "<group>"; };
 		604798162022FBB200CA798A /* XLUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLUserModel.swift; sourceTree = "<group>"; };
 		604798182023130B00CA798A /* XLHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLHomeViewModel.swift; sourceTree = "<group>"; };
 		6048840A2020246400830623 /* XLNewFeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLNewFeatureView.swift; sourceTree = "<group>"; };
@@ -165,6 +171,9 @@
 			isa = PBXGroup;
 			children = (
 				6044995C20492D9000A75D3A /* XLComposeTypeView.swift */,
+				604582DF204D187C00769B7A /* XLComposeTypeView.xib */,
+				604582E1204D32CC00769B7A /* XLComposeTypeButton.swift */,
+				604582E3204D32D900769B7A /* XLComposeTypeButton.xib */,
 			);
 			path = ComposeType;
 			sourceTree = "<group>";
@@ -471,8 +480,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				604582E4204D32D900769B7A /* XLComposeTypeButton.xib in Resources */,
 				609C7330200F29AA00C8AED6 /* Assets.xcassets in Resources */,
 				604A9DB82011955F007A305D /* mainVisitorData.json in Resources */,
+				604582E0204D187C00769B7A /* XLComposeTypeView.xib in Resources */,
 				606058EF204658D100966A8E /* XLRefreshView.xib in Resources */,
 				6049EA13202AB52800CED461 /* XLHomeListNormalCell.xib in Resources */,
 				6041CC5A2047D65B00CD46AB /* XLImageRefreshView.xib in Resources */,
@@ -568,6 +579,7 @@
 				604798192023130B00CA798A /* XLHomeViewModel.swift in Sources */,
 				609C734F200F2D6E00C8AED6 /* XLDiscoverViewController.swift in Sources */,
 				609C7326200F29AA00C8AED6 /* AppDelegate.swift in Sources */,
+				604582E2204D32CC00769B7A /* XLComposeTypeButton.swift in Sources */,
 				604A9DBE2011D828007A305D /* XLNetworkManager+Extension.swift in Sources */,
 				60B92B4B204504260050F4D4 /* XLRefreshControl.swift in Sources */,
 				6041CC592047D65B00CD46AB /* XLImageRefreshView.swift in Sources */,
