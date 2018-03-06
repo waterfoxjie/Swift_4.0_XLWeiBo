@@ -21,7 +21,7 @@ class XLComposeTypeView: UIView {
                               ["imageName": "composeBtn03", "title": "长微博"],
                               ["imageName": "composeBtn04", "title": "签到"],
                               ["imageName": "composeBtn05", "title": "点评"],
-                              ["imageName": "composeBtnMore", "title": "更多"],
+                              ["imageName": "composeBtnMore", "title": "更多", "actionName": "clickMore"],
                               ["imageName": "composeBtn06", "title": "好友圈"],
                               ["imageName": "composeBtn07", "title": "微博相机"],
                               ["imageName": "composeBtn08", "title": "音乐"],
@@ -43,6 +43,11 @@ class XLComposeTypeView: UIView {
         }
         // 将视图添加到根视图的 view 中
         vc.view.addSubview(self)
+    }
+    
+    // 更多按钮事件
+    @objc private func clickMore() {
+        print("点击更多")
     }
     
     // 底部关闭按钮事件
@@ -97,7 +102,10 @@ private extension XLComposeTypeView {
             }
             // 根据数据创建按钮
             let btn = XLComposeTypeButton.composeTypeButton(imageName: imageName, title: title)
-            // 设置 btn 的 frame
+            // 设置 ”更多“ 按钮点击事件
+            if let actionName = dict["actionName"] {
+                btn.addTarget(self, action: Selector(actionName), for: .touchUpInside)
+            }
             addView.addSubview(btn)
         }
         // 遍历子视图，进行布局

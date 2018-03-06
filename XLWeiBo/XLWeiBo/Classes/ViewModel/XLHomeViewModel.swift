@@ -126,7 +126,6 @@ class XLHomeViewModel {
         viewHeight += picViewsSize.height
         // 添加底部
         viewHeight += (HomeCellOutterMargin + HomeCellBottomViewHeight)
-        print("viewHeight = \(viewHeight)")
         cellRowHeight = viewHeight
     }
     
