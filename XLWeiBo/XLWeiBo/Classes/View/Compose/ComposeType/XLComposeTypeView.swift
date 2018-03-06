@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import pop
 
 private let ButtonMaxRow: CGFloat = 2
 private let ButtonMaxColum: CGFloat = 3
@@ -48,6 +49,8 @@ class XLComposeTypeView: UIView {
         }
         // 将视图添加到根视图的 view 中
         vc.view.addSubview(self)
+        // 设置动画
+        showCurrentView()
     }
     
     // 更多按钮事件
@@ -83,11 +86,48 @@ class XLComposeTypeView: UIView {
     
     // 底部关闭按钮事件
     @IBAction func closeAction() {
-        removeFromSuperview()
+        hiddenButtons()
     }
 }
 
-// 添加子控件
+// MARK: - 动画相关
+private extension XLComposeTypeView {
+    
+    // MARK: - 显示动画
+    func showCurrentView() {
+        // 创建动画
+        let anim = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
+        anim?.fromValue = 0
+        anim?.toValue = 1
+        anim?.duration = 0.25
+        // 添加动画到视图
+        pop_add(anim, forKey: nil)
+        showButtons()
+    }
+    
+    // 显示按钮
+    func showButtons() {
+        // 获取 scrollView 第一页 View
+        let v = scrollView.subviews[0]
+        // 遍历按钮
+        for (idx, btn) in v.subviews.enumerated() {
+            // 创建动画
+            let anim = POPSpringAnimation(propertyNamed: kPOPLayerPositionY)
+            anim?.fromValue = btn.center.y + 350
+            anim?.toValue = btn.center.y
+            // 弹力系数（0 ~ 20，数值越大，弹性越大，默认值 4）
+            anim?.springBounciness = 8
+            // 弹力速度（0 ~ 20，数值越大，速度越快，默认值 12）
+            anim?.springSpeed = 8
+            // 设置动画启动时间
+            anim?.beginTime = CACurrentMediaTime() + CFTimeInterval(idx) * 0.025
+            btn.layer.pop_add(anim, forKey: nil)
+        }
+    }
+    
+}
+
+// MARK: - 添加子控件
 private extension XLComposeTypeView {
     func setupUI() {
         // 强制刷新（目的：获取控件的正确大小）
@@ -110,6 +150,7 @@ private extension XLComposeTypeView {
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.bounces = false
+        scrollView.isScrollEnabled = false
     }
     
     /// 添加按钮
