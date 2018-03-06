@@ -28,11 +28,8 @@ class XLComposeTypeView: UIView {
         let nib = UINib(nibName: "XLComposeTypeView", bundle: nil)
         let v = nib.instantiate(withOwner: nib, options: nil).last as! XLComposeTypeView
         v.frame = UIScreen.main.bounds
+        v.setupUI()
         return v
-    }
-    
-    override func awakeFromNib() {
-        addComposeTypeBtn()
     }
     
     // 显示视图
@@ -57,4 +54,28 @@ private extension XLComposeTypeView {
         
     }
     
+    /// 添加按钮
+    ///
+    /// - Parameters:
+    ///   - addView:   需要添加按钮的 View
+    ///   - fromIndex: 从第几个索引开始添加
+    ///   - addCount:  需要添加的按钮个数
+    func addButtons(addView: UIView, fromIndex: Int, addCount: Int) {
+        // 遍历
+        for i in fromIndex..<(fromIndex + addCount) {
+            // 判断是否越界
+            if i >= buttonInfo.count {
+                break
+            }
+            // 获取到对应的数据
+            let dict = buttonInfo[i]
+            guard let imageName = dict["imageName"],
+                  let title = dict["title"] else {
+                continue
+            }
+            // 根据数据创建按钮
+            let btn = XLComposeTypeButton.composeTypeButton(imageName: imageName, title: title)
+            addView.addSubview(btn)
+        }
+    }
 }

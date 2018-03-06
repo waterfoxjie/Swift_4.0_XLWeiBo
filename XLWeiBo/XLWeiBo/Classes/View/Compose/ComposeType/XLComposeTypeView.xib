@@ -80,6 +80,8 @@
                 <constraint firstItem="jt1-oA-Waw" firstAttribute="top" secondItem="Qnx-J0-Qku" secondAttribute="top" id="ZDw-9C-NHp"/>
                 <constraint firstItem="jt1-oA-Waw" firstAttribute="leading" secondItem="YYH-wR-a6A" secondAttribute="leading" id="gEK-UI-gpQ"/>
             </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="YYH-wR-a6A"/>
             <connections>
                 <outlet property="scrollView" destination="tGP-dp-nUu" id="z6M-OD-eDo"/>
