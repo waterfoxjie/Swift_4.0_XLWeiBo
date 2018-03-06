@@ -92,6 +92,44 @@ class XLComposeTypeView: UIView {
 
 // MARK: - 动画相关
 private extension XLComposeTypeView {
+    // MARK: - 取消动画
+    func hiddenButtons() {
+        // 获取当前显示 View
+        let page = Int(scrollView.contentOffset.y / scrollView.bounds.width)
+        let v = scrollView.subviews[page]
+        // 遍历（reversed() 反序）
+        for (idx, btn) in v.subviews.enumerated().reversed() {
+            // 创建动画
+            let anim = POPSpringAnimation(propertyNamed: kPOPLayerPositionY)
+            anim?.fromValue = btn.center.y
+            anim?.toValue = btn.center.y + 350
+            anim?.beginTime = CACurrentMediaTime() + CFTimeInterval(v.subviews.count - idx) * 0.025
+            // 添加动画
+            btn.layer.pop_add(anim, forKey: nil)
+            // 监听最后一个按钮的动画
+            if idx == 0 {
+                anim?.completionBlock = {_,_ in
+                    // 隐藏当前视图
+                    self.hiddenCurrentView()
+                }
+            }
+        }
+    }
+    
+    // 隐藏当前视图
+    func hiddenCurrentView() {
+        // 创建动画
+        let anim = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
+        anim?.fromValue = 1
+        anim?.toValue = 0
+        anim?.duration = 0.25
+        // 添加动画到视图
+        pop_add(anim, forKey: nil)
+        // 添加完成监听方法
+        anim?.completionBlock = {_,_ in
+            self.removeFromSuperview()
+        }
+    }
     
     // MARK: - 显示动画
     func showCurrentView() {
