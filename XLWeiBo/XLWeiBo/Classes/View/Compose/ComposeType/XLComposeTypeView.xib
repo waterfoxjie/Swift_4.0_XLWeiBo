@@ -39,6 +39,9 @@
                                             <constraint firstAttribute="height" constant="30" id="sHw-zS-kIX"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="composeClose"/>
+                                        <connections>
+                                            <action selector="closeAction" destination="Qnx-J0-Qku" eventType="touchUpInside" id="Vc7-b0-5hf"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -78,6 +81,9 @@
                 <constraint firstItem="jt1-oA-Waw" firstAttribute="leading" secondItem="YYH-wR-a6A" secondAttribute="leading" id="gEK-UI-gpQ"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="YYH-wR-a6A"/>
+            <connections>
+                <outlet property="scrollView" destination="tGP-dp-nUu" id="z6M-OD-eDo"/>
+            </connections>
             <point key="canvasLocation" x="45" y="28"/>
         </view>
     </objects>
