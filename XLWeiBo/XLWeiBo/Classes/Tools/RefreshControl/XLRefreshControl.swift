@@ -81,8 +81,10 @@ class XLRefreshControl: UIControl {
         if heigth < 0 {
             return
         }
-        // 设置父视图高度
-        refreshView.parentHeight = heigth
+        // 设置父视图高度（正在刷新中则不传递）
+        if refreshView.refreshState != .WillRefresh {
+            refreshView.parentHeight = heigth
+        }
         // 设置刷新控件 frame
         frame = CGRect(x: 0,
                        y: -heigth,
