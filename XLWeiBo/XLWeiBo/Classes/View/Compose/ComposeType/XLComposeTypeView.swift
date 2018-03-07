@@ -22,7 +22,7 @@ class XLComposeTypeView: UIView {
     // 关闭按钮 CenterX 约束
     @IBOutlet weak var closeBtnCenterXCon: NSLayoutConstraint!
     // 按钮数据数组
-    private let buttonInfo = [["imageName": "composeBtn01", "title": "文字"],
+    private let buttonInfo = [["imageName": "composeBtn01", "title": "文字", "clsName": "XLTitleViewController"],
                               ["imageName": "composeBtn02", "title": "照片/视频"],
                               ["imageName": "composeBtn03", "title": "长微博"],
                               ["imageName": "composeBtn04", "title": "签到"],
@@ -51,6 +51,21 @@ class XLComposeTypeView: UIView {
         vc.view.addSubview(self)
         // 设置动画
         showCurrentView()
+    }
+    
+    @objc private func clickButton(btn: XLComposeTypeButton) {
+        // 获取到当前所在的 View
+        let page = Int(scrollView.contentOffset.x / scrollView.bounds.width)
+        let v = scrollView.subviews[page]
+        // 遍历
+        for button in v.subviews {
+            // 根据是否是选中 btn 设置缩放
+            let scale = button == btn ? 2 : 0.2
+            let anim = POPBasicAnimation(propertyNamed: kPOPViewScaleXY)
+            anim?.toValue = NSValue(cgPoint: CGPoint(x: scale, y: scale))
+            anim?.duration = 0.5
+            button.pop_add(anim, forKey: nil)
+        }
     }
     
     // 更多按钮事件
@@ -95,7 +110,7 @@ private extension XLComposeTypeView {
     // MARK: - 取消动画
     func hiddenButtons() {
         // 获取当前显示 View
-        let page = Int(scrollView.contentOffset.y / scrollView.bounds.width)
+        let page = Int(scrollView.contentOffset.x / scrollView.bounds.width)
         let v = scrollView.subviews[page]
         // 遍历（reversed() 反序）
         for (idx, btn) in v.subviews.enumerated().reversed() {
@@ -215,7 +230,10 @@ private extension XLComposeTypeView {
             // 设置 ”更多“ 按钮点击事件
             if let actionName = dict["actionName"] {
                 btn.addTarget(self, action: Selector(actionName), for: .touchUpInside)
+            } else {
+                btn.addTarget(self, action: #selector(clickButton), for: .touchUpInside)
             }
+            btn.clsName = dict["clsName"]
             addView.addSubview(btn)
         }
         // 遍历子视图，进行布局

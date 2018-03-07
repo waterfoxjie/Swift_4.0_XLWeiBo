@@ -14,6 +14,8 @@ class XLComposeTypeButton: UIControl {
     @IBOutlet weak var imageView: UIImageView!
     // 文字
     @IBOutlet weak var tipLabel: UILabel!
+    // 跳转类名称
+    var clsName: String?
     
     class func composeTypeButton(imageName: String, title: String) -> XLComposeTypeButton {
         let nib = UINib(nibName: "XLComposeTypeButton", bundle: nil)
