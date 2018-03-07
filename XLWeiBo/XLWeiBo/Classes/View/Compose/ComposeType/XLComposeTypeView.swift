@@ -33,6 +33,7 @@ class XLComposeTypeView: UIView {
                               ["imageName": "composeBtn08", "title": "音乐"],
                               ["imageName": "composeBtn09", "title": "拍摄"]]
     
+    // MARK: - 实例化方法
     class func composeTypeView() -> XLComposeTypeView {
         let nib = UINib(nibName: "XLComposeTypeView", bundle: nil)
         let v = nib.instantiate(withOwner: nib, options: nil).last as! XLComposeTypeView
@@ -53,18 +54,25 @@ class XLComposeTypeView: UIView {
         showCurrentView()
     }
     
+    // 其他按钮点击事件
     @objc private func clickButton(btn: XLComposeTypeButton) {
         // 获取到当前所在的 View
         let page = Int(scrollView.contentOffset.x / scrollView.bounds.width)
         let v = scrollView.subviews[page]
         // 遍历
-        for button in v.subviews {
+        for (idx, button) in v.subviews.enumerated() {
             // 根据是否是选中 btn 设置缩放
             let scale = button == btn ? 2 : 0.2
-            let anim = POPBasicAnimation(propertyNamed: kPOPViewScaleXY)
-            anim?.toValue = NSValue(cgPoint: CGPoint(x: scale, y: scale))
-            anim?.duration = 0.5
-            button.pop_add(anim, forKey: nil)
+            // 缩放动画
+            let scaleAnim = POPBasicAnimation(propertyNamed: kPOPViewScaleXY)
+            scaleAnim?.toValue = NSValue(cgPoint: CGPoint(x: scale, y: scale))
+            scaleAnim?.duration = 0.5
+            button.pop_add(scaleAnim, forKey: nil)
+            // 修改透明度动画
+            let alphaAnim = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
+            alphaAnim?.toValue = 0.2
+            alphaAnim?.duration = 0.5
+            button.pop_add(alphaAnim, forKey: nil)
         }
     }
     
