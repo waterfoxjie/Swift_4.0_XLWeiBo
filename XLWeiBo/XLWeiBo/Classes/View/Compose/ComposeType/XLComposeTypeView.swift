@@ -32,6 +32,8 @@ class XLComposeTypeView: UIView {
                               ["imageName": "composeBtn07", "title": "微博相机"],
                               ["imageName": "composeBtn08", "title": "音乐"],
                               ["imageName": "composeBtn09", "title": "拍摄"]]
+    // 回调属性（通常设置成属性，需要的时候进行调用）
+    private var completionBlock: ((_ clsName: String?) -> ())?
     
     // MARK: - 实例化方法
     class func composeTypeView() -> XLComposeTypeView {
@@ -43,7 +45,9 @@ class XLComposeTypeView: UIView {
     }
     
     // 显示视图
-    func show() {
+    func show(completion: @escaping (_ clsName: String?) -> ()) {
+        // 设置属性的值
+        completionBlock = completion
         // 获取当前控制器的根视图
         guard let vc = UIApplication.shared.keyWindow?.rootViewController else {
             return
@@ -73,6 +77,13 @@ class XLComposeTypeView: UIView {
             alphaAnim?.toValue = 0.2
             alphaAnim?.duration = 0.5
             button.pop_add(alphaAnim, forKey: nil)
+            // 监听动画完成
+            if idx == 0 {
+                alphaAnim?.completionBlock = {_,_ in
+                    // 执行闭包
+                    self.completionBlock?(btn.clsName)
+                }
+            }
         }
     }
     

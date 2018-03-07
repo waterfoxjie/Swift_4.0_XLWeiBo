@@ -107,11 +107,23 @@ extension XLMainTabBarController {
         return nav
     }
     
-    // TODO 待写
     // + 按钮点击方法
     @objc private func clickComposeButton() {
         let cptv = XLComposeTypeView.composeTypeView()
-        cptv.show()
+        // [weak cptv] 解决循环引用问题
+        cptv.show {[weak cptv] (clsName) in
+            guard let clsName = clsName else {
+                cptv?.removeFromSuperview()
+                return
+            }
+            let cls = NSClassFromString(Bundle.main.nameSpace + "." + clsName) as! UIViewController.Type
+            let vc = cls.init()
+            let nav = UINavigationController(rootViewController: vc)
+            self.present(nav, animated: true, completion: {
+                // 删除视图
+                cptv?.removeFromSuperview()
+            })
+        }
     }
 }
 

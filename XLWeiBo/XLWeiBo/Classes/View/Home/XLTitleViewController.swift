@@ -8,12 +8,17 @@
 
 import UIKit
 
-class XLTitleViewController: XLBaseViewController {
+class XLTitleViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "文字"
         view.backgroundColor = UIColor.yellow
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", target: self, action: #selector(comeBack))
+    }
+    
+    @objc private func comeBack() {
+        dismiss(animated: true, completion: nil)
     }
 
 }
