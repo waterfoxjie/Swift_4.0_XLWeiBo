@@ -20,6 +20,21 @@ class XLEmoticonModel: Mappable {
     var png: String?
     // emoji 的十六进制码
     var code: String?
+    // ‘图片’表情对应的图像
+    private var image: UIImage?
+    // 目录（用于获取图片使用）
+    var directory: String? {
+        didSet {
+            guard let bundle = Bundle.main.emotionsBundle(),
+                let directory = directory,
+                let png = png
+            else {
+                return
+            }
+            // 拿到数据之后设置对应的图片
+            image = UIImage(named: "\(directory)/\(png)", in: bundle, compatibleWith: nil)
+        }
+    }
     
     required init?(map: Map) {
     }
