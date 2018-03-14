@@ -57,6 +57,7 @@
 		60B92B4B204504260050F4D4 /* XLRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B92B4A204504260050F4D4 /* XLRefreshControl.swift */; };
 		60FD44A320590A2600F5A89E /* Emoticons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 60FD44A220590A2600F5A89E /* Emoticons.bundle */; };
 		60FD44A620590C7B00F5A89E /* XLEmoticonPackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FD44A520590C7B00F5A89E /* XLEmoticonPackage.swift */; };
+		60FD44A820590D3C00F5A89E /* XLEmoticonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FD44A720590D3C00F5A89E /* XLEmoticonModel.swift */; };
 		A56202D3147EAA743E66C9C3 /* Pods_XLWeiBo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259F240FFDA52B3B0CDC5682 /* Pods_XLWeiBo.framework */; };
 /* End PBXBuildFile section */
 
@@ -116,6 +117,7 @@
 		60B92B4A204504260050F4D4 /* XLRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLRefreshControl.swift; sourceTree = "<group>"; };
 		60FD44A220590A2600F5A89E /* Emoticons.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Emoticons.bundle; sourceTree = "<group>"; };
 		60FD44A520590C7B00F5A89E /* XLEmoticonPackage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XLEmoticonPackage.swift; sourceTree = "<group>"; };
+		60FD44A720590D3C00F5A89E /* XLEmoticonModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XLEmoticonModel.swift; sourceTree = "<group>"; };
 		9B4E88FF7A95CBABC75A2766 /* Pods-XLWeiBo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XLWeiBo.release.xcconfig"; path = "Pods/Target Support Files/Pods-XLWeiBo/Pods-XLWeiBo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -428,6 +430,7 @@
 		60FD44A420590BE800F5A89E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				60FD44A720590D3C00F5A89E /* XLEmoticonModel.swift */,
 				60FD44A520590C7B00F5A89E /* XLEmoticonPackage.swift */,
 			);
 			path = Model;
@@ -603,6 +606,7 @@
 				609C734D200F2D6200C8AED6 /* XLMessageViewController.swift in Sources */,
 				609C7359200F582000C8AED6 /* UIBarButtonItem+Extension.swift in Sources */,
 				60431C742010932B001A006C /* XLVisitorView.swift in Sources */,
+				60FD44A820590D3C00F5A89E /* XLEmoticonModel.swift in Sources */,
 				604798192023130B00CA798A /* XLHomeViewModel.swift in Sources */,
 				609C734F200F2D6E00C8AED6 /* XLDiscoverViewController.swift in Sources */,
 				609C7326200F29AA00C8AED6 /* AppDelegate.swift in Sources */,
