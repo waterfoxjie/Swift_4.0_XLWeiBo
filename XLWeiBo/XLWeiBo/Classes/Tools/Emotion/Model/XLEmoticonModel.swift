@@ -36,6 +36,20 @@ class XLEmoticonModel: Mappable {
         }
     }
     
+    func imageText(textFont: UIFont) -> NSAttributedString {
+        // 判断是否有值
+        guard let image = image else {
+            return NSAttributedString(string: "")
+        }
+        let attachment = NSTextAttachment()
+        attachment.image = image
+        // 设置高度
+        let height = textFont.lineHeight
+        attachment.bounds = CGRect(x: 0, y: -3, width: height, height: height)
+        // 返回创建的属性文本
+        return NSAttributedString(attachment: attachment)
+    }
+    
     required init?(map: Map) {
     }
     
