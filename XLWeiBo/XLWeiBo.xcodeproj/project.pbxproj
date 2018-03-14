@@ -58,6 +58,7 @@
 		60FD44A320590A2600F5A89E /* Emoticons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 60FD44A220590A2600F5A89E /* Emoticons.bundle */; };
 		60FD44A620590C7B00F5A89E /* XLEmoticonPackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FD44A520590C7B00F5A89E /* XLEmoticonPackage.swift */; };
 		60FD44A820590D3C00F5A89E /* XLEmoticonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FD44A720590D3C00F5A89E /* XLEmoticonModel.swift */; };
+		60FD44AA20590E7E00F5A89E /* XLEmoticonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FD44A920590E7E00F5A89E /* XLEmoticonManager.swift */; };
 		A56202D3147EAA743E66C9C3 /* Pods_XLWeiBo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259F240FFDA52B3B0CDC5682 /* Pods_XLWeiBo.framework */; };
 /* End PBXBuildFile section */
 
@@ -118,6 +119,7 @@
 		60FD44A220590A2600F5A89E /* Emoticons.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Emoticons.bundle; sourceTree = "<group>"; };
 		60FD44A520590C7B00F5A89E /* XLEmoticonPackage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XLEmoticonPackage.swift; sourceTree = "<group>"; };
 		60FD44A720590D3C00F5A89E /* XLEmoticonModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XLEmoticonModel.swift; sourceTree = "<group>"; };
+		60FD44A920590E7E00F5A89E /* XLEmoticonManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XLEmoticonManager.swift; sourceTree = "<group>"; };
 		9B4E88FF7A95CBABC75A2766 /* Pods-XLWeiBo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XLWeiBo.release.xcconfig"; path = "Pods/Target Support Files/Pods-XLWeiBo/Pods-XLWeiBo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -421,6 +423,7 @@
 		60FD44A120590A0300F5A89E /* Emotion */ = {
 			isa = PBXGroup;
 			children = (
+				60FD44A920590E7E00F5A89E /* XLEmoticonManager.swift */,
 				60FD44A420590BE800F5A89E /* Model */,
 				60FD44A220590A2600F5A89E /* Emoticons.bundle */,
 			);
@@ -621,6 +624,7 @@
 				6042BBD1202446E800A9C87B /* XLHomeCellBottomView.swift in Sources */,
 				6044995D20492D9000A75D3A /* XLComposeTypeView.swift in Sources */,
 				604798172022FBB200CA798A /* XLUserModel.swift in Sources */,
+				60FD44AA20590E7E00F5A89E /* XLEmoticonManager.swift in Sources */,
 				60FD44A620590C7B00F5A89E /* XLEmoticonPackage.swift in Sources */,
 				609C732E200F29AA00C8AED6 /* XLWeiBo.xcdatamodeld in Sources */,
 				60431C6F20103245001A006C /* CommonTools.swift in Sources */,

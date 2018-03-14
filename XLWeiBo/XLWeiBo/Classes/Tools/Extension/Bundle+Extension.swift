@@ -17,4 +17,14 @@ extension Bundle {
     var versionSpace: String {
         return infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
     }
+    
+    // 根据 Emotions.bundle 位置返回对应 bundle
+    func emotionsBundle() -> Bundle? {
+        guard let path = Bundle.main.path(forResource: "Emoticons.bundle", ofType: nil),
+            let bundle = Bundle(path: path)
+            else {
+                return nil
+        }
+        return bundle
+    }
 }

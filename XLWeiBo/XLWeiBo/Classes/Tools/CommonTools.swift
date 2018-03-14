@@ -53,5 +53,9 @@ let HomeCellPicMaxViewCount = 9
 let HomeCellPicRow = 3
 let HomeCellPicItemSize: CGFloat = (HomeCellLabOrPicWidth - CGFloat(HomeCellPicRow - 1) * HomeCellPicInnerMargin) / CGFloat(HomeCellPicRow)
 
+// MARK: - Emotion 相关
+// Emoticons.bundle 路径
+let XLEmoticonsPath = Bundle.main.path(forResource: "Emoticons.bundle", ofType: nil)
+
 
 
