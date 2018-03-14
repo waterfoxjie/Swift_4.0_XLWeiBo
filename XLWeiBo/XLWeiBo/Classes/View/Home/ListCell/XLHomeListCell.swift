@@ -52,13 +52,13 @@ class XLHomeListCell: UITableViewCell {
             sourceLabel.text = viewModel?.sourceString
 
             // 设置微博内容
-            contactLabel.text = viewModel?.homeModel.wbText
+            contactLabel.attributedText = viewModel?.wbAttrText
             
             // 设置图片 View
             picturesView.viewModel = viewModel
             
             // 设置转发微博内容
-            repostsTextLabel?.text = viewModel?.repostsText
+            repostsTextLabel?.attributedText = viewModel?.repostsAttrText
             
             // 设置底部按钮内容
             bottomView.viewModel = viewModel

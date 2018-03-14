@@ -25,13 +25,15 @@ class XLHomeViewModel {
         // 转发的微博正文一定没有图片，所以先看看转发微博中是否有图片，有则返回，没有就返回正文中的配图，都没有则返回 nil
         return homeModel.retweetedStatus?.pictureArray ?? homeModel.pictureArray
     }
-    // 被转发微博文字
-    var repostsText: String?
-    // 转发文字
+    // 微博属性文本
+    var wbAttrText: NSAttributedString?
+    // 被转发微博属性文本
+    var repostsAttrText: NSAttributedString?
+    // 底部“转发”文字
     var repostsString: String?
-    // 评论文字
+    // 底部“评论”文字
     var commentString: String?
-    // 点赞文字
+    // 底部“点赞”文字
     var likedString: String?
     // 计算行高
     var cellRowHeight: CGFloat = 0
@@ -69,8 +71,11 @@ class XLHomeViewModel {
         picViewsSize = CGSize(width: HomeCellLabOrPicWidth, height: picViewsHeight)
         
         // 设置被转发微博文字
-        repostsText = "@\(String(describing: model.retweetedStatus?.userModel?.userNickName ?? "")) : "
+        let repostsText = "@\(String(describing: model.retweetedStatus?.userModel?.userNickName ?? "")) : "
             + "\(String(describing: model.retweetedStatus?.wbText ?? ""))"
+        // 设置属性文本
+        wbAttrText = XLEmoticonManager.shared.emotionString(string: model.wbText ?? "", textFont: wbTextFont)
+        repostsAttrText = XLEmoticonManager.shared.emotionString(string: repostsText, textFont: repostsTextFont)
         
         // 底部按钮文字
         repostsString = countString(count: model.repostsCount, defaultString: "转发")
@@ -112,20 +117,21 @@ class XLHomeViewModel {
         // 转发增加：间距(12) + 转发微博文字(需要计算，字号：14)
         var viewHeight = HomeCellTopViewHeight
         viewHeight += (HomeCellOutterMargin + HomeCellIconSize)
+        
+        let viewSize = CGSize(width: HomeCellLabOrPicWidth, height: CGFloat(MAXFLOAT))
         /*
           参数1：预尺寸（宽度为控件宽度，高度尽量设置大）
           参数2：类型（.usesLineFragmentOrigin 为多行固定）
-          参数3：设置字体大小
         */
-        if let weiBoText = homeModel.wbText {
-            let size = weiBoText.getStringRect(textFont: UIFont.systemFont(ofSize: 15), viewWidth: HomeCellLabOrPicWidth)
-            viewHeight += (size.height + HomeCellOutterMargin)
+        if let weiBoAttrText = wbAttrText {
+            let height = weiBoAttrText.boundingRect(with: viewSize, options: [.usesLineFragmentOrigin], context: nil).height
+            viewHeight += (height + HomeCellOutterMargin)
         }
         // 转发微博情况下，计算转发微博文高度
         if homeModel.retweetedStatus != nil {
-            if let repostsText = repostsText {
-                let repostsSize = repostsText.getStringRect(textFont: UIFont.systemFont(ofSize: 14), viewWidth: HomeCellLabOrPicWidth)
-                viewHeight += repostsSize.height
+            if let repostsAttrText = repostsAttrText {
+                let repostsHeight = repostsAttrText.boundingRect(with: viewSize, options: [.usesLineFragmentOrigin], context: nil).height
+                viewHeight += repostsHeight
                 viewHeight += 2 * HomeCellOutterMargin
             }
         }

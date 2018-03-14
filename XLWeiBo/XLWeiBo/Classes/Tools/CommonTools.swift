@@ -56,6 +56,10 @@ let HomeCellPicItemSize: CGFloat = (HomeCellLabOrPicWidth - CGFloat(HomeCellPicR
 // MARK: - Emotion 相关
 // Emoticons.bundle 路径
 let XLEmoticonsPath = Bundle.main.path(forResource: "Emoticons.bundle", ofType: nil)
+// 微博文本字体
+let wbTextFont = UIFont.systemFont(ofSize: 15)
+// 被转发微博文本字体
+let repostsTextFont = UIFont.systemFont(ofSize: 14)
 
 
 
