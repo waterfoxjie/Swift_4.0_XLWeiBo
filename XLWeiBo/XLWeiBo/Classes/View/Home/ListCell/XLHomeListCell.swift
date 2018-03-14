@@ -49,7 +49,7 @@ class XLHomeListCell: UITableViewCell {
 
             // FIXME: 设置时间、来源
             timeLabel.text = "刚刚"
-            sourceLabel.text = "来自微博 weibo.con"
+            sourceLabel.text = viewModel?.sourceString
 
             // 设置微博内容
             contactLabel.text = viewModel?.homeModel.wbText

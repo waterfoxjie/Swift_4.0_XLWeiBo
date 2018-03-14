@@ -15,6 +15,10 @@ class XLHomeInfoModel: Mappable {
     var wbID: Int64 = 0
     // 微博信息内容
     var wbText: String?
+    // 微博创建时间
+    var wbCreatedTime: String?
+    // 微博来源
+    var wbSource: String?
     // 用户信息
     var userModel: XLUserModel?
     // 图片数组
@@ -37,6 +41,8 @@ class XLHomeInfoModel: Mappable {
     func mapping(map: Map) {
         wbID            <- map["id"]
         wbText          <- map["text"]
+        wbCreatedTime   <- map["created_at"]
+        wbSource        <- map["source"]
         userModel       <- map["user"]
         pictureArray    <- map["pic_urls"]
         retweetedStatus <- map["retweeted_status"]

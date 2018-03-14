@@ -12,6 +12,8 @@ import UIKit
 class XLHomeViewModel {
     // 单条微博数据模型
     var homeModel: XLHomeInfoModel
+    // 微博来源
+    var sourceString: String?
     // 会员图标
     var gradeImage: UIImage?
     // V 图标
@@ -43,6 +45,11 @@ class XLHomeViewModel {
                 gradeImageName = "common_icon_membership_level\(rankNum)"
             }
             gradeImage = UIImage(named: gradeImageName)
+        }
+        
+        // 设置时间、来源
+        if let text = model.wbSource?.obtainSource()?.text {
+            sourceString = "来自" + text
         }
         
         // -1：没有认证，0：认证用户，2，3，5：企业认证，220：达人
