@@ -89,6 +89,28 @@ extension String {
     }
 }
 
+// MARK: - 正则表达式
+extension String {
+    // 获取首页微博来源
+    func obtainSource() -> (href: String, text: String)? {
+        // pattern ：匹配方法
+        let pattern = "<a href=\"(.*?)\".*?>(.*?)</a>"
+        // 如果 pattern 失败会抛出异常
+        guard let regu = try? NSRegularExpression(pattern: pattern, options: []),
+            // 进行查找（两种：只找第一个匹配项，查找多个匹配项）
+            // result 中只有两个重要的方法
+            // result.numberOfRanges -> 查找到的范围数量
+            // result.range(at: Int) -> 指定“索引”位置的范围
+            // 索引 ：0 -> 和匹配方案完全一致的字符；1 -> 第一个()中的内容...
+            let result = regu.firstMatch(in: self, options: [], range: NSRange(location: 0, length: self.count)) else {
+                return nil
+        }
+        let href = (self as NSString).substring(with: result.range(at: 1))
+        let text = (self as NSString).substring(with: result.range(at: 2))
+        return (href, text)
+    }
+}
+
 
 
 

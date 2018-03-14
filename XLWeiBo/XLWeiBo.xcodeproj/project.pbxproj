@@ -55,6 +55,7 @@
 		609C7354200F380C00C8AED6 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609C7353200F380C00C8AED6 /* Bundle+Extension.swift */; };
 		609C7359200F582000C8AED6 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609C7358200F582000C8AED6 /* UIBarButtonItem+Extension.swift */; };
 		60B92B4B204504260050F4D4 /* XLRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B92B4A204504260050F4D4 /* XLRefreshControl.swift */; };
+		60FD44A320590A2600F5A89E /* Emoticons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 60FD44A220590A2600F5A89E /* Emoticons.bundle */; };
 		A56202D3147EAA743E66C9C3 /* Pods_XLWeiBo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259F240FFDA52B3B0CDC5682 /* Pods_XLWeiBo.framework */; };
 /* End PBXBuildFile section */
 
@@ -112,6 +113,7 @@
 		609C7353200F380C00C8AED6 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		609C7358200F582000C8AED6 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 		60B92B4A204504260050F4D4 /* XLRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLRefreshControl.swift; sourceTree = "<group>"; };
+		60FD44A220590A2600F5A89E /* Emoticons.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Emoticons.bundle; sourceTree = "<group>"; };
 		9B4E88FF7A95CBABC75A2766 /* Pods-XLWeiBo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XLWeiBo.release.xcconfig"; path = "Pods/Target Support Files/Pods-XLWeiBo/Pods-XLWeiBo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -317,6 +319,7 @@
 		609C733C200F2C0800C8AED6 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				60FD44A120590A0300F5A89E /* Emotion */,
 				60B92B492045040F0050F4D4 /* RefreshControl */,
 				604A9DBA2011CA2F007A305D /* NetworkTools */,
 				609C7352200F37E300C8AED6 /* Extension */,
@@ -411,6 +414,14 @@
 			path = RefreshControl;
 			sourceTree = "<group>";
 		};
+		60FD44A120590A0300F5A89E /* Emotion */ = {
+			isa = PBXGroup;
+			children = (
+				60FD44A220590A2600F5A89E /* Emoticons.bundle */,
+			);
+			path = Emotion;
+			sourceTree = "<group>";
+		};
 		F4A8E5EDE309658285BCB4D9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -484,6 +495,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				604582E4204D32D900769B7A /* XLComposeTypeButton.xib in Resources */,
+				60FD44A320590A2600F5A89E /* Emoticons.bundle in Resources */,
 				609C7330200F29AA00C8AED6 /* Assets.xcassets in Resources */,
 				604A9DB82011955F007A305D /* mainVisitorData.json in Resources */,
 				604582E0204D187C00769B7A /* XLComposeTypeView.xib in Resources */,
