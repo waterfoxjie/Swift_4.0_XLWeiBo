@@ -25,6 +25,10 @@ class XLEmoticonPackage: Mappable {
             else {
                 return
             }
+            // 设置目录
+            for model in modelArray {
+                model.directory = directory
+            }
             emoticons += modelArray
         }
     }

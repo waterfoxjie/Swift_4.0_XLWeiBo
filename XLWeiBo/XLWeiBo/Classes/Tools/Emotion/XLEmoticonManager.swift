@@ -63,7 +63,7 @@ extension XLEmoticonManager {
             // 进行替换
             attString.replaceCharacters(in: range, with: imageStr)
         }
-        // 统一设置字符串属性
+        // FIXME*** 必须要统一设置字符串属性（不仅要设置font，还要设置颜色）
         attString.addAttributes([NSAttributedStringKey.font: textFont], range: NSRange(location: 0, length: attString.length))
         return attString
     }
